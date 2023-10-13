@@ -19,36 +19,39 @@
 	<c:import url="/WEB-INF/views/common/header.jsp"/>
 	<%-- <%@ include file="../views/common/header.jsp" %> --%>
      <div class="row" style="margin-top:20px;">
-        	<!-- 콘텐츠 영역 -->
-       <div class="container-fluid pb-3" id="content-area"style="max-width: 100%;">
-       <div class="d-grid gap-3" style="grid-template-columns: 0.5fr 0.8fr 0.5fr">
+<!-- 콘텐츠 영역 -->
+<!-- 메인 1열 -->
+       <div class="container-fluid pb-3" id="content-area"style="max-width: 100%; max-height: 100%;">
+       <div class="d-grid gap-3" style="grid-template-columns: 0.3fr 0.7fr 0.7fr 0.3fr">
           <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
             <br />
           </div>
           <div class="bg-body-tertiary border rounded-3">
           	<c:import url="/WEB-INF//views/main/approval.jsp"/>
-            <%-- <%@ include file="../views/main/approval.jsp" %> --%>
           </div>
-          <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
-            <br />
-          </div>
-        </div>
-        <Br>
-        <div class="d-grid gap-3" style="grid-template-columns: 0.5fr 0.3fr 0.5fr 0.5fr">
-          <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
-            <br />
-          </div>
-			<c:import url="/WEB-INF//views/main/calenda.jsp"/>
-            <%-- <%@ include file="../views/main/calenda.jsp" %> --%>
-
           <div class="bg-body-tertiary border rounded-3">
           	<c:import url="/WEB-INF//views/main/notice.jsp"/>
-            <%-- <%@ include file="../views/main/notice.jsp" %> --%>
           </div>
           <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
             <br />
           </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+<!-- 메인 2열 -->
+         <div class="d-grid gap-3" style="grid-template-columns: 0.5fr 0.5fr 0.5fr">
+          <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
+            <br />
+          </div>
+          <div class="bg-body-tertiary" style= "justify-self: center;">
+          	<img src = "/sik/resources/common/images/logo_dark.png" style="max-height:50px; background: white;"/>
+          </div>
+          <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
+            <br />
+          </div>
+        </div> 
       </div>
       </div>
     </div>

@@ -2,13 +2,13 @@ package org.ict.sik.member.model.vo;
 
 public class Member implements java.io.Serializable{
 	private static final long serialVersionUID = -8259111127292047344L;
-	private String memberId;
-	private String memberName;
-	private String pw;
-	private String adminYn;
-	private String superiorId;
-	private String deptId;
-	private String positionId;
+	private String memberId;		//사번
+	private String memberName;	//이름
+	private String pw;				//패스워드
+	private String adminYn;		//관리자YN
+	private String superiorId;		//상급자사번
+	private String deptId;			//부서ID
+	private String positionId;		//직책ID
 
 	public Member() {
 		super();
@@ -26,13 +26,13 @@ public class Member implements java.io.Serializable{
 	public Member(String memberId, String memberName, String pw, String adminYn, String superiorId, String deptId,
 			String positionId) {
 		super();
-		this.memberId = memberId;
-		this.memberName = memberName;
-		this.pw = pw;
-		this.adminYn = adminYn;
-		this.superiorId = superiorId;
-		this.deptId = deptId;
-		this.positionId = positionId;
+		this.memberId = memberId;		
+		this.memberName = memberName;	
+		this.pw = pw;					
+		this.adminYn = adminYn;			
+		this.superiorId = superiorId;		
+		this.deptId = deptId;				
+		this.positionId = positionId;			
 	}
 
 	public String getMemberId() {
