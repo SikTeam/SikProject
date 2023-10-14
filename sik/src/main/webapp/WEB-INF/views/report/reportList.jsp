@@ -25,16 +25,16 @@
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 						<br />
 					</div>
-					<div class="bg-body-tertiary border rounded-3">
-						<table class="table table-hover border rounded-5">
+					<div class="bg-body-tertiary">
+						<table class="table table-hover">
 							<h1 style="text-align: center; margin-top: 10px; margin-bottom: 15px;">
 								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h1>
 							<thead class="table-dark">
-								<tr align = "center">
+								<tr>
 									<th scope="col">No</th>
 									<th scope="col">제 목</th>
-									<th scope="col">결재여부</th>
-									<th scope="col">읽음여부</th>
+									<td align = "center">결재여부</td>
+									<td align = "center">읽음여부</td>
 								</tr>
 							</thead>
 							<c:set var="a" value="${ requestScope.list2 }" />
@@ -42,15 +42,37 @@
 							<c:forEach items="${ a }" var="reportList" varStatus="status">
 							<tbody class="table-group-divider">
 								<tr>
-									<th scope="row">${ reportList.reportId }</th>
+									<th scope="col">${ reportList.reportId }</th>
 									<td>${ reportList.reTitle }</td>
-									<td>${ b[status.index].reSign }</td>
-									<td>${ b[status.index].reRead }</td>
+									<td align = "center">${ b[status.index].reSign }</td>
+									<td align = "center">${ b[status.index].reRead }</td>
 								</tr>
 							</tbody>
 							</c:forEach>
 						</table>
-						<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+						<div class="d-grid gap-3" style="grid-template-columns: 0.2fr 0.8fr 0.2fr; margin-bottom: 15px;">
+							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
+							<br />
+							</div>
+							<div class="bg-body-tertiary">
+							<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+							</div>
+							<div class="bg-body-tertiary">
+							<button>등록</button>
+							<button>삭제</button>
+							</div>
+						</div>
+						<div class="d-grid gap-3" style="grid-template-columns: 0.4fr 0.6fr 0.2fr; margin-bottom: 15px;">
+							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
+							<br />
+							</div>
+							<br />
+							</div>
+							<div class="bg-body-tertiary">
+							<button>등록</button>
+							<button>삭제</button>
+							</div>
+						</div>
 					</div>
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 						<br />
@@ -59,6 +81,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

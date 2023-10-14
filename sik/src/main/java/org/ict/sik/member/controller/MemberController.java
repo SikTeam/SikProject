@@ -35,6 +35,7 @@ public class MemberController {
 				session.setAttribute("loginMember", loginMember);
 				status.setComplete();
 			}else if(rollList.size() > 0 && loginMember.getAdminYn().equals("N")) {
+				session.setAttribute("loginMember", loginMember);
 				session.setAttribute("rollList", rollList);
 				logger.info("roll : " + rollList);
 			}
