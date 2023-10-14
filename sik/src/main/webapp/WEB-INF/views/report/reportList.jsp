@@ -25,7 +25,7 @@
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 						<br />
 					</div>
-					<div class="bg-body-tertiary">
+					<div class="bg-body">
 						<table class="table table-hover">
 							<h1 style="text-align: center; margin-top: 10px; margin-bottom: 15px;">
 								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h1>
@@ -50,27 +50,22 @@
 							</tbody>
 							</c:forEach>
 						</table>
-						<div class="d-grid gap-3" style="grid-template-columns: 0.2fr 0.8fr 0.2fr; margin-bottom: 15px;">
-							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
-							<br />
-							</div>
-							<div class="bg-body-tertiary">
+						
 							<c:import url="/WEB-INF/views/common/pagingView.jsp" />
-							</div>
-							<div class="bg-body-tertiary">
-							<button>등록</button>
-							<button>삭제</button>
-							</div>
-						</div>
+							<br>
+
 						<div class="d-grid gap-3" style="grid-template-columns: 0.4fr 0.6fr 0.2fr; margin-bottom: 15px;">
+							<div class="bg-body-tertiary">
+		        				<form class="d-flex" role="search">
+						          <input class="form-control me-1" type="search" placeholder="제목" aria-label="Search">
+						          <button class="btn btn-outline-dark" type="submit">search</button>
+						        </form>
+							</div>
 							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 							<br />
 							</div>
-							<br />
-							</div>
-							<div class="bg-body-tertiary">
-							<button>등록</button>
-							<button>삭제</button>
+							<div class="bg-body">
+							<button class="btn btn-outline-dark" type="submit">등록</button>
 							</div>
 						</div>
 					</div>

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/.metadata/
+=======
  # Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
 
@@ -126,3 +129,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
+>>>>>>> f5d61d0ffeb6f1fe3ad1c30d5c85fd2d2d7abdfb

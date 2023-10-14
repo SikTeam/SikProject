@@ -144,3 +144,107 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [04:58:06][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
 [04:58:07][INFO ][ReportController.java: 44] - listCount : 15
 [04:58:07][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:41:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:41:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1500 ms
+[05:41:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:41:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1321 ms
+[05:41:32][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass01, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:41:46][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[05:41:55][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:41:55][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:41:56][INFO ][ReportController.java: 44] - listCount : 15
+[05:41:57][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:42:09][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:42:09][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:42:14][INFO ][ReportController.java: 44] - listCount : 15
+[05:42:14][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:42:24][INFO ][ReportController.java: 44] - listCount : 15
+[05:42:24][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:42:24][INFO ][ReportController.java: 44] - listCount : 15
+[05:42:24][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:48:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:48:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1450 ms
+[05:48:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:48:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1268 ms
+[05:49:20][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:49:21][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:49:30][INFO ][ReportController.java: 44] - listCount : 15
+[05:49:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:51:26][INFO ][ReportController.java: 44] - listCount : 15
+[05:51:26][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:08][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:08][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:08][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:08][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:09][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:09][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:09][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:09][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:09][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:09][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:09][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:09][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:09][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:10][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:11][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:11][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:12][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:12][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:12][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:12][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:12][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:12][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:28][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:28][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:52:30][INFO ][ReportController.java: 44] - listCount : 15
+[05:52:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:30][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:30][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:31][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:31][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:31][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:31][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:31][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:31][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:33][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:33][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:34][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:34][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:34][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:34][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:39][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:40][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:40][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:43][INFO ][ReportController.java: 44] - listCount : 15
+[05:53:43][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:53:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:53:50][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1486 ms
+[05:53:50][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:53:51][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1272 ms
+[05:54:09][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:54:10][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:54:13][INFO ][ReportController.java: 44] - listCount : 15
+[05:54:13][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:58:23][INFO ][ReportController.java: 44] - listCount : 15
+[05:58:23][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:58:24][INFO ][ReportController.java: 44] - listCount : 15
+[05:58:24][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:58:24][INFO ][ReportController.java: 44] - listCount : 15
+[05:58:24][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:27][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:27][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:28][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:28][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:29][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:29][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:30][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:30][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:30][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
