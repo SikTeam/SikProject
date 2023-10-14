@@ -16,6 +16,12 @@ public class Roll {
 		this.positionId = positionId;
 		this.roll = roll;
 	}
+	public Roll(Roll roll) {
+		super();
+		this.deptId = roll.getDeptId();
+		this.positionId = roll.getPositionId();
+		this.roll = roll.getRoll();
+	}
 	public String getDeptId() {
 		return deptId;
 	}
