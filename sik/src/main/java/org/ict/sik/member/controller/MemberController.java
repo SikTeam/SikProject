@@ -29,12 +29,14 @@ public class MemberController {
 		Member loginMember = null;
 
 		loginMember = (Member) memberService.selectLogin(member);
+
 		ArrayList<Roll> rollList = memberService.selectRollList(member.getMemberId());
 		if (loginMember != null) {
 			if(loginMember.getAdminYn().equals("Y")) {
 				session.setAttribute("loginMember", loginMember);
 				status.setComplete();
 			}else if(rollList.size() > 0 && loginMember.getAdminYn().equals("N")) {
+        session.setAttribute("loginMember", loginMember);
 				session.setAttribute("rollList", rollList);
 				logger.info("roll : " + rollList);
 			}
@@ -42,6 +44,7 @@ public class MemberController {
 		} else {
 			mv.addObject("message","로그인 실패!");
 			mv.setViewName("common/error");
+
 		}
 		return mv;
 	}

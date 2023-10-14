@@ -16,12 +16,11 @@ public class CommonMovePage {
 	public String moveMainMethod() {
 		return "main";
 	}
-	
-	@RequestMapping(value = "loginMain.do", method= {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping("loginMain.do")
 	public String moveLoginPageMethod() {
 		return "login";
 	}
-	
+
 	@RequestMapping(value="loginCheck.do",method=RequestMethod.POST)
 	public ModelAndView loginCheckMethod(Member member, @RequestParam("logincheck") String logincheck,
 			ModelAndView mv,HttpSession session) {
