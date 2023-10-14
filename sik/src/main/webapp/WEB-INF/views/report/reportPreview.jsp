@@ -9,10 +9,7 @@
 <body>
 <div class="table-responsive table-bordered" style="padding: 10px;">
 <table class="table table-hover border rounded-5">
-	<c:url var="getMemberId" value="getMemberId.do">
-		<c:param name="memberId" value =""
-	</c:url>
-	<a href="${ pageContext.servletContext.contextPath }/relist.do?memberId=?">
+	<a href="${ pageContext.servletContext.contextPath }/reportlist.do?keyword=${ sessionScope.loginMember.memberId }">
 	<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 	결&nbsp&nbsp&nbsp&nbsp&nbsp재
 	</h4></a>

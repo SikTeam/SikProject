@@ -12,11 +12,11 @@
 		<result property="reDate" column="RE_DATE" />
 	</resultMap>
 	
-	<select id="selectReportListCount" resultType="_int">
-		select count(*)
-		from REPORT
+	<select id="selectList" parameterType="string" resultMap="resultReport">
+		select REPORT_ID, RE_TITLE, RE_CONTENT, RE_FILE, RE_DATE
+		from report
 		join report_sign using(report_id)
-		where member_id = #{ memberId }
+		where member_id = #{ keyword }
 	</select>
 	
 </mapper>

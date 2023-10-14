@@ -4,4 +4,6 @@ import org.ict.sik.member.model.vo.Member;
 
 public interface MemberService {
 	public Member selectLogin(Member member);
+
+	public int selectMemberCheck(Member member);
 }

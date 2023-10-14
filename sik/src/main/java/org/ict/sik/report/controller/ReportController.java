@@ -2,13 +2,19 @@ package org.ict.sik.report.controller;
 
 import java.util.ArrayList;
 
+import org.ict.sik.common.Paging;
+import org.ict.sik.common.Search;
 import org.ict.sik.report.model.service.ReportService;
 import org.ict.sik.report.model.vo.Report;
+import org.ict.sik.reportsign.model.service.ReportSignService;
+import org.ict.sik.reportsign.model.vo.ReportSign;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ReportController {
@@ -17,12 +23,41 @@ public class ReportController {
 	@Autowired
 	private ReportService reportService;
 	
-	//뷰페이지
+	@Autowired
+	private ReportSignService reportSignService;
+	
 	//결재페이지 리스트
-	@RequestMapping("relist.do")
-	public String reportList() {
-		return "report/reportList";
+	@RequestMapping("reportlist.do")
+	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, @RequestParam(name="keyword", required = false) String memberId, ModelAndView mv) {
+		int currentPage = 1;
+		if(page != null) {
+			currentPage = Integer.parseInt(page);
+		}	
+		int limit = 10;
+		int listCount = reportSignService.listCount(memberId);
+		Paging paging = new Paging(listCount, currentPage, limit, "reportlist.do");
+		paging.calculator();
+		Search search = new Search();
+		search.setKeyword(memberId);
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		
+		ArrayList<ReportSign> list = reportSignService.selectList(search);
+		ArrayList<Report> list2 = reportService.selectList(memberId);
+
+		if (list != null && list.size() > 0) {
+			mv.addObject("listCount", listCount);
+			mv.addObject("list", list);
+			mv.addObject("list2",list2);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.setViewName("report/reportList");
+		} else {
+			mv.addObject("message", "결재리스트 못읽어옴 ㅠㅠ");
+			mv.setViewName("common/error");
+		}
+		return mv;
 	}
 	
-	//요청 처리용
 }
