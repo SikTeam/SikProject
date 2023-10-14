@@ -15,8 +15,10 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+
 	@Autowired
 	private MemberService memberService;
+
 	@RequestMapping("login.do")
 	public String loginMethod(Model model, HttpSession session, SessionStatus status) {
 		Member member = (Member)session.getAttribute("member");
