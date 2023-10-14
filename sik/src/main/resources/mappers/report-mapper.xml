@@ -12,6 +12,17 @@
 		<result property="reDate" column="RE_DATE" />
 	</resultMap>
 	
+	<select id="selectList" parameterType="Search" resultMap="resultReport">
+	select * 
+		from (select rownum rnum, REPORT_ID, RE_TITLE, RE_CONTENT, RE_FILE, RE_DATE
+		      from (select *
+                    from REPORT
+                    join report_sign using(report_id)
+		            where member_id = #{ keyword }
+		            order by re_date desc, report_id desc))
+		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
+	</select>
+	
 </mapper>
 
 

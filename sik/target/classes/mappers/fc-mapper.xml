@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fcMapper">
+
+	<resultMap id="resultFc" type="Fc">
+		<id property="fcId" column="FC_ID" />
+		<result property="brandId" column="BRAND_ID" />
+		<result property="fcPw" column="FC_PW" />
+		<result property="fcName" column="FC_NAME" />
+		<result property="fcAdd" column="FC_ADD" />
+		<result property="fcArea" column="FC_AREA" />
+		<result property="fcNum" column="FC_NUM" />
+		<result property="fcDh" column="FC_DH" />
+		<result property="fcOwner" column="FC_OWNER" />
+		<result property="fcYn" column="FC_YN" />
+		<result property="memberId" column="MEMBER_ID" />
+	</resultMap>
+	
+	<select id="selectFcCheck" parameterType="Fc" resultType="_int">
+		select count(*) from fc
+		where fc_id like #{ fcId }
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

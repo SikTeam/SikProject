@@ -27,10 +27,10 @@
             <br />
           </div>
           <div class="bg-body-tertiary border rounded-3">
-          	<c:import url="/WEB-INF//views/main/approval.jsp"/>
+          	<c:import url="/WEB-INF/views/report/reportPreview.jsp"/>
           </div>
           <div class="bg-body-tertiary border rounded-3">
-          	<c:import url="/WEB-INF//views/main/notice.jsp"/>
+          	<c:import url="/WEB-INF/views/main/notice.jsp"/>
           </div>
           <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
             <br />
