@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+
+	<resultMap id="resultMember" type="Member">
+		<id property="memberId" column="MEMBER_ID" />
+		<result property="memberName" column="MEMBER_NAME" />
+		<result property="pw" column="PW" />
+		<result property="adminYn" column="ADMIN_YN" />
+		<result property="superiorId" column="SUPERIOR_ID" />
+		<result property="deptId" column="DEPT_ID" />
+		<result property="positionId" column="POSITION_ID" />
+	</resultMap>
+	
+	<select id="selectLogin" parameterType="Member" resultMap="resultMember">
+		select * from member
+		where MEMBER_ID = #{ memberId } and PW = #{ pw }
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

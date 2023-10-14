@@ -27,7 +27,7 @@
             <br />
           </div>
           <div class="bg-body-tertiary border rounded-3">
-          	<c:import url="/WEB-INF//views/main/approval.jsp"/>
+          	<c:import url="/WEB-INF//views/report/report.jsp"/>
           </div>
           <div class="bg-body-tertiary border rounded-3">
           	<c:import url="/WEB-INF//views/main/notice.jsp"/>
