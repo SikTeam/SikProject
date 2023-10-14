@@ -47,7 +47,7 @@
       <td>경력직 개발자 선발의 건</td>
       <td>결재완료</td>
     </tr>
-        <th scope="row">7</th>
+      <th scope="row">7</th>
       <td>test sample</td>
       <td>미결재</td>
     </tr>
