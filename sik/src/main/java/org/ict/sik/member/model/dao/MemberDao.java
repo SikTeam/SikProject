@@ -1,6 +1,10 @@
 package org.ict.sik.member.model.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.ict.sik.member.model.vo.Member;
+import org.ict.sik.roll.model.vo.Roll;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,6 +20,11 @@ public class MemberDao {
 
 	public int selectMemberCheck(Member member) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectMemberCheck", member);
+	}
+
+	public ArrayList<Roll> SelectRollList(String memberId) {
+		List<Roll> list = sqlSessionTemplate.selectList("memberMapper.selectRollList",memberId);
+		return (ArrayList<Roll>)list;
 	}
 	
 	

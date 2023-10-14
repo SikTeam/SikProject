@@ -20,6 +20,7 @@ public class CommonMovePage {
 	public String moveLoginPageMethod() {
 		return "login";
 	}
+
 	@RequestMapping(value="loginCheck.do",method=RequestMethod.POST)
 	public ModelAndView loginCheckMethod(Member member, @RequestParam("logincheck") String logincheck,
 			ModelAndView mv,HttpSession session) {
@@ -27,8 +28,7 @@ public class CommonMovePage {
 			session.setAttribute("member", member);
 			mv.setViewName("redirect:login.do");
 		}else if(logincheck.equals("fcLogin")) {
-			Fc fc = new Fc(member.getMemberId(),member.getPw());
-			session.setAttribute("fc", fc);
+			session.setAttribute("fc", new Fc(member.getMemberId(),member.getPw()));
 			mv.setViewName("redirect:fcLogin.do");
 		}
 		return mv;

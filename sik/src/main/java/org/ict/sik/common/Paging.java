@@ -29,7 +29,6 @@ public class Paging implements java.io.Serializable {
 		//한 페이지에 출력할 목록이 10개인 경우이면 총 페이지 수는 3임 
 		//목록 1개도 한 페이지 차지함
 		this.maxPage = (int)((double)listCount / limit + 0.9);
-		
 		//뷰 페이지 출력에 사용할 페이지 그룹의 시작 값 지정
 		//페이지 그룹의 페이지 숫자를 10개씩 출력한다면,
 		//현재 페이지가 3이면 페이지 그룹은 1페이지부터 10페이지가 됨

@@ -1,7 +1,10 @@
 package org.ict.sik.member.model.service;
 
+import java.util.ArrayList;
+
 import org.ict.sik.member.model.dao.MemberDao;
 import org.ict.sik.member.model.vo.Member;
+import org.ict.sik.roll.model.vo.Roll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int selectMemberCheck(Member member) {
 		return memberDao.selectMemberCheck(member);
+	}
+
+	@Override
+	public ArrayList<Roll> selectRollList(String memberId) {
+		return memberDao.SelectRollList(memberId);
 	}
 
 }

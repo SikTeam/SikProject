@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="addmuMapper">
+
+	<resultMap id="resultAddmu" type="Addmu">
+		<id property="fcId" column="FC_ID" />
+		<result property="addMuId" column="ADD_MU_ID" />
+		<result property="addMuName" column="ADD_MU_NAME" />
+		<result property="addMuPrice" column="ADD_MU_PRICE" />
+	</resultMap>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
