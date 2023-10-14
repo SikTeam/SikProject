@@ -126,6 +126,9 @@ a {
 
 </head>
 <body>
+	<c:if test="${ empty sessionScope.loginMember }">
+		<jsp:forward page="loginMain.do" />
+	</c:if>
 	<header class="p-3 mb-3 border-bottom small shadow">
 		<div class="container">
 			<div
@@ -378,7 +381,7 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 공지 조회</a><br> <a
+									<a href="brandNoticeList.do?page=1">브랜드 공지 조회</a><br> <a
 										href="/sik/views/main.jsp">브랜드 공지 관리</a><br> <a
 										href="selectBrandList.do?page=1">브랜드 조회</a><br> <a
 										href="/sik/views/main.jsp">브랜드 관리</a>

@@ -19,6 +19,11 @@ public class Fc {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Fc(String fcId, String fcPw) {
+		super();
+		this.fcId = fcId;
+		this.fcPw = fcPw;
+	}
 	public Fc(String fcId, String brandId, String fcPw, String fcName, String fcAdd, String fcArea, String fcNum,
 			String fcDh, String fcOwner, String fcYn, String memberId) {
 		super();
