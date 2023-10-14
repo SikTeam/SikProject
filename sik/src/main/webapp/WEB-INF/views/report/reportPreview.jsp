@@ -9,7 +9,7 @@
 <body>
 <div class="table-responsive table-bordered" style="padding: 10px;">
 <table class="table table-hover border rounded-5">
-	<a href="${ pageContext.servletContext.contextPath }/reportlist.do?keyword=${ sessionScope.loginMember.memberId }">
+	<a href="${ pageContext.servletContext.contextPath }/reportList.do?keyword=${ sessionScope.loginMember.memberId }">
 	<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 	결&nbsp&nbsp&nbsp&nbsp&nbsp재
 	</h4></a>
@@ -51,7 +51,7 @@
       <td>경력직 개발자 선발의 건</td>
       <td>결재완료</td>
     </tr>
-        <th scope="row">7</th>
+    <th scope="row">7</th>
       <td>test sample</td>
       <td>미결재</td>
     </tr>

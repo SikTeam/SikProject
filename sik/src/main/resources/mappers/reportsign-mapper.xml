@@ -19,14 +19,16 @@
 	</select>
 	
 	<select id="selectList" parameterType="Search" resultMap="resultReportSign">
-		select REPORT_ID, MEMBER_ID, RE_SIGN, RE_READ
-		from report
-		join report_sign using(report_id)
-		where member_id = #{ keyword }
+		select * 
+		from (select rownum rnum, REPORT_ID, MEMBER_ID, RE_SIGN, RE_READ
+		      from (select *
+                    from REPORT
+                    join report_sign using(report_id)
+		            where member_id = #{ keyword }
+		            order by re_date desc, report_id desc))
+		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>
 	
-	
-
 </mapper>
 
 

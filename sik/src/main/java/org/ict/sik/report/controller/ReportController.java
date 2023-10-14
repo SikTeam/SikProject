@@ -27,34 +27,43 @@ public class ReportController {
 	private ReportSignService reportSignService;
 	
 	//결재페이지 리스트
-	@RequestMapping("reportlist.do")
-	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, @RequestParam(name="keyword", required = false) String memberId, ModelAndView mv) {
+	@RequestMapping("reportList.do")
+	public ModelAndView reportList(
+			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name="keyword", required = false) String memberId,
+			ModelAndView mv) {
+		
 		int currentPage = 1;
 		if(page != null) {
 			currentPage = Integer.parseInt(page);
-		}	
+		}
+		
 		int limit = 10;
 		int listCount = reportSignService.listCount(memberId);
-		Paging paging = new Paging(listCount, currentPage, limit, "reportlist.do");
+		logger.info("listCount : "+listCount);
+		
+		Paging paging = new Paging(listCount, currentPage, limit, "reportList.do");
 		paging.calculator();
+		
 		Search search = new Search();
-		search.setKeyword(memberId);
 		search.setStartRow(paging.getStartRow());
 		search.setEndRow(paging.getEndRow());
+		search.setKeyword(memberId);
 		
 		ArrayList<ReportSign> list = reportSignService.selectList(search);
 		ArrayList<Report> list2 = reportService.selectList(memberId);
+		logger.info(search + memberId);
 
 		if (list != null && list.size() > 0) {
-			mv.addObject("listCount", listCount);
 			mv.addObject("list", list);
 			mv.addObject("list2",list2);
 			mv.addObject("paging", paging);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("limit", limit);
+			mv.addObject("memberId", memberId);
 			mv.setViewName("report/reportList");
 		} else {
-			mv.addObject("message", "결재리스트 못읽어옴 ㅠㅠ");
+			mv.addObject("message", "결재리스트 없다.");
 			mv.setViewName("common/error");
 		}
 		return mv;
