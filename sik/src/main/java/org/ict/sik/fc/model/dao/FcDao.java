@@ -12,7 +12,12 @@ public class FcDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	public int selectFcCheck(Fc fc) {
-		return sqlSessionTemplate.selectOne("fc-mapper.selectFcCheck",fc);
+		return sqlSessionTemplate.selectOne("fcMapper.selectFcCheck",fc);
+	}
+
+	public Fc selectLogin(Fc fc) {
+		return sqlSessionTemplate.selectOne("fcMapper.selectLogin",fc);
 	}
 
 }
+

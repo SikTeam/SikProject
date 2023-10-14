@@ -17,9 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class BrandController {
 	@Autowired
 	private BrandService brandService;
-	
+
 	@RequestMapping("selectBrandList.do")
-	public ModelAndView brandListMethod(@RequestParam(name = "page", required = false) String page,ModelAndView mv) {
+	public ModelAndView brandListMethod(@RequestParam(name = "page", required = false) String page, ModelAndView mv) {
 		int currentPage = 1;
 		if (page != null) {
 			currentPage = Integer.parseInt(page);
@@ -44,14 +44,14 @@ public class BrandController {
 			mv.addObject("limit", limit);
 			mv.setViewName("brand/brandListView");
 		} else {
-			mv.addObject("message", "공지사항을 읽어오지 못했습니다.");
+			mv.addObject("message", "브랜드 리스트를 읽어오지 못했습니다.");
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
-	
-	@RequestMapping(value = "searchName.do", method=RequestMethod.POST)
-	public ModelAndView searchBrandNameMehtod(@RequestParam(name="page", required = false) String page,
+
+	@RequestMapping(value = "searchName.do", method = RequestMethod.POST)
+	public ModelAndView searchBrandNameMehtod(@RequestParam(name = "page", required = false) String page,
 			@RequestParam("keyword") String keyword, ModelAndView mv) {
 		int currentPage = 1;
 		if (page != null) {
@@ -80,7 +80,7 @@ public class BrandController {
 			mv.addObject("limit", limit);
 			mv.setViewName("brand/brandListView");
 		} else {
-			mv.addObject("message", "공지사항을 읽어오지 못했습니다.");
+			mv.addObject("message", "검색에 실패했습니다.");
 			mv.setViewName("common/error");
 		}
 		return mv;

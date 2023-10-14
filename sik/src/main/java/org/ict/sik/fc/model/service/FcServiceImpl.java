@@ -11,10 +11,18 @@ public class FcServiceImpl implements FcService{
 	@Autowired
 	private FcDao fcDao;
 	
+	public FcServiceImpl() {
+		super();
+	}
 	
 	@Override
 	public int selectFcCheck(Fc fc) {
 		return fcDao.selectFcCheck(fc);
+	}
+
+	@Override
+	public Fc selectLogin(Fc fc) {
+		return fcDao.selectLogin(fc);
 	}
 
 }

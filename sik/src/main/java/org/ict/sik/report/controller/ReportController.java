@@ -2,8 +2,11 @@ package org.ict.sik.report.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
+import org.ict.sik.member.model.vo.Member;
 import org.ict.sik.report.model.service.ReportService;
 import org.ict.sik.report.model.vo.Report;
 import org.ict.sik.reportsign.model.service.ReportSignService;
@@ -28,11 +31,9 @@ public class ReportController {
 	
 	//결재페이지 리스트
 	@RequestMapping("reportList.do")
-	public ModelAndView reportList(
-			@RequestParam(name = "page", required = false) String page,
-			@RequestParam(name="keyword", required = false) String memberId,
-			ModelAndView mv) {
-		
+	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv, HttpSession session) {
+		Member member = (Member)session.getAttribute("loginMember");
+		String memberId = member.getMemberId();
 		int currentPage = 1;
 		if(page != null) {
 			currentPage = Integer.parseInt(page);
@@ -51,7 +52,7 @@ public class ReportController {
 		search.setKeyword(memberId);
 		
 		ArrayList<ReportSign> list = reportSignService.selectList(search);
-		ArrayList<Report> list2 = reportService.selectList(memberId);
+		ArrayList<Report> list2 = reportService.selectList(search);
 		logger.info(search + memberId);
 
 		if (list != null && list.size() > 0) {
@@ -68,5 +69,4 @@ public class ReportController {
 		}
 		return mv;
 	}
-	
 }

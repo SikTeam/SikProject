@@ -126,12 +126,15 @@ a {
 
 </head>
 <body>
+	<c:if test="${ empty sessionScope.loginMember }">
+		<jsp:forward page="loginMain.do" />
+	</c:if>
 	<header class="p-3 mb-3 border-bottom small shadow">
 		<div class="container">
 			<div
 				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
 				style="gap: 50px">
-				<a href="#"
+				<a href="main.do"
 					class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
 					<img src="/sik/resources/common/images/siklogo.png" width="40"
 					style="magin-left: 30px">
@@ -378,7 +381,7 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 공지 조회</a><br> <a
+									<a href="brandNoticeList.do?page=1">브랜드 공지 조회</a><br> <a
 										href="/sik/views/main.jsp">브랜드 공지 관리</a><br> <a
 										href="selectBrandList.do?page=1">브랜드 조회</a><br> <a
 										href="/sik/views/main.jsp">브랜드 관리</a>
@@ -569,10 +572,10 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">직원조회</a><br> <a
-										href="/sik/views/main.jsp">직급별 조회</a><br> <a
-										href="/sik/views/main.jsp">부서별 조회</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="${ pageContext.servletContext.contextPath }/mlist.do">직원조회</a><br> 
+									<a href="${ pageContext.servletContext.contextPath }/mPositionList.do">직급별 조회</a><br> 
+									<a href="${ pageContext.servletContext.contextPath }/mDeptList.do">부서별 조회</a><br> 
+									<a href="#">메뉴4</a>
 								</div>
 							</div>
 						</div>
@@ -587,10 +590,10 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">직원 정보 등록</a><br> <a
-										href="/sik/views/main.jsp">직원 정보 수정</a><br> <a
-										href="/sik/views/main.jsp">직원 정보 삭제</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="${ pageContext.servletContext.contextPath }/minsert.do">직원 정보 등록</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mupdate.do">직원 정보 수정</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mdelete.do">직원 정보 삭제</a><br> <a
+										href="#">메뉴4</a>
 								</div>
 							</div>
 							<!-- 3 -->

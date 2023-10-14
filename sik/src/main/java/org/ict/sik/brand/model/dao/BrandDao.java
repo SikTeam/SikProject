@@ -21,6 +21,9 @@ public class BrandDao {
 	public int selectListNameCount(String keyword) {
 		return sqlSessionTemplate.selectOne("brandMapper.selectListNameCount", keyword);
 	}
+	public int selectListNoticeCount() {
+		return sqlSessionTemplate.selectOne("brandMapper.selectListNoticeCount");
+	}
 	
 	public ArrayList<Brand> selectList(Paging paging) {
 		List<Brand> list = sqlSessionTemplate.selectList("brandMapper.selectList", paging);
