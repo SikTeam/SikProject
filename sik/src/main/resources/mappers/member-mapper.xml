@@ -19,6 +19,10 @@
 		where MEMBER_ID = #{ memberId } and PW = #{ pw }
 	</select>
 	
+	<select id="selectMemberCheck" parameterType="Member" resultType="_int">
+		select count(*) from member
+		where MEMBER_ID like #{ memberId }
+	</select>
 </mapper>
 
 

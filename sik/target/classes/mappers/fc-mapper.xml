@@ -18,6 +18,10 @@
 		<result property="memberId" column="MEMBER_ID" />
 	</resultMap>
 	
+	<select id="selectFcCheck" parameterType="Fc" resultType="_int">
+		select count(*) from fc
+		where fc_id like #{ fcId }
+	</select>
 </mapper>
 
 

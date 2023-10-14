@@ -13,6 +13,10 @@ public class MemberDao {
 	public Member selectLogin(Member member) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectLogin", member);
 	}
+
+	public int selectMemberCheck(Member member) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectMemberCheck", member);
+	}
 	
 	
 }
