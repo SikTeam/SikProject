@@ -144,3 +144,85 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [04:58:06][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
 [04:58:07][INFO ][ReportController.java: 44] - listCount : 15
 [04:58:07][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:05:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:05:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1319 ms
+[05:05:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:05:12][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1147 ms
+[05:05:20][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:05:21][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:05:44][INFO ][ReportController.java: 44] - listCount : 15
+[05:05:44][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[05:05:46][INFO ][ReportController.java: 44] - listCount : 15
+[05:05:46][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=11, endRow=20, begin=null, end=null, age=0]00001
+[05:30:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:30:18][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1337 ms
+[05:30:18][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:30:19][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1127 ms
+[05:30:31][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass01, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:30:34][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[05:30:41][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:30:41][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[05:31:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:31:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1315 ms
+[05:31:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:31:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1128 ms
+[05:47:22][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:47:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1363 ms
+[05:47:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:47:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1158 ms
+[05:47:31][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:48:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:48:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1336 ms
+[05:48:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:48:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1175 ms
+[05:49:03][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:49:04][INFO ][MemberController.java: 56] - boardList : [매장상세조회]
+[05:49:04][INFO ][MemberController.java: 57] - numRollList : [0100]
+[05:49:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:49:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1337 ms
+[05:49:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:49:31][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1200 ms
+[05:49:35][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:49:36][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[05:49:36][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[05:57:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[05:57:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1333 ms
+[05:57:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[05:57:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1178 ms
+[05:58:09][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[05:58:10][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[05:58:10][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[06:01:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[06:01:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1312 ms
+[06:01:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[06:01:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1158 ms
+[06:01:49][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:01:50][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[06:01:50][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[06:02:32][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[06:02:33][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1366 ms
+[06:02:33][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[06:02:34][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1172 ms
+[06:02:47][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass0001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:02:56][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:02:56][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[06:02:56][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[06:07:26][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[06:07:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1342 ms
+[06:07:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[06:07:29][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1186 ms
+[06:07:37][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:07:38][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[06:07:38][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[06:07:55][INFO ][ReportController.java: 44] - listCount : 15
+[06:07:55][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:09:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[06:09:48][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1322 ms
+[06:09:48][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[06:09:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1188 ms
+[06:09:58][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:09:59][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[06:09:59][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[06:10:08][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:10:08][INFO ][MemberController.java: 54] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[06:10:08][INFO ][MemberController.java: 55] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]

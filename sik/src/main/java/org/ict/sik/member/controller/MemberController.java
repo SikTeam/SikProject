@@ -24,38 +24,52 @@ public class MemberController {
 
 	@RequestMapping("login.do")
 	public ModelAndView loginMethod(ModelAndView mv, HttpSession session, SessionStatus status) {
-		Member member = (Member)session.getAttribute("member");
+		Member member = (Member) session.getAttribute("member");
 		logger.info("login.do : " + member);
 		Member loginMember = null;
 
 		loginMember = (Member) memberService.selectLogin(member);
 
 		ArrayList<Roll> rollList = memberService.selectRollList(member.getMemberId());
+		ArrayList<String> boardList = new ArrayList<String>();
+		ArrayList<String> numRollList = new ArrayList<String>();
+		
+		for(int i = 0; i < rollList.size(); i++) {
+			String roll = new Roll(rollList.get(i)).getRoll();
+			String board = roll.substring(0, roll.length()-4);
+			String numRoll = roll.substring(roll.length()-4,roll.length());
+			boardList.add(board);
+			numRollList.add(numRoll);
+		}
+		
+		
 		if (loginMember != null) {
-			if(loginMember.getAdminYn().equals("Y")) {
+			if (loginMember.getAdminYn().equals("Y")) {
 				session.setAttribute("loginMember", loginMember);
 				status.setComplete();
-			}else if(rollList.size() > 0 && loginMember.getAdminYn().equals("N")) {
-        session.setAttribute("loginMember", loginMember);
-				session.setAttribute("rollList", rollList);
-				logger.info("roll : " + rollList);
+			} else if (rollList.size() > 0 && loginMember.getAdminYn().equals("N")) {
+				session.setAttribute("loginMember", loginMember);
+				session.setAttribute("board", boardList);
+				session.setAttribute("numRollList", numRollList);
+				logger.info("boardList : " + boardList);
+				logger.info("numRollList : " + numRollList);
 			}
 			mv.setViewName("main");
 		} else {
-			mv.addObject("message","로그인 실패!");
+			mv.addObject("message", "로그인 실패!");
 			mv.setViewName("common/error");
 
 		}
 		return mv;
 	}
-	
-	//직원조회 페이지 보내기용
+
+	// 직원조회 페이지 보내기용
 //	@RequestMapping("mlist.do")
 //	public String move memberListViewMethod(
 //			ModelAndView mv) {
 //		
 //	}
-	//직급별 직원조회 페이지 보내기용
-	
-	//부서별 직원조회 페이지 보내기용
+	// 직급별 직원조회 페이지 보내기용
+
+	// 부서별 직원조회 페이지 보내기용
 }

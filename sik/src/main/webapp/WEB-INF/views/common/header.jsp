@@ -145,7 +145,7 @@ a {
 						data-bs-toggle="offcanvas" data-bs-target="#FranchiseManagement">가맹관리</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#Stationery">문류</a></li>
+						data-bs-toggle="offcanvas" data-bs-target="#Stationery">물류</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"
 						data-bs-toggle="offcanvas" data-bs-target="#MenuDevelopment">메뉴개발</a>
 					</li>
@@ -204,8 +204,18 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드관리</a><br> <a
-										href="/sik/views/main.jsp">브랜드공지</a><br>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${ board eq '브랜드관리' }">
+											<a href="/sik/views/main.jsp">브랜드관리</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${ board eq '브랜드공지' }">
+											<a href="/sik/views/main.jsp">브랜드공지</a>
+											<br>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -220,23 +230,38 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">매장요청사항</a><br> <a
-										href="/sik/views/main.jsp">매장정검</a><br> <a
-										href="/sik/views/main.jsp">매장상세조회</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${ board eq '매장요청사항' }">
+											<a href="/sik/views/main.jsp">매장요청사항</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '매장관리점검' }">
+											<a href="/sik/views/main.jsp">매장관리점검</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '매장상세조회' }">
+											<a href="/sik/views/main.jsp">매장상세조회</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
-	<!-- 문류  Stationery -->
+	<!-- 물류  Stationery -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
 		id="Stationery" aria-labelledby="StationeryLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="StationeryLabel">문류</h5>
+			<h5 class="offcanvas-title" id="StationeryLabel">물류</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -257,8 +282,17 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">출고 요청</a><br> <a
-										href="/sik/views/main.jsp">출고진행사항</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">출고 요청</a>
+										</c:if>
+										<br>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">출고진행사항</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -273,8 +307,17 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">생산업체관리</a><br> <a
-										href="/sik/views/main.jsp">생산요청</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">생산업체관리</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">생산요청</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 							<!-- 3 -->
@@ -289,7 +332,12 @@ a {
 									class="accordion-collapse collapse"
 									data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">발주</a><br>
+										<c:forEach var="board" items="${ sessionScope.board }">
+											<c:if test="${board eq '#' }">
+												<a href="/sik/views/main.jsp">발주</a>
+												<br>
+											</c:if>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -326,8 +374,17 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="brandNoticeList.do?page=1">메뉴관리</a><br> <a
-										href="/sik/views/main.jsp">레시피 관리</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="brandNoticeList.do?page=1">메뉴관리</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">레시피 관리</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -336,7 +393,7 @@ a {
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<!-- 가맹영업 FranchiseSales -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -363,7 +420,11 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">가맹계약현황</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">가맹계약현황</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -372,7 +433,7 @@ a {
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<!-- 상품관리 ProductManagement -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -399,7 +460,11 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">상품현황</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">상품현황</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -408,7 +473,7 @@ a {
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<!-- 광고기획 AdvertisingPlanning -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -435,7 +500,11 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">프로모션현황</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">프로모션현황</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -450,7 +519,11 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">마케팅현황</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '#' }">
+											<a href="/sik/views/main.jsp">마케팅현황</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -485,7 +558,11 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">매출조회</a>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '매출' }">
+											<a href="/sik/views/main.jsp">매출조회</a>
+										</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -494,7 +571,7 @@ a {
 			</div>
 		</div>
 	</div>
-	</div>
+
 
 
 	<!-- 관리자 -->
@@ -597,6 +674,5 @@ a {
 		</div>
 	</div>
 	<!-- admin -->
-
 </body>
 </html>
