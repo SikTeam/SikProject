@@ -248,3 +248,81 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [06:01:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
 [06:01:30][INFO ][ReportController.java: 44] - listCount : 15
 [06:01:30][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:01:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[06:01:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1446 ms
+[06:01:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[06:01:39][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1286 ms
+[06:01:52][INFO ][MemberController.java: 28] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[06:01:53][INFO ][MemberController.java: 41] - roll : [Roll [deptId=D0001, positionId=P0001, roll=매장요청사항0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드공지0100], Roll [deptId=D0001, positionId=P0001, roll=브랜드관리0100], Roll [deptId=D0001, positionId=P0001, roll=매출0100], Roll [deptId=D0001, positionId=P0001, roll=매장관리점검0100], Roll [deptId=D0001, positionId=P0001, roll=매장상세조회0100]]
+[06:01:54][INFO ][ReportController.java: 44] - listCount : 15
+[06:01:54][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:02:12][INFO ][ReportController.java: 44] - listCount : 15
+[06:02:12][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:02:12][INFO ][ReportController.java: 44] - listCount : 15
+[06:02:12][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:02:16][INFO ][ReportController.java: 44] - listCount : 15
+[06:02:16][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:02:22][INFO ][ReportController.java: 44] - listCount : 15
+[06:02:22][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:02:59][INFO ][ReportController.java: 44] - listCount : 15
+[06:02:59][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:15][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:15][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:38][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:38][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:38][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:38][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:40][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:40][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:03:59][INFO ][ReportController.java: 44] - listCount : 15
+[06:03:59][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:16][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:16][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:39][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:39][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:40][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:40][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:40][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:41][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:41][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:42][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:42][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:42][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:42][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:47][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:47][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:48][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:48][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:04:48][INFO ][ReportController.java: 44] - listCount : 15
+[06:04:48][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:06:21][INFO ][ReportController.java: 44] - listCount : 15
+[06:06:21][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:06:22][INFO ][ReportController.java: 44] - listCount : 15
+[06:06:22][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:06:49][INFO ][ReportController.java: 44] - listCount : 15
+[06:06:49][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:08:02][INFO ][ReportController.java: 44] - listCount : 15
+[06:08:02][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:08:18][INFO ][ReportController.java: 44] - listCount : 15
+[06:08:18][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:08:19][INFO ][ReportController.java: 44] - listCount : 15
+[06:08:19][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:08:19][INFO ][ReportController.java: 44] - listCount : 15
+[06:08:19][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:09:58][INFO ][ReportController.java: 44] - listCount : 15
+[06:09:58][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:10:03][INFO ][ReportController.java: 44] - listCount : 15
+[06:10:03][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:10:37][INFO ][ReportController.java: 44] - listCount : 15
+[06:10:37][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:10:50][INFO ][ReportController.java: 44] - listCount : 15
+[06:10:50][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:11:04][INFO ][ReportController.java: 44] - listCount : 15
+[06:11:04][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=11, endRow=20, begin=null, end=null, age=0]00001
+[06:11:06][INFO ][ReportController.java: 44] - listCount : 15
+[06:11:06][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
+[06:11:59][INFO ][ReportController.java: 44] - listCount : 15
+[06:11:59][INFO ][ReportController.java: 56] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0]00001
