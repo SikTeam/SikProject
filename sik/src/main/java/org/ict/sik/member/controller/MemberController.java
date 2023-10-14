@@ -44,4 +44,14 @@ public class MemberController {
 			return "common/error";
 		}
 	}
+	
+	//직원조회 페이지 보내기용
+//	@RequestMapping("mlist.do")
+//	public String move memberListViewMethod(
+//			ModelAndView mv) {
+//		
+//	}
+	//직급별 직원조회 페이지 보내기용
+	
+	//부서별 직원조회 페이지 보내기용
 }
