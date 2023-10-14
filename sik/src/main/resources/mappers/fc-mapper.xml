@@ -22,6 +22,10 @@
 		select count(*) from fc
 		where fc_id like #{ fcId }
 	</select>
+	<select id="selectLogin" parameterType="Fc" resultMap="resultFc">
+		select * from fc
+		where fc_id like #{fcId}
+	</select>
 </mapper>
 
 

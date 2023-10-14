@@ -34,4 +34,5 @@ public class BrandServiceImpl implements BrandService{
 	public ArrayList<Brand> selectListName(Search search) {
 		return brandDao.selectListName(search);
 	}
+
 }
