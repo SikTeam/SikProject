@@ -142,25 +142,30 @@ a {
 				<ul
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasSupport">지원</a>
+						data-bs-toggle="offcanvas" data-bs-target="#FranchiseManagement">가맹관리</a>
 					</li>
-
 					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasInventory">재고</a>
-					</li>
-
+						data-bs-toggle="offcanvas" data-bs-target="#Stationery">문류</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasFranchisee">관리</a>
+						data-bs-toggle="offcanvas" data-bs-target="#MenuDevelopment">메뉴개발</a>
 					</li>
-
 					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasPromotion">홍보</a>
+						data-bs-toggle="offcanvas" data-bs-target="#FranchiseSales">가맹영업</a>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						data-bs-toggle="offcanvas" data-bs-target="#ProductManagement">상품관리</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						data-bs-toggle="offcanvas" data-bs-target="#AdvertisingPlanning">광고기획</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						data-bs-toggle="offcanvas" data-bs-target="#Sales">매출</a></li>
+					<li><a class="nav-link" href="reportList.do">결재</a></li>
+					<li><a class="nav-link" href="#">공지사항</a></li>
 					<c:if
 						test="${ !empty sessionScope.loginMember and sessionScope.loginMember.adminYn eq 'Y' }">
 						<li class="nav-item"><a class="nav-link" href="#"
-							data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdmin">admin</a>
-						</li>
+							data-bs-toggle="offcanvas" data-bs-target="#Admin">관리자</a></li>
 					</c:if>
 				</ul>
 				<a href="/sik/views/common/profile.jsp"> <img
@@ -172,12 +177,12 @@ a {
 		</div>
 	</header>
 	<!-- canvas 생성 -->
-	<!-- 지원 -->
+	<!-- 가맹관리 FranchiseManagement -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-		id="offcanvasSupport" aria-labelledby="offcanvasSupportLabel">
+		id="FranchiseManagement" aria-labelledby="FranchiseManagementLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasSupportLabel">지원</h5>
+			<h5 class="offcanvas-title" id="FranchiseManagementLabel">가맹관리</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -199,8 +204,8 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 추가</a><br> <a
-										href="/sik/views/main.jsp">브랜드 조회</a><br>
+									<a href="/sik/views/main.jsp">브랜드관리</a><br> <a
+										href="/sik/views/main.jsp">브랜드공지</a><br>
 								</div>
 							</div>
 						</div>
@@ -210,65 +215,28 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
 									aria-expanded="true" aria-controls="flush-collapseTwo">
-									메뉴 관리</button>
+									매장관리</button>
 							</h2>
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">레시피 등록</a><br> <a
-										href="/sik/views/main.jsp">레시피 조회</a><br> <a
-										href="/sik/views/main.jsp">레시피 수정</a><br> <a
-										href="/sik/views/main.jsp">레시피 삭제</a>
+									<a href="/sik/views/main.jsp">매장요청사항</a><br> <a
+										href="/sik/views/main.jsp">매장정검</a><br> <a
+										href="/sik/views/main.jsp">매장상세조회</a>
 								</div>
 							</div>
-							<!-- 3 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#flush-collapseThree" aria-expanded="true"
-										aria-controls="flush-collapseThree">발주 확인</button>
-								</h2>
-								<div id="flush-collapseThree"
-									class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">종합 발주 확인</a><br>
-									</div>
-								</div>
-							</div>
-							<!-- 4 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseFour"
-										aria-expanded="true" aria-controls="collapseFour">생산업체
-										관리</button>
-								</h2>
-								<div id="collapseFour" class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">생산업체 등록</a><br> <a
-											href="/sik/views/main.jsp">생산업체 조회</a><br> <a
-											href="/sik/views/main.jsp">생산요청 등록</a><br> <a
-											href="/sik/views/main.jsp">생산요청 조회</a>
-									</div>
-								</div>
-							</div>
-							<!-- END -->
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-	<!-- 재고 -->
+	<!-- 문류  Stationery -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-		id="offcanvasInventory" aria-labelledby="offcanvasInventoryLabel">
+		id="Stationery" aria-labelledby="StationeryLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasInventoryLabel">재고</h5>
+			<h5 class="offcanvas-title" id="StationeryLabel">문류</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -284,15 +252,13 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
 									aria-expanded="false" aria-controls="flush-collapseOne">
-									매장별 재고 관리</button>
+									출고</button>
 							</h2>
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 재고 조회</a><br> <a
-										href="/sik/views/main.jsp">매장별 재고 조회</a><br> <a
-										href="/sik/views/main.jsp">상품별 재고 조회</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="/sik/views/main.jsp">출고 요청</a><br> <a
+										href="/sik/views/main.jsp">출고진행사항</a>
 								</div>
 							</div>
 						</div>
@@ -302,15 +268,13 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
 									aria-expanded="true" aria-controls="flush-collapseTwo">
-									본사 재고 관리</button>
+									생산</button>
 							</h2>
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 재고 조회</a><br> <a
-										href="/sik/views/main.jsp">상품별 재고 조회</a><br> <a
-										href="/sik/views/main.jsp">메뉴3</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="/sik/views/main.jsp">생산업체관리</a><br> <a
+										href="/sik/views/main.jsp">생산요청</a>
 								</div>
 							</div>
 							<!-- 3 -->
@@ -319,31 +283,13 @@ a {
 									<button class="accordion-button collapsed" type="button"
 										data-bs-toggle="collapse"
 										data-bs-target="#flush-collapseThree" aria-expanded="true"
-										aria-controls="flush-collapseThree">메뉴3</button>
+										aria-controls="flush-collapseThree">발주</button>
 								</h2>
 								<div id="flush-collapseThree"
 									class="accordion-collapse collapse"
 									data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">메뉴1</a><br> <a
-											href="/sik/views/main.jsp">메뉴2</a><br> <a
-											href="/sik/views/main.jsp">메뉴3</a><br> <a
-											href="/sik/views/main.jsp">메뉴4</a>
-									</div>
-								</div>
-							</div>
-							<!-- 4 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseFour"
-										aria-expanded="true" aria-controls="collapseFour">메뉴4</button>
-								</h2>
-								<div id="collapseFour" class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="#">메뉴1</a><br> <a href="#">메뉴2</a><br> <a
-											href="#">메뉴3</a><br> <a href="#">메뉴4</a>
+										<a href="/sik/views/main.jsp">발주</a><br>
 									</div>
 								</div>
 							</div>
@@ -351,16 +297,15 @@ a {
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-	<!-- 관리 -->
+	<!-- 메뉴개발 MenuDevelopment -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-		id="offcanvasFranchisee" aria-labelledby="offcanvasFranchiseeLabel">
+		id="MenuDevelopment" aria-labelledby="MenuDevelopmentLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasFranchiseeLabel">관리</h5>
+			<h5 class="offcanvas-title" id="MenuDevelopmentLabel">메뉴개발</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -376,87 +321,28 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
 									aria-expanded="false" aria-controls="flush-collapseOne">
-									브랜드 관리</button>
+									메뉴관리</button>
 							</h2>
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="brandNoticeList.do?page=1">브랜드 공지 조회</a><br> <a
-										href="/sik/views/main.jsp">브랜드 공지 관리</a><br> <a
-										href="selectBrandList.do?page=1">브랜드 조회</a><br> <a
-										href="/sik/views/main.jsp">브랜드 관리</a>
+									<a href="brandNoticeList.do?page=1">메뉴관리</a><br> <a
+										href="/sik/views/main.jsp">레시피 관리</a>
 								</div>
 							</div>
-						</div>
-						<!-- 2 -->
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-									aria-expanded="true" aria-controls="flush-collapseTwo">
-									계약관리</button>
-							</h2>
-							<div id="flush-collapseTwo" class="accordion-collapse collapse"
-								data-bs-parent="#accordionFlushExample">
-								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">계약현황조회</a><br> <a
-										href="/sik/views/main.jsp">계약 수정</a><br> <a
-										href="/sik/views/main.jsp">계약현황검색</a><br> <a
-										href="/sik/views/main.jsp">계약등록</a>
-								</div>
-							</div>
-							<!-- 3 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#flush-collapseThree" aria-expanded="true"
-										aria-controls="flush-collapseThree">매장현황</button>
-								</h2>
-								<div id="flush-collapseThree"
-									class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">메출필터검색</a><br> <a
-											href="/sik/views/main.jsp">매출조회</a><br> <a
-											href="/sik/views/main.jsp">매출전표</a><br> <a
-											href="/sik/views/main.jsp">전국매장</a><br> <a
-											href="/sik/views/main.jsp">매장검색</a>
-									</div>
-								</div>
-							</div>
-							<!-- 4 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseFour"
-										aria-expanded="true" aria-controls="collapseFour">가맹점관리
-									</button>
-								</h2>
-								<div id="collapseFour" class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">매장상세</a><br> <a
-											href="/sik/views/main.jsp">매장관리정검</a><br> <a
-											href="/sik/views/main.jsp">매장요청사항</a><br> <a
-											href="/sik/views/main.jsp">매장요청조회</a>
-									</div>
-								</div>
-							</div>
-							<!-- END -->
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-	<!-- 홍보 -->
+	</div>
+	<!-- 가맹영업 FranchiseSales -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-		id="offcanvasPromotion" aria-labelledby="offcanvasPromotionLabel">
+		id="FranchiseSales" aria-labelledby="FranchiseSalesLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasPromotionLabel">홍보</h5>
+			<h5 class="offcanvas-title" id="FranchiseSalesLabel">가맹영업</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -472,15 +358,84 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
 									aria-expanded="false" aria-controls="flush-collapseOne">
-									메뉴반응</button>
+									가맹계약</button>
 							</h2>
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">브랜드 메뉴 반응</a><br> <a
-										href="/sik/views/main.jsp">메뉴 반응</a><br> <a
-										href="/sik/views/main.jsp">메뉴3</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="/sik/views/main.jsp">가맹계약현황</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- 상품관리 ProductManagement -->
+	<div class="offcanvas offcanvas-start small shadow"
+		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+		id="ProductManagement" aria-labelledby="ProductManagementLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="ProductManagementLabel">상품관리</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+				aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="dropdown mt-3">
+				<%-- <c:import url="/views/common/sidebar-promotion.jsp" /> --%>
+
+				<div class="col">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+						<!-- 1 -->
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									상품현황</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									<a href="/sik/views/main.jsp">상품현황</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- 광고기획 AdvertisingPlanning -->
+	<div class="offcanvas offcanvas-start small shadow"
+		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+		id="AdvertisingPlanning" aria-labelledby="AdvertisingPlanningLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="AdvertisingPlanningLabel">광고기획</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+				aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="dropdown mt-3">
+				<%-- <c:import url="/views/common/sidebar-promotion.jsp" /> --%>
+
+				<div class="col">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+						<!-- 1 -->
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									프로모션</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									<a href="/sik/views/main.jsp">프로모션현황</a>
 								</div>
 							</div>
 						</div>
@@ -490,68 +445,64 @@ a {
 								<button class="accordion-button collapsed" type="button"
 									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
 									aria-expanded="true" aria-controls="flush-collapseTwo">
-									프로모션 현황</button>
+									마케팅</button>
 							</h2>
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">프로모션 조회</a><br> <a
-										href="/sik/views/main.jsp">프로모션 등록</a><br> <a
-										href="/sik/views/main.jsp">프로모션 수정</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="/sik/views/main.jsp">마케팅현황</a>
 								</div>
 							</div>
-							<!-- 3 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#flush-collapseThree" aria-expanded="true"
-										aria-controls="flush-collapseThree">광고 현황</button>
-								</h2>
-								<div id="flush-collapseThree"
-									class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">광고 조회</a><br> <a
-											href="/sik/views/main.jsp">광고 등록</a><br> <a
-											href="/sik/views/main.jsp">광고 수정</a><br> <a
-											href="/sik/views/main.jsp">메뉴4</a>
-									</div>
-								</div>
-							</div>
-							<!-- 4 -->
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseFour"
-										aria-expanded="true" aria-controls="collapseFour">평판</button>
-								</h2>
-								<div id="collapseFour" class="accordion-collapse collapse"
-									data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<a href="/sik/views/main.jsp">브랜드 평판</a><br> <a
-											href="/sik/views/main.jsp">메뉴 평판</a><br> <a
-											href="/sik/views/main.jsp">메뉴3</a><br> <a
-											href="/sik/views/main.jsp">메뉴4</a>
-									</div>
-								</div>
-							</div>
-							<!-- END -->
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-	<!-- admin -->
-
+	<!-- 매출 Sales -->
 	<div class="offcanvas offcanvas-start small shadow"
 		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-		id="offcanvasAdmin" aria-labelledby="offcanvasAdminLabel">
+		id="Sales" aria-labelledby="SalesLabel">
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasAdminLabel">admin</h5>
+			<h5 class="offcanvas-title" id="SalesLabel">매출</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+				aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="dropdown mt-3">
+				<%-- <c:import url="/views/common/sidebar-promotion.jsp" /> --%>
+
+				<div class="col">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+						<!-- 1 -->
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									매출관리</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									<a href="/sik/views/main.jsp">매출조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!-- 관리자 -->
+	<div class="offcanvas offcanvas-start small shadow"
+		data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+		id="Admin" aria-labelledby="AdminAdminLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="AdminLabel">관리자</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 				aria-label="Close"></button>
 		</div>
@@ -572,10 +523,12 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="${ pageContext.servletContext.contextPath }/mlist.do">직원조회</a><br> 
-									<a href="${ pageContext.servletContext.contextPath }/mPositionList.do">직급별 조회</a><br> 
-									<a href="${ pageContext.servletContext.contextPath }/mDeptList.do">부서별 조회</a><br> 
-									<a href="#">메뉴4</a>
+									<a href="${ pageContext.servletContext.contextPath }/mlist.do">직원조회</a><br>
+									<a
+										href="${ pageContext.servletContext.contextPath }/mPositionList.do">직급별
+										조회</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mDeptList.do">부서별
+										조회</a><br> <a href="#">메뉴4</a>
 								</div>
 							</div>
 						</div>
@@ -590,10 +543,13 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="${ pageContext.servletContext.contextPath }/minsert.do">직원 정보 등록</a><br> <a
-										href="${ pageContext.servletContext.contextPath }/mupdate.do">직원 정보 수정</a><br> <a
-										href="${ pageContext.servletContext.contextPath }/mdelete.do">직원 정보 삭제</a><br> <a
-										href="#">메뉴4</a>
+									<a
+										href="${ pageContext.servletContext.contextPath }/minsert.do">직원
+										정보 등록</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mupdate.do">직원
+										정보 수정</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mdelete.do">직원
+										정보 삭제</a><br> <a href="#">메뉴4</a>
 								</div>
 							</div>
 							<!-- 3 -->
