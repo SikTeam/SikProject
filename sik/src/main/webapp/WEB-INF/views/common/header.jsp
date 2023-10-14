@@ -121,14 +121,19 @@ a {
 	color: black;
 }
 </style>
-
-
-
 </head>
 <body>
 	<c:if test="${ empty sessionScope.loginMember }">
 		<jsp:forward page="loginMain.do" />
 	</c:if>
+	<c:set var="loop_flag" value="false" />
+	<c:set var="FranchiseManagement">브랜드관리, 브랜드공지, 매장요청사항,매장관리점검,매장상세조회</c:set>
+	<c:set var="Stationery">출고요청,출고진행사항,생산업체관리,생산요청,발주</c:set>
+	<c:set var="MenuDevelopment">메뉴관리,레시피관리</c:set>
+	<c:set var="FranchiseSales">가맹계약현황</c:set>
+	<c:set var="ProductManagement">상품현황,매장별재고,본사재고</c:set>
+	<c:set var="AdvertisingPlanning">프로모션현황,마케팅현황</c:set>
+	<c:set var="Sales">매출</c:set>
 	<header class="p-3 mb-3 border-bottom small shadow">
 		<div class="container">
 			<div
@@ -141,25 +146,99 @@ a {
 				</a>
 				<ul
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#FranchiseManagement">가맹관리</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#Stationery">물류</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#MenuDevelopment">메뉴개발</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#FranchiseSales">가맹영업</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#ProductManagement">상품관리</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#AdvertisingPlanning">광고기획</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#Sales">매출</a></li>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ FranchiseManagement }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas"
+										data-bs-target="#FranchiseManagement">가맹관리</a></li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ Stationery }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas" data-bs-target="#Stationery">물류</a></li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ MenuDevelopment }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas" data-bs-target="#MenuDevelopment">메뉴개발</a>
+									</li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ FranchiseSales }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas" data-bs-target="#FranchiseSales">가맹영업</a>
+									</li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ ProductManagement }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas" data-bs-target="#ProductManagement">상품관리</a>
+									</li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ AdvertisingPlanning }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas"
+										data-bs-target="#AdvertisingPlanning">광고기획</a></li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
+					<c:set var="loop_flag" value="false" />
+					<c:forEach var="board" items="${ Sales }">
+						<c:forEach var="hearder" items="${ sessionScope.board }">
+							<c:if test="${ board eq hearder }">
+								<c:if test="${ not loop_flag }">
+
+									<li class="nav-item"><a class="nav-link" href="#"
+										data-bs-toggle="offcanvas" data-bs-target="#Sales">매출</a></li>
+									<c:set var="loop_flag" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach>
+					</c:forEach>
 					<li><a class="nav-link" href="reportList.do">결재</a></li>
 					<li><a class="nav-link" href="#">공지사항</a></li>
 					<c:if
