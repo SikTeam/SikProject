@@ -43,6 +43,9 @@
 		<typeAlias type="org.ict.sik.request.model.vo.Request" alias="Request"/>
 		<typeAlias type="org.ict.sik.roll.model.vo.Roll" alias="Roll"/>
 		<typeAlias type="org.ict.sik.secondcategory.model.vo.SecondCategory" alias="SecondCategory"/>
+		<!-- common -->
+		<typeAlias type="org.ict.sik.common.Paging" alias="Paging" />
+		<typeAlias type="org.ict.sik.common.Search" alias="Search" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>

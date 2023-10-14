@@ -380,8 +380,8 @@ a {
 								<div class="accordion-body">
 									<a href="/sik/views/main.jsp">브랜드 공지 조회</a><br> <a
 										href="/sik/views/main.jsp">브랜드 공지 관리</a><br> <a
-										href="/sik/views/main.jsp">메뉴3</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+										href="selectBrandList.do?page=1">브랜드 조회</a><br> <a
+										href="/sik/views/main.jsp">브랜드 관리</a>
 								</div>
 							</div>
 						</div>
