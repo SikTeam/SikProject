@@ -569,10 +569,10 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">직원조회</a><br> <a
-										href="/sik/views/main.jsp">직급별 조회</a><br> <a
-										href="/sik/views/main.jsp">부서별 조회</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="${ pageContext.servletContext.contextPath }/mlist.do">직원조회</a><br> 
+									<a href="${ pageContext.servletContext.contextPath }/mPositionList.do">직급별 조회</a><br> 
+									<a href="${ pageContext.servletContext.contextPath }/mDeptList.do">부서별 조회</a><br> 
+									<a href="#">메뉴4</a>
 								</div>
 							</div>
 						</div>
@@ -587,10 +587,10 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<a href="/sik/views/main.jsp">직원 정보 등록</a><br> <a
-										href="/sik/views/main.jsp">직원 정보 수정</a><br> <a
-										href="/sik/views/main.jsp">직원 정보 삭제</a><br> <a
-										href="/sik/views/main.jsp">메뉴4</a>
+									<a href="${ pageContext.servletContext.contextPath }/minsert.do">직원 정보 등록</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mupdate.do">직원 정보 수정</a><br> <a
+										href="${ pageContext.servletContext.contextPath }/mdelete.do">직원 정보 삭제</a><br> <a
+										href="#">메뉴4</a>
 								</div>
 							</div>
 							<!-- 3 -->
