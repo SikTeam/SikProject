@@ -2,6 +2,9 @@ package org.ict.sik.member.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.ict.sik.fc.model.service.FcService;
+import org.ict.sik.fc.model.service.FcServiceImpl;
+import org.ict.sik.fc.model.vo.Fc;
 import org.ict.sik.member.model.service.MemberService;
 import org.ict.sik.member.model.vo.Member;
 import org.slf4j.Logger;
@@ -23,12 +26,19 @@ public class MemberController {
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
 	public String loginMethod(Member member, Model model, HttpSession session, SessionStatus status) {
 		logger.info("login.do : " + member);
-		
+		FcService fcService = new FcServiceImpl();
 		Member loginMember = memberService.selectLogin(member);
-		if(loginMember != null) {
+		Fc fcLogin = new Fc();
+		fcLogin.setFcId(loginMember.getMemberId());
+		fcLogin.setFcPw(loginMember.getPw());
+		if(loginMember != null && memberService.selectMemberCheck(member) > 0) {
 			session.setAttribute("loginMember", loginMember);
 			status.setComplete();
 			return "main";
+		}else if(loginMember != null && fcService.selectFcCheck(fcLogin) > 0){
+			session.setAttribute("loginMember", fcLogin);
+			status.setComplete();
+			return "";
 		}else {
 			model.addAttribute("message", "로그인 실패!");
 			return "common/error";
