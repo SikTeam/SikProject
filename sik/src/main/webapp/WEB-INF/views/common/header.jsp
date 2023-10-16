@@ -291,7 +291,7 @@ a {
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${ board eq '브랜드공지' }">
-											<a href="/sik/views/main.jsp">브랜드공지</a>
+											<a href="brandNoticeListView.do?page=1">브랜드공지</a>
 											<br>
 										</c:if>
 									</c:forEach>
@@ -362,13 +362,13 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '출고요청서' }">
 											<a href="/sik/views/main.jsp">출고 요청</a>
 										</c:if>
 										<br>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '출고진행사항' }">
 											<a href="/sik/views/main.jsp">출고진행사항</a>
 										</c:if>
 									</c:forEach>
@@ -387,13 +387,13 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '생산업체' }">
 											<a href="/sik/views/main.jsp">생산업체관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '샌산요청' }">
 											<a href="/sik/views/main.jsp">생산요청</a>
 										</c:if>
 									</c:forEach>
@@ -412,7 +412,7 @@ a {
 									data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
 										<c:forEach var="board" items="${ sessionScope.board }">
-											<c:if test="${board eq '#' }">
+											<c:if test="${board eq '가맹점발주' }">
 												<a href="/sik/views/main.jsp">발주</a>
 												<br>
 											</c:if>
@@ -454,13 +454,13 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '레시피' }">
 											<a href="brandNoticeList.do?page=1">메뉴관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '레시피' }">
 											<a href="/sik/views/main.jsp">레시피 관리</a>
 										</c:if>
 									</c:forEach>
@@ -500,7 +500,7 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '계약현황' }">
 											<a href="/sik/views/main.jsp">가맹계약현황</a>
 										</c:if>
 									</c:forEach>
@@ -540,7 +540,7 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '상품관리' }">
 											<a href="/sik/views/main.jsp">상품현황</a>
 										</c:if>
 									</c:forEach>
@@ -580,7 +580,7 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '프로모션' }">
 											<a href="/sik/views/main.jsp">프로모션현황</a>
 										</c:if>
 									</c:forEach>
@@ -599,7 +599,7 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '#' }">
+										<c:if test="${board eq '프로모션' }">
 											<a href="/sik/views/main.jsp">마케팅현황</a>
 										</c:if>
 									</c:forEach>
