@@ -2,17 +2,17 @@ package org.ict.sik.fc.model.vo;
 
 //가맹점 vo
 public class Fc {
-	public String fcId; //가맹점ID
-	public String brandId; //브랜드ID
-	public String fcPw; //가맹점비밀번호
-	public String fcName; //매장명
-	public String fcAdd; //주소
-	public String fcArea; //평수
-	public String fcNum; //사업자번호
-	public String fcDh; //배달/홀
-	public String fcOwner; //사업주명
-	public String fcYn; //운영YN
-	public String memberId; //사번
+	private String fcId; //가맹점ID
+	private String brandId; //브랜드ID
+	private String fcPw; //가맹점비밀번호
+	private String fcName; //매장명
+	private String fcAdd; //주소
+	private String fcArea; //평수
+	private String fcNum; //사업자번호
+	private String fcDh; //배달/홀
+	private String fcOwner; //사업주명
+	private String fcYn; //운영YN
+	private String memberId; //사번
 	
 	public Fc() {
 		super();

@@ -10,7 +10,30 @@
 		<result property="fcStockQuan" column="FC_STOCK_QUAN" />
 		<result property="fcStockEtc" column="FC_STOCK_ETC" />
 	</resultMap>
+	<resultMap id="resultFcStockName" type="FcStockName">
+		<id property="itemId" column="ITEM_ID" />
+		<result property="fcName" column="FC_NAME" />
+		<result property="fcId" column="FC_ID" />
+		<result property="fcStockQuan" column="FC_STOCK_QUAN" />
+		<result property="fcStockEtc" column="FC_STOCK_ETC" />
+	</resultMap>
+	<select id="selectListFcCount" parameterType="string" resultType="_int">
+		select count(*) from fc where fc_name like '%' || #{ keyword } || '%' 
+	</select>
 	
+	<select id="selectList" parameterType="Paging" resultMap="resultFcStockName">
+		select * from(select rownum runm,fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
+					  from fc
+					  right join fc_stock ON fc.fc_id = fc_stock.fc_id)
+		where runm between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="selectListName" parameterType="Search" resultMap="resultFcStockName">
+		select * from (select rownum runm, fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
+    				   from fc
+    				   right join fc_stock ON fc.fc_id = fc_stock.fc_id)
+				where runm between #{startRow} and #{endRow}
+	</select>
 </mapper>
 
 
