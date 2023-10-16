@@ -46,6 +46,8 @@
 		<!-- common -->
 		<typeAlias type="org.ict.sik.common.Paging" alias="Paging" />
 		<typeAlias type="org.ict.sik.common.Search" alias="Search" />
+		<typeAlias type="org.ict.sik.member.model.vo.MemberDeptPosition" alias="MemberDeptPosition"/>
+		
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
@@ -83,6 +85,7 @@
 		<mapper resource="mappers/request-mapper.xml"/>
 		<mapper resource="mappers/roll-mapper.xml"/>
 		<mapper resource="mappers/secondcategory-mapper.xml"/>
+		
 	</mappers>
 	<!-- <typeAliases>	
 		<typeAlias type="org.ict.first.member.model.vo.Member" alias="Member" />
