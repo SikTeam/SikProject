@@ -31,17 +31,47 @@
 		<result property="noTitle" column="NO_TITLE" />
 	</resultMap>
 	
-	
-	<select id="selectListCount" resultType="_int">
+	<select id="selectListCount" parameterType="Search" resultType="_int">
 		select count(*) from notice
+		<if test="(brand =='all' or brand == null) and keyword != null">
+			where NO_TITLE like '%' || #{keyword} || '%'
+		</if>
+		<if test="brand != null and keyword == null">
+			join BRAND using(brand_id)
+			where brand_name like '%' || #{brand} || '%'
+		</if>
+		<if test="brand != null and keyword != null">
+			join BRAND using(brand_id)
+			where brand_name like '%' || #{brand} || '%'
+			and NO_TITLE like '%' || #{keyword} || '%'
+		</if>
 	</select>
-	<select id="selectList" parameterType="Paging" resultMap="resultBrandNotice">
+	
+	<select id="selectList" parameterType="Search" resultMap="resultBrandNotice">
 		select * from
 			(select rownum rnum, NO_ID,MEMBER_NAME,BRAND_NAME,NO_CDATE,NO_UDATE,NO_DDATE,NO_FILE,NO_VCOUNT,NO_CON,NO_TITLE
 			from(select NO_ID,MEMBER_NAME,BRAND_NAME,NO_CDATE,NO_UDATE,NO_DDATE,NO_FILE,NO_VCOUNT,NO_CON,NO_TITLE
 					from notice
 					join BRAND using(BRAND_ID)
-					join member using(member_id)))
+					join member using(member_id)
+					<if test="(brand =='all' or brand == null) and keyword != null">
+					where NO_TITLE like '%' || #{keyword} || '%'
+					</if>
+					<if test="brand != null and keyword == null">
+					where brand_name like '%' || #{brand} || '%'
+					</if>
+					<if test="brand != null and keyword != null">
+					where brand_name like '%' || #{brand} || '%'
+					and NO_TITLE like '%' || #{keyword} || '%'
+					</if>
+					))
 			where rnum BETWEEN #{startRow} and #{endRow}
+	</select>
+	<select id="selectDetail" parameterType="string" resultMap="resultBrandNotice">
+		select NO_ID,MEMBER_NAME,BRAND_NAME,NO_CDATE,NO_UDATE,NO_DDATE,NO_FILE,NO_VCOUNT,NO_CON,NO_TITLE
+		from notice
+		join brand using(brand_id)
+		join member using(member_id)
+		where no_id like #{keyword}
 	</select>
 </mapper>
