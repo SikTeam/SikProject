@@ -854,3 +854,39 @@ Caused by: Error : 933, Position : 243, Sql = select  MEMBER_ID, MEMBER_NAME, PW
 [21:32:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 926 ms
 [21:32:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
 [21:33:00][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1150 ms
+[22:24:11][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:24:12][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1088 ms
+[22:24:12][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:24:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1025 ms
+[22:24:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:24:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1256 ms
+[22:24:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:24:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1126 ms
+[22:24:56][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[22:24:56][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[22:24:56][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[22:24:59][INFO ][ReportController.java: 50] - listCount : 15
+[22:24:59][INFO ][ReportController.java: 62] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[22:25:01][INFO ][ReportController.java: 113] - re0016
+[22:52:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:52:44][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1232 ms
+[22:52:44][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:52:45][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1088 ms
+[22:52:51][INFO ][ReportController.java: 113] - re0016
+[22:52:52][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[22:53:02][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[22:53:02][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[22:53:02][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[22:53:03][INFO ][ReportController.java: 50] - listCount : 15
+[22:53:03][INFO ][ReportController.java: 62] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[22:53:04][INFO ][ReportController.java: 113] - re0016
+[23:02:35][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:02:36][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1223 ms
+[23:02:36][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:02:37][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1110 ms
+[23:02:43][INFO ][ReportController.java: 50] - listCount : 15
+[23:02:43][INFO ][ReportController.java: 62] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[23:02:45][INFO ][ReportController.java: 113] - re0016
+[23:03:16][INFO ][ReportController.java: 113] - re0016
+[23:03:42][INFO ][ReportController.java: 113] - re0016
+[23:03:43][INFO ][ReportController.java: 113] - re0016
