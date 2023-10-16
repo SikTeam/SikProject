@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.ict.sik.common.Paging;
 import org.ict.sik.notice.model.dao.NoticeDao;
-import org.ict.sik.notice.model.vo.Notice;
+import org.ict.sik.notice.model.vo.BrandNotice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class NoticeserviceImpl implements NoticeService{
 	}
 
 	@Override
-	public ArrayList<Notice> selectList(Paging paging) {
+	public ArrayList<BrandNotice> selectList(Paging paging) {
 		return noticeDao.selectList(paging);
 	}
 }

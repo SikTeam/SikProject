@@ -24,7 +24,10 @@ public class BrandServiceImpl implements BrandService{
 	public ArrayList<Brand> selectList(Paging paging) {
 		return brandDao.selectList(paging);
 	}
-
+	@Override
+	public ArrayList<Brand> selectList() {
+		return brandDao.selectList();
+	}
 	@Override
 	public int selectListNameCount(String keyword) {
 		return brandDao.selectListNameCount(keyword);
@@ -34,5 +37,7 @@ public class BrandServiceImpl implements BrandService{
 	public ArrayList<Brand> selectListName(Search search) {
 		return brandDao.selectListName(search);
 	}
+
+	
 
 }

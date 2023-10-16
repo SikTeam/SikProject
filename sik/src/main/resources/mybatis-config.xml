@@ -46,6 +46,7 @@
 		<!-- common -->
 		<typeAlias type="org.ict.sik.common.Paging" alias="Paging" />
 		<typeAlias type="org.ict.sik.common.Search" alias="Search" />
+		<typeAlias type="org.ict.sik.notice.model.vo.BrandNotice" alias="BrandNotice"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
