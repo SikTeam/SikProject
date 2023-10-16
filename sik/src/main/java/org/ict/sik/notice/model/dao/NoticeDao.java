@@ -27,4 +27,8 @@ public class NoticeDao {
 	public int selectListCount(Search search) {
 		return sqlSessionTemplate.selectOne("noticeMapper.selectListCount",search);
 	}
+
+	public BrandNotice selectDetail(String noId) {
+		return sqlSessionTemplate.selectOne("noticeMapper.selectDetail",noId);
+	}
 }
