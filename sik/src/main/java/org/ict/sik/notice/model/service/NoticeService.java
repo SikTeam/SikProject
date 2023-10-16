@@ -10,5 +10,6 @@ public interface NoticeService {
 	int selectListCount();
 	int selectListCount(Search search);
 	ArrayList<BrandNotice> selectList(Search search);
+	BrandNotice selectDetail(String noId);
 
 }

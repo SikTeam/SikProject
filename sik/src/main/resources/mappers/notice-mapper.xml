@@ -31,7 +31,6 @@
 		<result property="noTitle" column="NO_TITLE" />
 	</resultMap>
 	
-	
 	<select id="selectListCount" parameterType="Search" resultType="_int">
 		select count(*) from notice
 		<if test="(brand =='all' or brand == null) and keyword != null">
@@ -67,5 +66,12 @@
 					</if>
 					))
 			where rnum BETWEEN #{startRow} and #{endRow}
+	</select>
+	<select id="selectDetail" parameterType="string" resultMap="resultBrandNotice">
+		select NO_ID,MEMBER_NAME,BRAND_NAME,NO_CDATE,NO_UDATE,NO_DDATE,NO_FILE,NO_VCOUNT,NO_CON,NO_TITLE
+		from notice
+		join brand using(brand_id)
+		join member using(member_id)
+		where no_id like #{keyword}
 	</select>
 </mapper>
