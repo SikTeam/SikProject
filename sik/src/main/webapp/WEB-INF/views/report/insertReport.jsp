@@ -31,14 +31,27 @@
 								<div>
 									결재자 정보 등록<br>
 									<hr>
-									<c:forEach items="${ requestScope.list }" var="addm">
+									<div class="btn-group">
+									<select class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									부서
+									</select>
+									  <ul class="dropdown-menu">
+									  	<option class="dropdown-item" >가맹관리팀</option>
+									  	<option class="dropdown-item" >물류팀</option>
+									  	<option class="dropdown-item" >메뉴개발팀</option>
+									  	<option class="dropdown-item" >가맹영업팀</option>
+									  	<option class="dropdown-item" >상품관리팀</option>
+									  	<option class="dropdown-item" >광고기획팀</option>
+									  </ul>
+									</div>
+<%-- 									<c:forEach items="${ requestScope.list }" var="addm">
 										<tr>
 											<td>${ addm.memberId }</td>
 											<td>${ addm.memberName }</td>
 											<td>${ addm.deptName }</td>
-											<td>${ addm.positionName }</td>
+											<td>${ addm.positionName }</td>   
 										</tr>													
-									</c:forEach>
+									</c:forEach> --%>
 									<button>+</button>				
 								</div>
 								<hr>
