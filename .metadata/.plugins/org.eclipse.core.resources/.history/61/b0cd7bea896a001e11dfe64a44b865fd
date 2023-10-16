@@ -1,8 +1,0 @@
-package org.ict.sik.reportsign.model.dao;
-
-import org.springframework.stereotype.Repository;
-
-@Repository("ReportSignDao")
-public class ReportSignDao {
-	
-}

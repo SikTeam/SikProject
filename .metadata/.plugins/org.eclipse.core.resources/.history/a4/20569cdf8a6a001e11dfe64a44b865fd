@@ -1,8 +1,0 @@
-package org.ict.sik.reportsign.model.service;
-
-import org.springframework.stereotype.Service;
-
-@Service("reportSignService")
-public class ReportSignServiceImpl implements ReportSignService{
-
-}

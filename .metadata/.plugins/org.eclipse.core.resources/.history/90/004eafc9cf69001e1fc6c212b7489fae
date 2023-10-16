@@ -1,7 +1,0 @@
-package org.ict.sik.report.model.service;
-
-
-@Service("ReportService")
-public class ReportServiceImpl {
-	@Autowired
-}

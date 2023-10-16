@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+E:\sik_project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2261121272.index
-478172679.index
-2459244612.index
-1197708580.index
-2628708886.index
-2557989169.index
-642872176.index
