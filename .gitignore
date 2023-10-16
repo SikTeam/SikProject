@@ -15,7 +15,8 @@ local.properties
 .recommenders
 .deployables
 */.git/*
-*/target/*
+/targer
+/target/*
 */Servers/*
 */apache-maven-3.9.4/*
 *.xml
