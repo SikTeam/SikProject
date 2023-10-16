@@ -1,13 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="/sik/resources/common/js/jquery-3.7.0.min.js"></script>
+<script type='text/javascript'>
+$(document).ready(function() {
+    $('#dept, #position').change(function() {
+    	console.log("ajax 요청")
+        var dept = $('#dept').val();
+        var position = $('#position').val();
 
-<script type="text/javascript">
+        if(dept == '부서' || dept == '대표이사' || position == '직급') {
+            $('#name').empty();
+            return;
+        }
+        
+        $.ajax({
+            url: 'addApprover.do',
+            type: 'POST',
+            data: { dept: dept, position: position },
+            success: function(data) {
+            	console.log(data);
+            	var list = JSON.parse(data);
+                var options = '';
+                $.each(list, function(index, value) {
+                    options += '<option value="' + value.memberName + '">' + value.memberName + '</option>';
+                });
+                $('#name').html(options);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
 </script>
 
 </head>
@@ -31,27 +62,29 @@
 								<div>
 									결재자 정보 등록<br>
 									<hr>
-									<div class="btn-group">
-									<select class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-									부서
-									</select>
-									  <ul class="dropdown-menu">
-									  	<option class="dropdown-item" >가맹관리팀</option>
-									  	<option class="dropdown-item" >물류팀</option>
-									  	<option class="dropdown-item" >메뉴개발팀</option>
-									  	<option class="dropdown-item" >가맹영업팀</option>
-									  	<option class="dropdown-item" >상품관리팀</option>
-									  	<option class="dropdown-item" >광고기획팀</option>
-									  </ul>
-									</div>
-<%-- 									<c:forEach items="${ requestScope.list }" var="addm">
-										<tr>
-											<td>${ addm.memberId }</td>
-											<td>${ addm.memberName }</td>
-											<td>${ addm.deptName }</td>
-											<td>${ addm.positionName }</td>   
-										</tr>													
-									</c:forEach> --%>
+									<select id="dept" class="btn btn-secondary btn-sm dropdown-toggle">
+									    <option class="dropdown-item" value="부서">부서</option>
+									  	<option class="dropdown-item" value="가맹관리팀">가맹관리팀</option>
+									  	<option class="dropdown-item" value="물류팀">물류팀</option>
+									  	<option class="dropdown-item" value="메뉴개발팀">메뉴개발팀</option>
+									  	<option class="dropdown-item" value="가맹영업팀">가맹영업팀</option>
+									  	<option class="dropdown-item" value="상품관리팀">상품관리팀</option>
+									  	<option class="dropdown-item" value="광고기획팀">광고기획팀</option>
+									  	<option class="dropdown-item" value="대표이사">대표이사</option>
+									 </select>
+									<select id="position" class="btn btn-secondary btn-sm dropdown-toggle">
+									    <option class="dropdown-item" value="직급">직급</option>
+									  	<option class="dropdown-item" value="사원">사원</option>
+									  	<option class="dropdown-item" value="대리">대리</option>
+									  	<option class="dropdown-item" value="주임">주임</option>
+									  	<option class="dropdown-item" value="과장">과장</option>
+									  	<option class="dropdown-item" value="팀장">팀장</option>
+									  	<option class="dropdown-item" value="대표이사">대표이사</option>
+									 </select>
+									 <select id="name" class="btn btn-secondary btn-sm dropdown-toggle">
+										    <!-- 옵션을 생성하는 영역 ★ -->
+									</select>									 
+									</form>
 									<button>+</button>				
 								</div>
 								<hr>

@@ -1,8 +1,6 @@
 package org.ict.sik.report.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,11 +13,14 @@ import org.ict.sik.report.model.service.ReportService;
 import org.ict.sik.report.model.vo.Report;
 import org.ict.sik.reportsign.model.service.ReportSignService;
 import org.ict.sik.reportsign.model.vo.ReportSign;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -77,29 +78,30 @@ public class ReportController {
 	}
 	
 	//결재자 정보 불러오기
-	@RequestMapping("addApprover.do")
+	@RequestMapping(value="addApprover.do", method={RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody
-	public Map<String, Object> ApproverMemberSelect(
-			@RequestParam(name="page", required=false) String page,
-			ModelAndView mv) {
-		Map<String, Object> approver = new HashMap<>();
-		int currentPage = 1;
-		if (page != null) {
-			currentPage = Integer.parseInt(page);
-		}
+	public String ApproverMemberSelect(
+			@RequestParam(name="dept", required=false) String dept,
+			@RequestParam(name="position", required=false) String position
+			) {
 		
-		int limit = 10;
-		int listCount = memberService.selectlistCount();
-		Paging paging = new Paging(listCount, currentPage, limit, "addApprover.do");
-		paging.calculator();
+		logger.info(dept+"/"+position);
 		
-		ArrayList<MemberDeptPosition> list = memberService.selectList(paging);
-
-		approver.put("approver", list);
-		approver.put("paging", paging);
-		logger.info(approver.toString());
+		MemberDeptPosition dp = new MemberDeptPosition(dept,position);
+		ArrayList<MemberDeptPosition> list = memberService.addApprover(dp);
 		
-		return approver;
+		JSONArray jsonArray = new JSONArray();
+		
+		for (MemberDeptPosition mdp : list) {
+	        JSONObject jsonObject = new JSONObject();
+	        
+	        jsonObject.put("dept", mdp.getDeptName());
+	        jsonObject.put("position", mdp.getPositionName());
+	        
+	        jsonArray.add(jsonObject);
+	    }
+		
+		return jsonArray.toString();
 	}	
 	
 	
@@ -122,8 +124,4 @@ public class ReportController {
 		return mv;
 	}
 
-//	@RequestMapping(value="RequestMapping.do", method=RequestMethod .POST)
-//	public String insertReport(
-//
-//	}
 }
