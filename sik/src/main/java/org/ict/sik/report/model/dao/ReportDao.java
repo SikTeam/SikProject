@@ -19,4 +19,12 @@ public class ReportDao {
 		List<Report> list = sqlSessionTemplate.selectList("reportMapper.selectList", search);
 		return (ArrayList<Report>)list;
 	}
+	
+	public String getReportId() {
+		return sqlSessionTemplate.selectOne("reportMapper.getReportId");
+	}
+	
+	public int insertReport(Report report){
+		return sqlSessionTemplate.insert("reportMapper.insertReport", report);
+	}
 }

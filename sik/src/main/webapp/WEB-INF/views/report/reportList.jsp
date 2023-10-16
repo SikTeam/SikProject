@@ -10,10 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>boardList</title>
-<script type="text/javascript" src="/first/resources/js/jquery-3.7.0.min.js"></script>
-<script>
 
-</script>
+<style type="text/css">
+.custom-table, .custom-input .custom-button{
+    font-size: 14px;
+}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -26,9 +28,9 @@
 						<br />
 					</div>
 					<div class="bg-body">
-						<table class="table table-hover">
-							<h1 style="text-align: center; margin-top: 10px; margin-bottom: 15px;">
-								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h1>
+						<table class="table table-sm custom-table table-hover">
+							<h4 style="text-align: left; margin-top: 10px; margin-bottom: 15px;">
+								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h4>
 							<thead class="table-dark">
 								<tr>
 									<th scope="col">No</th>
@@ -40,41 +42,43 @@
 							<c:set var="a" value="${ requestScope.list2 }" />
 							<c:set var="b" value="${ requestScope.list }" />
 							<c:forEach items="${ a }" var="reportList" varStatus="status">
-							<tbody class="table-group-divider">
 								<tr>
 									<th scope="col">${ reportList.reportId }</th>
 									<td>${ reportList.reTitle }</td>
 									<td align = "center">${ b[status.index].reSign }</td>
 									<td align = "center">${ b[status.index].reRead }</td>
 								</tr>
-							</tbody>
 							</c:forEach>
 						</table>
 						
 							<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 							<br>
 
-						<div class="d-grid gap-3" style="grid-template-columns: 0.4fr 0.6fr 0.2fr; margin-bottom: 15px;">
-							<div class="bg-body-tertiary">
+						<div class="d-grid gap-3" style="grid-template-columns: 0.4fr 0.6fr 0.1fr; margin-bottom: 15px;">
+							<div class="bg-body">
 		        				<form class="d-flex" role="search">
-						          <input class="form-control me-1" type="search" placeholder="제목" aria-label="Search">
-						          <button class="btn btn-outline-dark" type="submit">search</button>
+						          <input class="form-control custom-input form-control-sm me-1" type="search" placeholder="제목" aria-label="Search">
+						          <button class="btn btn-dark btn-sm" type="submit">search</button>
 						        </form>
 							</div>
 							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 							<br />
 							</div>
 							<div class="bg-body">
-							<button class="btn btn-outline-dark" type="submit">등록</button>
+<%-- 								<a href="${ pageContext.servletContext.contextPath }/getReportId.do" class="btn btn-dark btn-sm">
+								  등록
+								</a> --%>
 							</div>
 						</div>
 					</div>
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
-						<br />
+						<br>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 </body>
 </html>

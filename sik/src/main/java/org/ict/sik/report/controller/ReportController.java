@@ -16,7 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -69,4 +71,24 @@ public class ReportController {
 		}
 		return mv;
 	}
+	
+	//결재 등록 페이지 이동
+	@RequestMapping("getReportId.do")
+	public ModelAndView getReportId(ModelAndView mv) {
+		String reportId = reportService.getReportId();
+		logger.info(reportId);
+		if (reportId != null) {
+			mv.addObject("reportId", reportId);
+			mv.setViewName("report/insertReport");
+		} else {
+			mv.addObject("message", "결재창 불러오기 실패.");
+			mv.setViewName("common/error");
+		}
+		return mv;
+	}
+	
+//	@RequestMapping(value="RequestMapping.do", method=RequestMethod .POST)
+//	public String insertReport(
+//
+//	}
 }
