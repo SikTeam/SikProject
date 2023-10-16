@@ -24,7 +24,7 @@ public class FcController {
 	public ModelAndView fcLoginMethod(ModelAndView mv, HttpSession session, SessionStatus status) {
 		Fc fc = (Fc)session.getAttribute("fc");
 		logger.info("fclogin : " + fc);
+		mv.setViewName("franchisee/fr_main");
 		return mv;
-		
 	}
 }
