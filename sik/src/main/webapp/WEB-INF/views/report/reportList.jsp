@@ -65,9 +65,9 @@
 							<br />
 							</div>
 							<div class="bg-body">
-<%-- 								<a href="${ pageContext.servletContext.contextPath }/getReportId.do" class="btn btn-dark btn-sm">
+								<a href="${ pageContext.servletContext.contextPath }/getReportId.do" class="btn btn-dark btn-sm">
 								  등록
-								</a> --%>
+								</a> 
 							</div>
 						</div>
 					</div>
