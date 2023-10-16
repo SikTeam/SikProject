@@ -854,3 +854,190 @@ Caused by: Error : 933, Position : 243, Sql = select  MEMBER_ID, MEMBER_NAME, PW
 [21:32:59][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 926 ms
 [21:32:59][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
 [21:33:00][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1150 ms
+[22:24:16][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:24:17][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1511 ms
+[22:24:18][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:24:18][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [org.ict.sik.notice.model.service.NoticeServiceImpl]; nested exception is java.io.FileNotFoundException: class path resource [org/ict/sik/notice/model/service/NoticeServiceImpl.class] cannot be opened because it does not exist
+[22:24:18][ERROR][FrameworkServlet.java: 534] - Context initialization failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [org.ict.sik.notice.model.service.NoticeServiceImpl]; nested exception is java.io.FileNotFoundException: class path resource [org/ict/sik/notice/model/service/NoticeServiceImpl.class] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:143)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1106)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1063)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:960)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4673)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4980)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:922)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+Caused by: java.io.FileNotFoundException: class path resource [org/ict/sik/notice/model/service/NoticeServiceImpl.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:199)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:55)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:49)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103)
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:123)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:696)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:645)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:248)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175)
+	... 46 more
+[22:24:54][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:24:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1400 ms
+[22:24:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:24:57][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1283 ms
+[22:25:01][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:25:03][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1527 ms
+[22:25:03][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:25:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1338 ms
+[22:25:15][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[22:25:16][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[22:25:16][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[22:25:19][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:30:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:30:41][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1524 ms
+[22:30:41][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:30:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1353 ms
+[22:30:51][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:31:55][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:31:56][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1524 ms
+[22:31:56][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:31:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1356 ms
+[22:32:02][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:32:09][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : 기영이숯불두마리치킨, page :1, keyword : }
+[22:33:25][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:33:26][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1523 ms
+[22:33:26][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:33:28][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1342 ms
+[22:33:32][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : 기영이숯불두마리치킨, page :1, keyword : }
+[22:33:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:33:53][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1516 ms
+[22:33:53][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:33:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1366 ms
+[22:34:04][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : 기영이숯불두마리치킨, page :1, keyword : }
+[22:34:22][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:34:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1501 ms
+[22:34:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:34:25][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1352 ms
+[22:34:30][INFO ][NoticeController.java: 34] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:37:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:37:24][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1355 ms
+[22:37:24][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:37:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1184 ms
+[22:38:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:38:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1420 ms
+[22:38:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:38:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1249 ms
+[22:40:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:41:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1538 ms
+[22:41:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:41:02][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1362 ms
+[22:41:13][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[22:41:14][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[22:41:14][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[22:41:16][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:41:53][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 1,page : 1
+[22:42:17][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:42:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1504 ms
+[22:42:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:42:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1325 ms
+[22:42:33][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:42:41][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 1,page : 1
+[22:42:48][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:42:50][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 2,page : 1
+[22:43:15][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:43:22][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 5,page : 1
+[22:50:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:50:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1491 ms
+[22:50:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:50:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1314 ms
+[22:50:29][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 5,page : 1
+[22:50:30][INFO ][NoticeController.java: 93] - BrandNotice : BrandNotice [brandName=베스킨라빈스31, memberName=김철수]
+[22:50:33][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[22:50:35][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 6,page : 1
+[22:50:35][INFO ][NoticeController.java: 93] - BrandNotice : BrandNotice [brandName=새마을식당, memberName=김철수]
+[22:52:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[22:52:09][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1414 ms
+[22:52:09][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[22:52:10][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1274 ms
+[23:00:23][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:00:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1553 ms
+[23:00:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:00:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1380 ms
+[23:00:32][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[23:00:33][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[23:00:34][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 7,page : 1
+[23:00:34][INFO ][NoticeController.java: 93] - BrandNotice : BrandNotice [brandName=굽네치킨, memberName=김철수]
+[23:00:55][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[23:00:55][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[23:00:55][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[23:00:58][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[23:00:59][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 1,page : 1
+[23:01:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:01:31][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1552 ms
+[23:01:31][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:01:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1366 ms
+[23:01:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:01:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1648 ms
+[23:01:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:01:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1426 ms
+[23:01:56][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[23:01:58][INFO ][NoticeController.java: 91] - noticeDetailView.do : noid : 1,page : 1
+[23:01:58][INFO ][NoticeController.java: 93] - BrandNotice : BrandNotice [brandName=ICT발 맛있는 찜닭, memberName=김철수]
+[23:02:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:02:29][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1464 ms
+[23:02:29][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:02:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1210 ms
+[23:04:33][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:04:35][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1516 ms
+[23:04:35][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:04:36][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1363 ms
+[23:04:41][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[23:04:42][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[23:04:47][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/WEB-INF/views/common/loginMain.do
+[23:04:54][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[23:04:54][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[23:04:54][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[23:04:56][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[23:05:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:05:29][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1532 ms
+[23:05:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:05:31][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1392 ms

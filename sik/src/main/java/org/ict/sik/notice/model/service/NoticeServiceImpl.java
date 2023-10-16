@@ -28,4 +28,9 @@ public class NoticeServiceImpl implements NoticeService{
 	public int selectListCount(Search search) {
 		return noticeDao.selectListCount(search);
 	}
+
+	@Override
+	public BrandNotice selectDetail(String noId) {
+		return noticeDao.selectDetail(noId);
+	}
 }

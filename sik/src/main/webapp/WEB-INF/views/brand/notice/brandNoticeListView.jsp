@@ -22,10 +22,11 @@
 		<h1 align="center">${ listCount }개의브랜드list</h1>
 		<hr>
 
-		<table align="center" width="500" border="1" cellspacing="0"
+		<table align="center" width="700" border="1" cellspacing="0"
 			cellpadding="0">
 			<tr>
 				<th align="center">브랜드명</th>
+				<th align="center">제목</th>
 				<th align="center">작성자</th>
 				<th align="center">작성일</th>
 				<th align="center">삭제일</th>
@@ -35,12 +36,13 @@
 			<c:forEach items="${ requestScope.list }" var="n">
 				<tr>
 					<td align="center">${ n.brandName }</td>
+					<td><a href="noticeDetailView.do?noid=${ n.noId }&page=${nowpage}">${ n.noTitle }</a></td>
 					<td>${ n.memberName }</td>
-					<c:if test="${ n.noUate eq null }">
+					<c:if test="${ n.noUdate eq null }">
 					<td align="center"><fmt:formatDate value="${ n.noCdate }"
 							pattern="yyyy-MM-dd" /></td>
 					</c:if>
-					<c:if test="${ n.noUate ne null }">
+					<c:if test="${ n.noUdate ne null }">
 					<td align="center"><fmt:formatDate value="${ n.noUdate }"
 							pattern="yyyy-MM-dd" /></td>
 					</c:if>
