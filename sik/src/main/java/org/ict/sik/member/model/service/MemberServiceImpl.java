@@ -45,5 +45,10 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<MemberDeptPosition> selectFullList() {
 		return memberDao.selectFullList();
 	}
+
+	@Override
+	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp) {
+		return memberDao.addApprover(dp);
+	}
 	
 }

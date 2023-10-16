@@ -19,4 +19,6 @@ public interface MemberService {
 	public ArrayList<MemberDeptPosition> selectList(Paging paging);
 	
 	public ArrayList<MemberDeptPosition> selectFullList();
+	
+	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp);
 }

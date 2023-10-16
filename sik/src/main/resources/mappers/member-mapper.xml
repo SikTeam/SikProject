@@ -82,6 +82,18 @@
 					ORDER BY MEMBER_ID
 	</select>
 	
+		<select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
+		        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+			        m.SUPERIOR_ID,
+			        d.DEPT_NAME,
+			        p.POSITION_NAME
+					FROM member m 
+					FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+					FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+					WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
+					ORDER BY MEMBER_ID
+		</select>
+	
 </mapper>
 
 
