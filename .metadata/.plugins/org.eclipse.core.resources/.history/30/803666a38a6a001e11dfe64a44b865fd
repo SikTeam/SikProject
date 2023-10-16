@@ -1,0 +1,7 @@
+package org.ict.sik.reportsign.model.service;
+
+public interface ReportSignService {
+	
+	public int listCount();
+	public ArrayList<ReportSign> selectList(Paging paging);
+}

@@ -1,0 +1,15 @@
+package org.ict.sik.reportsign.model.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("ReportSignDao")
+public class ReportSignDao {
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+	
+	public int selectListCount() {
+		return sqlSessionTemplate.selectOne("reportSginMapper")
+	}
+}

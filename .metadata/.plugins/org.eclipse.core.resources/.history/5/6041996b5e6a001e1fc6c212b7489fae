@@ -1,0 +1,6 @@
+package org.ict.sik.report.model.dao;
+
+public class ReportDao {
+	@Autowired  //root-context.xml 에서 생성한 객체를 자동 연결함
+	private SqlSessionTemplate sqlSessionTemplate;
+}

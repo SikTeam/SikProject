@@ -1,0 +1,6 @@
+package org.ict.sik.report.model.dao;
+
+public class ReportDao {
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+}

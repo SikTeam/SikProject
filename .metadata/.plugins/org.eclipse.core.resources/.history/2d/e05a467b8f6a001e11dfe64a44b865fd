@@ -1,0 +1,26 @@
+package org.ict.sik.reportsign.model.service;
+
+import java.util.ArrayList;
+
+import org.ict.sik.common.Paging;
+import org.ict.sik.reportsign.model.dao.ReportSignDao;
+import org.ict.sik.reportsign.model.vo.ReportSign;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("reportSignService")
+public class ReportSignServiceImpl implements ReportSignService{
+	
+	@Autowired
+	private ReportSignDao reportSignDao;
+	
+	@Override
+	public int listCount() {
+		return reportSignDao.listCount();
+	}
+	
+	@Override
+	public ArrayList<ReportSign> selectList(Paging paging){
+		return reportSignDao.selectList(paging);
+	}
+}

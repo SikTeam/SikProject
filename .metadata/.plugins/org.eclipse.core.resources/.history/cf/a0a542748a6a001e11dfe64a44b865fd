@@ -1,0 +1,5 @@
+package org.ict.sik.reportsign.model.service;
+
+public class ReportSignService {
+
+}

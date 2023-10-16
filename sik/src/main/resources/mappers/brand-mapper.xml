@@ -28,7 +28,9 @@
 					from (select * from brand where brand_name like '%' || #{ keyword } || '%'))
 					where runm between #{startRow} and #{endRow}
 	</select>
-	
+	<select id="selectListAll" resultMap="resultBrand">
+		select * from brand
+	</select>
 </mapper>
 
 

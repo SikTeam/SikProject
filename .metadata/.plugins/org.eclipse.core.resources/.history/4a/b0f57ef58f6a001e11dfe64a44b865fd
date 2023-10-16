@@ -1,0 +1,24 @@
+package org.ict.sik.reportsign.model.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.ict.sik.common.Paging;
+import org.ict.sik.reportsign.model.vo.ReportSign;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("ReportSignDao")
+public class ReportSignDao {
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+	
+	public int listCount() {
+		return sqlSessionTemplate.selectOne("reportSginMapper.listCount");
+	}
+	public ArrayList<ReportSign> selectList(Paging paging, String memberId){
+		List<ReportSign> list = sqlSessionTemplate.selectList("reportSginMapper.selectList", paging, memberId);
+		return (ArrayList<ReportSign>)list;
+	}
+}

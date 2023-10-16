@@ -1,0 +1,5 @@
+package org.ict.sik.report.model.service;
+
+public class ReportService {
+
+}

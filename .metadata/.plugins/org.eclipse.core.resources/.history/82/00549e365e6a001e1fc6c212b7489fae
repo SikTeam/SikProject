@@ -1,0 +1,14 @@
+package org.ict.sik.report.model.service;
+
+import org.ict.sik.report.model.dao.ReportDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("ReportService")
+public class ReportServiceImpl {
+	@Autowired
+	private ReportDao reportDao;
+	
+	
+	
+}
