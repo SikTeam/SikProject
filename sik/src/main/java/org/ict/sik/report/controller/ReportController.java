@@ -27,16 +27,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ReportController {
 	private static final Logger logger = LoggerFactory.getLogger(ReportController.class);
-	
 	@Autowired
 	private ReportService reportService;
-	
 	@Autowired
 	private ReportSignService reportSignService;
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	//결재페이지 리스트
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv, HttpSession session) {

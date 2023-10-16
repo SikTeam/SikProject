@@ -48,10 +48,11 @@
 			</c:forEach>
 		</table>
 		<!-- 검색폼 입력 -->
-		<form id="titleform" class="sform" action="searchBrandNoticeName.do"
+		<form id="titleform" class="sform" action="brandNoticeListView.do"
 			method="post" align="center">
 			<input type="hidden" name="page" value="${ nowpage }">
 			<select name="brand">
+				<option value="all">모두</option>
 				<c:forEach var="b" items="${ brandList }">
 					<option value="${b.brandName }">${b.brandName }</option>
 				</c:forEach>

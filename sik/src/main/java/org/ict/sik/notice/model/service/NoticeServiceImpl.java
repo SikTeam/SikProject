@@ -2,14 +2,14 @@ package org.ict.sik.notice.model.service;
 
 import java.util.ArrayList;
 
-import org.ict.sik.common.Paging;
+import org.ict.sik.common.Search;
 import org.ict.sik.notice.model.dao.NoticeDao;
 import org.ict.sik.notice.model.vo.BrandNotice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("noticeService")
-public class NoticeserviceImpl implements NoticeService{
+public class NoticeServiceImpl implements NoticeService{
 
 	@Autowired
 	private NoticeDao noticeDao;
@@ -20,7 +20,12 @@ public class NoticeserviceImpl implements NoticeService{
 	}
 
 	@Override
-	public ArrayList<BrandNotice> selectList(Paging paging) {
-		return noticeDao.selectList(paging);
+	public ArrayList<BrandNotice> selectList(Search search) {
+		return noticeDao.selectList(search);
+	}
+
+	@Override
+	public int selectListCount(Search search) {
+		return noticeDao.selectListCount(search);
 	}
 }
