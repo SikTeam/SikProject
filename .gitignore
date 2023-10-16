@@ -15,12 +15,13 @@ local.properties
 .recommenders
 .deployables
 */.git/*
-/targer
 /target/*
 */Servers/*
 */apache-maven-3.9.4/*
 *.xml
 sik/.classpath
+*/*.log
+
 # External tool builders
 .externalToolBuilders/
 
