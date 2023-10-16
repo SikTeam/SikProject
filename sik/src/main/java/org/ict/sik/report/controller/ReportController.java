@@ -1,12 +1,16 @@
 package org.ict.sik.report.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
+import org.ict.sik.member.model.service.MemberService;
 import org.ict.sik.member.model.vo.Member;
+import org.ict.sik.member.model.vo.MemberDeptPosition;
 import org.ict.sik.report.model.service.ReportService;
 import org.ict.sik.report.model.vo.Report;
 import org.ict.sik.reportsign.model.service.ReportSignService;
@@ -17,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,6 +31,10 @@ public class ReportController {
 	private ReportService reportService;
 	@Autowired
 	private ReportSignService reportSignService;
+
+	@Autowired
+	private MemberService memberService;
+
 	//결재페이지 리스트
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv, HttpSession session) {
@@ -66,4 +75,55 @@ public class ReportController {
 		}
 		return mv;
 	}
+	
+	//결재자 정보 불러오기
+	@RequestMapping("addApprover.do")
+	@ResponseBody
+	public Map<String, Object> ApproverMemberSelect(
+			@RequestParam(name="page", required=false) String page,
+			ModelAndView mv) {
+		Map<String, Object> approver = new HashMap<>();
+		int currentPage = 1;
+		if (page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		
+		int limit = 10;
+		int listCount = memberService.selectlistCount();
+		Paging paging = new Paging(listCount, currentPage, limit, "addApprover.do");
+		paging.calculator();
+		
+		ArrayList<MemberDeptPosition> list = memberService.selectList(paging);
+
+		approver.put("approver", list);
+		approver.put("paging", paging);
+		logger.info(approver.toString());
+		
+		return approver;
+	}	
+	
+	
+	//결재 등록 페이지 이동
+	@RequestMapping("getReportId.do")
+	public ModelAndView getReportId(ModelAndView mv) {
+		String reportId = reportService.getReportId();
+		
+		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
+		
+		logger.info(reportId);
+		if (reportId != null) {
+			mv.addObject("reportId", reportId);
+			mv.addObject("list", list);
+			mv.setViewName("report/insertReport");
+		} else {
+			mv.addObject("message", "결재창 불러오기 실패.");
+			mv.setViewName("common/error");
+		}
+		return mv;
+	}
+
+//	@RequestMapping(value="RequestMapping.do", method=RequestMethod .POST)
+//	public String insertReport(
+//
+//	}
 }

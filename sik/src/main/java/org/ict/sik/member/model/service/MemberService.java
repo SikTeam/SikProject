@@ -17,4 +17,6 @@ public interface MemberService {
 	public int selectlistCount();
 	
 	public ArrayList<MemberDeptPosition> selectList(Paging paging);
+	
+	public ArrayList<MemberDeptPosition> selectFullList();
 }

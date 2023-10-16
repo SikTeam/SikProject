@@ -40,5 +40,10 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<MemberDeptPosition> selectList(Paging paging){
 		return memberDao.selectList(paging);
 	}
+
+	@Override
+	public ArrayList<MemberDeptPosition> selectFullList() {
+		return memberDao.selectFullList();
+	}
 	
 }
