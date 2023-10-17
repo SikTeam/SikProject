@@ -113,9 +113,34 @@ public class Member implements java.io.Serializable{
 		this.positionId = positionId;
 	}
 
+<<<<<<< Updated upstream
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+=======
+	public Date getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(Date enrollDate) {
+		this.enrollDate = enrollDate;
+	}
+
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
+	public String getSignImage() {
+		return signImage;
+	}
+
+	public void setSignImage(String signImage) {
+		this.signImage = signImage;
+>>>>>>> Stashed changes
 	}
 
 	@Override

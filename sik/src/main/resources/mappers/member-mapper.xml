@@ -8,8 +8,11 @@
 		<id property="memberId" column="MEMBER_ID" />
 		<result property="memberName" column="MEMBER_NAME" />
 		<result property="pw" column="PW" />
+<<<<<<< Updated upstream
 
 		<result property="enrollDate" column="ENROLL_DATE" />
+=======
+>>>>>>> Stashed changes
 		<result property="adminYn" column="ADMIN_YN" />
 		<result property="superiorId" column="SUPERIOR_ID" />
 		<result property="deptId" column="DEPT_ID" />
