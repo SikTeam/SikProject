@@ -1,0 +1,78 @@
+[15:38:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:38:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 810 ms
+[15:38:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:38:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 688 ms
+[15:38:25][INFO ][MemberController.java: 31] - login.do : Member [memberId=00005, memberName=null, pw=pass005, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[15:38:26][INFO ][MemberController.java: 57] - boardList : [매장별재고현황, 본사재고현황, 상품관리]
+[15:38:26][INFO ][MemberController.java: 58] - numRollList : [0100, 0110, 0100]
+[15:50:37][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:50:38][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 809 ms
+[15:50:38][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:50:39][INFO ][FrameworkServlet.java: 547] - Completed initialization in 731 ms
+[15:50:43][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:50:48][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:50:50][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:50:53][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:51:20][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:51:21][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 815 ms
+[15:51:21][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:51:22][INFO ][FrameworkServlet.java: 547] - Completed initialization in 765 ms
+[15:51:26][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:51:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:51:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 818 ms
+[15:51:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:51:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 703 ms
+[15:51:57][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /sik/WEB-INF/views/common/loginMain.do
+[15:58:52][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:58:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 652 ms
+[15:58:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:58:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 632 ms
+[15:59:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:59:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 624 ms
+[15:59:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:59:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 610 ms
+[15:59:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:59:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 862 ms
+[15:59:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:59:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 760 ms
+[15:59:57][INFO ][MemberController.java: 31] - login.do : Member [memberId=00005, memberName=null, pw=pass005, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[15:59:58][INFO ][MemberController.java: 57] - boardList : [매장별재고현황, 본사재고현황, 상품관리]
+[15:59:58][INFO ][MemberController.java: 58] - numRollList : [0100, 0110, 0100]
+[16:00:45][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /sik/brandStock.do
+[16:01:44][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:01:45][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 791 ms
+[16:01:45][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:01:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 687 ms
+[16:04:26][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:04:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 801 ms
+[16:04:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:04:28][INFO ][FrameworkServlet.java: 547] - Completed initialization in 724 ms
+[16:08:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:08:04][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 793 ms
+[16:08:04][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:08:05][INFO ][FrameworkServlet.java: 547] - Completed initialization in 701 ms
+[16:08:59][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:09:00][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 630 ms
+[16:09:00][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:09:00][INFO ][FrameworkServlet.java: 547] - Completed initialization in 632 ms
+[16:23:37][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:23:38][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1101 ms
+[16:23:38][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:23:39][INFO ][FrameworkServlet.java: 547] - Completed initialization in 971 ms
+[16:24:13][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:24:14][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 929 ms
+[16:24:14][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:24:15][INFO ][FrameworkServlet.java: 547] - Completed initialization in 882 ms
+[16:26:09][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:26:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1081 ms
+[16:26:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:26:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 960 ms
+[16:26:17][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:26:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1092 ms
+[16:26:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:26:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 945 ms
+[16:26:38][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, enrollDate=null, adminYn=null, superiorId=null, deptId=null, positionId=null]
+[16:26:38][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[16:26:38][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[16:26:42][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}
+[16:26:46][INFO ][NoticeController.java: 35] - 넘어온값 확인 : { brand : null, page :1, keyword : null}

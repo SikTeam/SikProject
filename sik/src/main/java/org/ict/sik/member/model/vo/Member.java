@@ -39,6 +39,7 @@ public class Member implements java.io.Serializable{
 		this.positionId = positionId;
 	}
 
+
 	public String getMemberId() {
 		return memberId;
 	}
@@ -62,7 +63,7 @@ public class Member implements java.io.Serializable{
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	
+
 	public String getEnrollDate() {
 		return enrollDate;
 	}
@@ -102,7 +103,6 @@ public class Member implements java.io.Serializable{
 	public void setPositionId(String positionId) {
 		this.positionId = positionId;
 	}
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

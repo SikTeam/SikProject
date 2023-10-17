@@ -24,9 +24,9 @@ public class FcServiceImpl implements FcService{
 		return fcDao.selectFcCheck(fc);
 	}
 
+
 	@Override
 	public Fc selectLogin(Fc fc) {
 		return fcDao.selectLogin(fc);
 	}
-
 }

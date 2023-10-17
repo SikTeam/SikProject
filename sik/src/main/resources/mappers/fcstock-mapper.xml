@@ -31,11 +31,13 @@
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	
+	<!--  -->
 	<select id="selectListName" parameterType="Search" resultMap="resultFcStockName">
 		select * from (select rownum rnum, ITEM_NAME,FC_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
 			 		   from fc_stock
 			 		   join item using(item_id)
-			 		   join fc using(fc_id))
+			 		   join fc using(fc_id)
+			 		   where fc_name like  '%' || #{ keyword } || '%' )
 				where rnum between #{startRow} and #{endRow}
 	</select>
 </mapper>
