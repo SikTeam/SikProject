@@ -38,6 +38,7 @@
 				      <th scope="col">사번</th>
 				      <th scope="col">이름</th>
 				      <th scope="col">패스워드</th>
+				      <th scope="col">입사일</th>
 				      <th scope="col">관리자여부</th>
 				      <th scope="col">상급자사번</th>
 				      <th scope="col">부서</th>
@@ -45,18 +46,16 @@
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider">
-                  <c:set var="a" value="${ requestScope.list }" />
-                  <c:set var="b" value="${ requestScope.list2 }" />
-					<c:set var="c" value="${ requestScope.list3 }" />
-				  	<c:forEach items="${ list }" var="a">
+				  	<c:forEach items="${ requestScope.list }" var="m">
 					    <tr>
-					      <td>${ a.memberId }</td>
-					      <td>${ a.memberName }</td>
-					      <td>${ a.pw }</td>
-					      <td>${ a.adminYn }</td>
-					      <td>${ a.superiorId }</td>
- 					      <td>${ a.deptName }</td>
-					      <td>${ a.positionName }</td> 
+					      <td>${ m.memberId }</td>
+					      <td>${ m.memberName }</td>
+					      <td>${ m.pw }</td>
+					      <td>${ m.enrollDate }</td>
+					      <td>${ m.adminYn }</td>
+					      <td>${ m.superiorId }</td>
+ 					      <td>${ m.deptName }</td>
+					      <td>${ m.positionName }</td>
 					    </tr>
 					</c:forEach>
 				  </tbody>
