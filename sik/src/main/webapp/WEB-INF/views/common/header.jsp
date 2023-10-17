@@ -121,11 +121,11 @@ a {
 	color: black;
 }
 </style>
+
 </head>
 <body>
-	<c:if test="${ empty sessionScope.loginMember }">
-		<jsp:forward page="loginMain.do" />
-	</c:if>
+	
+		
 	<c:set var="loop_flag" value="false" />
 	<c:set var="FranchiseManagement">브랜드관리, 브랜드공지, 매장요청사항,매장관리점검,매장상세조회</c:set>
 	<c:set var="Stationery">출고요청,출고진행사항,생산업체관리,생산요청,발주</c:set>
@@ -148,7 +148,7 @@ a {
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ FranchiseManagement }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 									<li class="nav-item"><a class="nav-link" href="#"
@@ -161,7 +161,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ Stationery }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 									<li class="nav-item"><a class="nav-link" href="#"
@@ -173,7 +173,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ MenuDevelopment }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 
@@ -187,7 +187,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ FranchiseSales }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 
@@ -201,7 +201,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ ProductManagement }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 
@@ -215,7 +215,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ AdvertisingPlanning }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 									<li class="nav-item"><a class="nav-link" href="#"
@@ -228,7 +228,7 @@ a {
 					</c:forEach>
 					<c:set var="loop_flag" value="false" />
 					<c:forEach var="board" items="${ Sales }">
-						<c:forEach var="hearder" items="${ sessionScope.board }">
+						<c:forEach var="hearder" items="${ requestScope.board }">
 							<c:if test="${ board eq hearder }">
 								<c:if test="${ not loop_flag }">
 
@@ -242,7 +242,7 @@ a {
 					<li><a class="nav-link" href="reportList.do">결재</a></li>
 					<li><a class="nav-link" href="#">공지사항</a></li>
 					<c:if
-						test="${ !empty sessionScope.loginMember and sessionScope.loginMember.adminYn eq 'Y' }">
+						test="${ !empty requestScope.loginMember and requestScope.loginMember.adminYn eq 'Y' }">
 						<li class="nav-item"><a class="nav-link" href="#"
 							data-bs-toggle="offcanvas" data-bs-target="#Admin">관리자</a></li>
 					</c:if>
@@ -283,13 +283,13 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${ board eq '브랜드관리' }">
 											<a href="/sik/views/main.jsp">브랜드관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${ board eq '브랜드공지' }">
 											<a href="brandNoticeListView.do?page=1">브랜드공지</a>
 											<br>
@@ -309,19 +309,19 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${ board eq '매장요청사항' }">
 											<a href="/sik/views/main.jsp">매장요청사항</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '매장관리점검' }">
 											<a href="/sik/views/main.jsp">매장관리점검</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '매장상세조회' }">
 											<a href="/sik/views/main.jsp">매장상세조회</a>
 											<br>
@@ -362,13 +362,13 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '출고요청서' }">
 											<a href="/sik/views/main.jsp">출고 요청</a>
 										</c:if>
 										<br>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '출고진행사항' }">
 											<a href="/sik/views/main.jsp">출고진행사항</a>
 										</c:if>
@@ -387,13 +387,13 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '생산업체' }">
 											<a href="/sik/views/main.jsp">생산업체관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '생산요청' }">
 											<a href="/sik/views/main.jsp">생산요청</a>
 										</c:if>
@@ -412,7 +412,7 @@ a {
 									class="accordion-collapse collapse"
 									data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-										<c:forEach var="board" items="${ sessionScope.board }">
+										<c:forEach var="board" items="${ requestScope.board }">
 											<c:if test="${board eq '가맹점발주' }">
 												<a href="/sik/views/main.jsp">발주</a>
 												<br>
@@ -454,13 +454,13 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '레시피' }">
 											<a href="brandNoticeList.do?page=1">메뉴관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '레시피' }">
 											<a href="/sik/views/main.jsp">레시피 관리</a>
 										</c:if>
@@ -500,7 +500,7 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '계약현황' }">
 											<a href="/sik/views/main.jsp">가맹계약현황</a>
 										</c:if>
@@ -540,19 +540,19 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '매장별재고현황' }">
 											<a href="fcStock.do">매장별재고현황</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '본사재고현황' }">
 											<a href="brandStock.do">본사재고현황</a>
 											<br>
 										</c:if>
 									</c:forEach>
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '상품관리' }">
 											<a href="/sik/views/main.jsp">상품관리</a>
 											<br>
@@ -594,7 +594,7 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '프로모션' }">
 											<a href="/sik/views/main.jsp">프로모션현황</a>
 										</c:if>
@@ -613,7 +613,7 @@ a {
 							<div id="flush-collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '프로모션' }">
 											<a href="/sik/views/main.jsp">마케팅현황</a>
 										</c:if>
@@ -652,7 +652,7 @@ a {
 							<div id="flush-collapseOne" class="accordion-collapse collapse"
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
-									<c:forEach var="board" items="${ sessionScope.board }">
+									<c:forEach var="board" items="${ requestScope.board }">
 										<c:if test="${board eq '매출' }">
 											<a href="/sik/views/main.jsp">매출조회</a>
 										</c:if>
