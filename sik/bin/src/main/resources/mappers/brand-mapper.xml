@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="brandMapper">
+
+	<resultMap id="resultBrand" type="Brand">
+		<id property="brandId" column="BRAND_ID" />
+		<result property="brandName" column="BRAND_NAME" />
+		<result property="brandBir" column="BRAND_BIR" />
+		<result property="brandUp" column="BRAND_UP" />
+		<result property="brandYn" column="BRAND_YN" />
+	</resultMap>
+	<select id="selectBrandCount" resultType="_int">
+		select count(*) from brand
+	</select>
+	<select id="selectListNameCount" parameterType="string" resultType="_int">
+		select count(*) from brand where brand_name like '%' || #{ keyword } || '%' 
+	</select>
+	<select id="selectList" parameterType="Paging" resultMap="resultBrand">
+		select * from(select rownum runm, BRAND_ID,BRAND_NAME,BRAND_BIR,BRAND_UP,BRAND_YN
+					from (select * from brand
+					order by BRAND_BIR, BRAND_YN desc))
+		where runm between #{startRow} and #{endRow}
+	</select>
+	<select id="selectListName" parameterType="Search" resultMap="resultBrand">
+		select * from(select rownum runm, BRAND_ID,BRAND_NAME,BRAND_BIR,BRAND_UP,BRAND_YN
+					from (select * from brand where brand_name like '%' || #{ keyword } || '%'))
+					where runm between #{startRow} and #{endRow}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

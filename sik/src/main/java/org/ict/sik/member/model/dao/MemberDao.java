@@ -38,5 +38,14 @@ public class MemberDao {
 		return (ArrayList<MemberDeptPosition>)list;
 	}
 	
+	public ArrayList<MemberDeptPosition> selectFullList(){
+		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.selectFullList");
+		return (ArrayList<MemberDeptPosition>)list;
+	}
+	
+	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp){
+		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.addApprover", dp);
+		return (ArrayList<MemberDeptPosition>)list;
+	}
 	
 }

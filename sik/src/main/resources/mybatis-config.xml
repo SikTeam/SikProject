@@ -44,9 +44,12 @@
 		<typeAlias type="org.ict.sik.roll.model.vo.Roll" alias="Roll"/>
 		<typeAlias type="org.ict.sik.secondcategory.model.vo.SecondCategory" alias="SecondCategory"/>
 		<!-- common -->
+		
 		<typeAlias type="org.ict.sik.common.Paging" alias="Paging" />
 		<typeAlias type="org.ict.sik.common.Search" alias="Search" />
+		<typeAlias type="org.ict.sik.notice.model.vo.BrandNotice" alias="BrandNotice"/>
 		<typeAlias type="org.ict.sik.member.model.vo.MemberDeptPosition" alias="MemberDeptPosition"/>
+		<typeAlias type="org.ict.sik.fcstock.model.vo.FcStockName" alias="FcStockName"/>
 		
 	</typeAliases>
 	<mappers>
