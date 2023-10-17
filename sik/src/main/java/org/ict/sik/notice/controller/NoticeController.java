@@ -99,4 +99,9 @@ public class NoticeController {
 		}
 		return mv;
 	}
+	
+	
+	
+	//가맹점 메인화면 - 공지사항 상세보기 요청 처리용
+	
 }

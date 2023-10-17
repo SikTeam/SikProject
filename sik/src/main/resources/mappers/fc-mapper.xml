@@ -26,26 +26,6 @@
 		select * from fc
 		where fc_id like #{fcId}
 	</select>
-	
-	<select id="selectListFcCount" parameterType="string" resultType="_int">
-		select count(*) from fc where fc_name like '%' || #{ keyword } || '%' 
-	</select>
-	
-	<select id="selectList" parameterType="Paging" resultMap="resultFc">
-		select * from(select rownum runm,fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
-					  from fc
-					  right join fc_stock ON fc.fc_id = fc_stock.fc_id 
-					  from (select * from fc
-					  order by fc_id desc))
-		where runm between #{startRow} and #{endRow}
-	</select>
-	
-	<select id="selectListName" parameterType="Search" resultMap="resultFc">
-		select * from (select rownum runm, fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
-    				   from fc
-    				   right join fc_stock ON fc.fc_id = fc_stock.fc_id)
-				where runm between #{startRow} and #{endRow}
-	</select>
 </mapper>
 
 

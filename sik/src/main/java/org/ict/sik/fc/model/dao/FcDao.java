@@ -24,23 +24,5 @@ public class FcDao {
 	public Fc selectLogin(Fc fc) {
 		return sqlSessionTemplate.selectOne("fcMapper.selectLogin",fc);
 	}
-
-	public ArrayList<Fc> selectList(Paging paging) {
-		List<Fc> list = sqlSessionTemplate.selectList("fcMapper.selectList", paging);
-		return (ArrayList<Fc>)list;
-	}
-
-	public int selectListFcCount(String keyword) {
-		return sqlSessionTemplate.selectOne("fcMapper.selectListFcCount", keyword);
-	}
-
-	public ArrayList<Fc> selectFcListName(Search search) {
-		List<Fc> list = sqlSessionTemplate.selectList("fcMapper.selectListName",search);
-		return (ArrayList<Fc>)list;
-	}
-
-	public int selectListCount() {
-		return sqlSessionTemplate.selectOne("fcMapper.selectListCount");
-	}
 }
 
