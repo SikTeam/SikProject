@@ -11,28 +11,32 @@
 		<result property="fcStockEtc" column="FC_STOCK_ETC" />
 	</resultMap>
 	<resultMap id="resultFcStockName" type="FcStockName">
-		<id property="itemId" column="ITEM_ID" />
+		<result property="itemName" column="ITEM_NAME" />
 		<result property="fcName" column="FC_NAME" />
-		<result property="fcId" column="FC_ID" />
-		<result property="fcStockQuan" column="FC_STOCK_QUAN" />
-		<result property="fcStockEtc" column="FC_STOCK_ETC" />
 	</resultMap>
 	<select id="selectListFcCount" parameterType="string" resultType="_int">
-		select count(*) from fc where fc_name like '%' || #{ keyword } || '%' 
+		select count(*)
+		from(select ITEM_NAME,FC_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+			 from fc_stock
+			 join item using(item_id)
+			 join fc using(fc_id))
+		where fc_name like  '%' || #{ keyword } || '%' 
 	</select>
 	
 	<select id="selectList" parameterType="Paging" resultMap="resultFcStockName">
-		select * from(select rownum runm,fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
-					  from fc
-					  right join fc_stock ON fc.fc_id = fc_stock.fc_id)
-		where runm between #{startRow} and #{endRow}
+		select * from(select rownum rnum, ITEM_NAME,FC_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+			 		   from fc_stock
+			 		   join item using(item_id)
+			 		   join fc using(fc_id))
+		where rnum between #{startRow} and #{endRow}
 	</select>
 	
 	<select id="selectListName" parameterType="Search" resultMap="resultFcStockName">
-		select * from (select rownum runm, fc.fc_name, fc_stock.item_id, fc_stock.fc_stock_quan, fc_stock.fc_stock_etc
-    				   from fc
-    				   right join fc_stock ON fc.fc_id = fc_stock.fc_id)
-				where runm between #{startRow} and #{endRow}
+		select * from (select rownum rnum, ITEM_NAME,FC_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+			 		   from fc_stock
+			 		   join item using(item_id)
+			 		   join fc using(fc_id))
+				where rnum between #{startRow} and #{endRow}
 	</select>
 </mapper>
 

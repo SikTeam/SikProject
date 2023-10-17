@@ -42,21 +42,21 @@
 	<c:import url="/WEB-INF/views/common/header.jsp" />
 	<h1 align="center">${ listCount }개의 매장 list</h1>
 			<hr>
-	<table align="center" width="500" border="1" cellspacing="0"
+	<table align="center" width="1000" border="1" cellspacing="0"
 		cellpadding="0">
 		<tr>
-			<th align="center">가맹점 ID</th>
-			<th align="center">점포명</th>
-			<th align="center">상품 ID</th>
-			<th align="center">수량</th>
-			<th align="center">비고</th>
+			<th align="center" width="150">가맹점 ID</th>
+			<th align="center" width="300">점포명</th>
+			<th align="center" width="300">상품명</th>
+			<th align="center" width="100">수량</th>
+			<th align="center" width="150">비고</th>
 		</tr>
 
 		<c:forEach items="${ requestScope.list }" var="n">
 			<tr>
 				<td align="center">${ n.fcId }</td>
 				<td align="center">${ n.fcName }</td>
-				<td align="center">${ n.itemId }</td>
+				<td align="center">${ n.itemName }</td>
 				<td align="center">${ n.fcStockQuan }</td>
 				<td align="center">${ n.fcStockEtc }</td>
 			</tr>
