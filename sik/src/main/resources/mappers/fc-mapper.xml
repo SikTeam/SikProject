@@ -26,6 +26,8 @@
 		select * from fc
 		where fc_id like #{fcId}
 	</select>
+	
+	
 </mapper>
 
 

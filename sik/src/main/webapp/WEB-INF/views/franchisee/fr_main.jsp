@@ -15,32 +15,36 @@
 </style>
 
 <script type="text/javascript">
-$(function(){
-	//브랜드 공지사항 상세보기 
+//브랜드 공지사항 상세보기 
+/* function frBrandNotice () {
 	$.ajax({
-		url: "brandNoticeListView.do",
-		type:"post",
-		dataType:"json",
-		success: function(data) {
-			console.log("success(가맹메인-브랜드공지) : " + data);
-		
-			var str = JSON.stringfy(data);
+		url: 'frbrandnotice.do',
+		type: 'post',
+		data: {
+			keyword : $('#keyword').val()
+		},
+		dataType: "json",
+		success: function(dataObj) {
+			console.log('dataObj :' + dataObj);
 			
-			var json = JSON.parse(str);
+			var objStr = JSON.stringify(dataObj);
+			var jsonObj = JSON.parse(objStr);
 			
-			values = "";
-			for(var i in json.list){
-				values += "<tr><td>" + json.list[i].no
-				+ "</td><td><a href ='' "
-				+ json.list[i].no + "'>"
-				+decodeURIComponent(json.list[i].title).replace(/\+/gi, " ") 
-				 + "</a></td><td>"
-                 + json.list[i].date + "</td></tr>";
+			var output ="";
+			
+			for(var i in jsonObj.list) {
+				output += "<tr><td>" + jsonObj.list[i].brandnoticewriter + "</td>"
+				+"<td>"+
 			}
-			
 		}
-	})
-});
+		
+	}); //ajax
+	
+} */
+	
+
+	
+	
 
 
 </script>
@@ -59,7 +63,30 @@ $(function(){
           
           	<!-- 공지사항 -->
           <div class="bg-body-tertiary border rounded-3">
-          	<c:import url="/WEB-INF/views/main/notice.jsp"/>
+          	<h1 align="center">${ listCount }개의브랜드 list</h1>
+			<hr>
+		<%-- <table align="center" width="500" border="1" cellspacing="0"
+		cellpadding="0">
+		<tr>
+			<th align="center">브랜드ID</th>
+			<th align="center">브랜드 이름</th>
+			<th align="center">생성일</th>
+			<th align="center">수정일</th>
+			<th align="center">활성화 여부</th>
+		</tr>
+
+		<c:forEach items="${ requestScope.list }" var="n">
+			<tr>
+				<td align="center">${ n.brandId }</td>
+				<td>${ n.brandName }</td>
+				<td align="center"><fmt:formatDate value="${ n.brandBir }"
+						pattern="yyyy-MM-dd" /></td>
+				<td align="center"><fmt:formatDate value="${ n.brandUp }"
+						pattern="yyyy-MM-dd" /></td>
+				<td align="center">${ n.brandYn }</td>
+			</tr>
+		</c:forEach>
+	</table> --%>
           
           </div>
           <!-- 공지사항 -->

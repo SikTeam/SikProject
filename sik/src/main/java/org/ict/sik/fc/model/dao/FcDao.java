@@ -19,5 +19,7 @@ public class FcDao {
 		return sqlSessionTemplate.selectOne("fcMapper.selectLogin",fc);
 	}
 
+	
+	
 }
 
