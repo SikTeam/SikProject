@@ -11,11 +11,15 @@
 <script type='text/javascript'>
 $(document).ready(function() {
     $('#dept, #position').change(function() {
+    	
+    	$('#name').html('');
+    	$('#memberId').html('');
+    	
         $.ajax({
             url: 'addApprover.do',
             type: 'post',
             dataType: 'json',
-            data: { dept: dept, position: position },
+            data: { dept: $('#dept').val(), position: $('#position').val() },
             success: function(data) {
             	console.log(data);
             	
@@ -25,10 +29,13 @@ $(document).ready(function() {
             	var output = $('#name').html();
                 
                 for(var i in jsonObj.list){
-                	output +='<option value="' + jsonObj.list[i].memberName + '">' + jsonObj.list[i].memberName + '</option>';
+                	output +='<option value="' + decodeURIComponent(jsonObj.list[i].memberId) + '">' 
+                	+ decodeURIComponent(jsonObj.list[i].memberName)+ " "+ decodeURIComponent(jsonObj.list[i].memberId) + '</option>';
                 }
                 
                 $('#name').html(output);
+                
+
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -84,14 +91,15 @@ $(document).ready(function() {
 									</select>
 																 
 									</form>
-									<button>+</button>				
+									<button type="button" class="btn btn-danger"
+        								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+									  +
+									</button>				
 								</div>
 								<hr>
-
-								<br> <br>
 								<div>
-									<span>Date: 2023 - 10 - 15 &nbsp&nbsp&nbsp&nbsp&nbsp</span> <span>보고서
-										번호 : ${ reportId }</span>
+									<span>보고서 번호 : ${ reportId }</span><br>
+									보고서 종류 : <span id="reportselect"></span>
 								</div>
 								<br> <br> <label for="proposalTitle"
 									class="form-label">제목</label> <input type="text"
