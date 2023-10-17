@@ -3,10 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+.custom-table{
+    font-size: 14px;
+}
+</style>
 </head>
 <body>
-<div class="table-responsive table-bordered" style="padding: 10px;">
+<div class="table-responsive custom-table table-bordered" style="padding: 10px;">
 <table class="table table-hover border rounded-5">
 	<h6 style="text-align: center; margin-top:10px; margin-bottom:15px;">공 지 사 항</h6>
   <thead class="table-dark">

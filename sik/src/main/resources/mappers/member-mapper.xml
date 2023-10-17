@@ -8,6 +8,7 @@
 		<id property="memberId" column="MEMBER_ID" />
 		<result property="memberName" column="MEMBER_NAME" />
 		<result property="pw" column="PW" />
+		<result property="enrollDate" column="Enroll_Date" />
 		<result property="adminYn" column="ADMIN_YN" />
 		<result property="superiorId" column="SUPERIOR_ID" />
 		<result property="deptId" column="DEPT_ID" />
@@ -18,6 +19,7 @@
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="memberName" column="MEMBER_NAME" />
 		<result property="pw" column="PW" />
+		<result property="enrollDate" column="Enroll_Date" />
 		<result property="adminYn" column="ADMIN_YN" />
 		<result property="superiorId" column="SUPERIOR_ID" />
 		<result property="deptName" column="DEPT_NAME" />
@@ -56,18 +58,42 @@
 	
 	<select id="selectListP" parameterType="Paging" resultMap="resultList">
 		select *
-		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, SUPERIOR_ID, DEPT_NAME, POSITION_NAME
-        from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, SUPERIOR_ID, DEPT_NAME, POSITION_NAME
-		        from member 
-		        join position using (POSITION_ID)
-		        join department using (DEPT_ID)
-                where ADMIN_YN = 'N'
-                order by MEMBER_ID))
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, SUPERIOR_ID, DEPT_NAME, POSITION_NAME
+    			from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, SUPERIOR_ID, DEPT_NAME, POSITION_NAME
+            		from member 
+	            full join position using (POSITION_ID)
+	            full join department using (DEPT_ID)
+	            where ADMIN_YN = 'N'
+	            order by MEMBER_ID
+        )
+)
 		where rnum between #{ startRow } and #{ endRow }
-		
-		
-		
 	</select>
+	
+	<select id="selectFullList" resultMap="resultList">
+		        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+			        m.SUPERIOR_ID,
+			        d.DEPT_NAME,
+			        p.POSITION_NAME
+					FROM member m 
+					FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+					FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+					WHERE ADMIN_YN = 'N'
+					ORDER BY MEMBER_ID
+	</select>
+	
+		<select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
+		        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+			        m.SUPERIOR_ID,
+			        d.DEPT_NAME,
+			        p.POSITION_NAME
+					FROM member m 
+					FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+					FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+					WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
+					ORDER BY MEMBER_ID
+		</select>
+	
 </mapper>
 
 

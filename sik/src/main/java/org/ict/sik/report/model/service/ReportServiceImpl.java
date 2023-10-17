@@ -15,7 +15,18 @@ public class ReportServiceImpl implements ReportService{
 	@Autowired
 	private ReportDao reportDao;
 	
+	@Override
 	public ArrayList<Report> selectList(Search search){
 		return reportDao.selectList(search);
+	}
+	
+	@Override
+	public String getReportId() {
+		return reportDao.getReportId();
+	}
+	
+	@Override
+	public int insertReport(Report report) {
+		return reportDao.insertReport(report);
 	}
 }
