@@ -88,6 +88,7 @@ public class NoticeController {
 	public ModelAndView noticeDetailViewMethod(@RequestParam("noid") String noId,
 			@RequestParam("page") String page,
 			ModelAndView mv) {
+		int result =noticeService.updateAddReadCount(noId);
 		BrandNotice notice = noticeService.selectDetail(noId);
 		if(notice != null) {
 			mv.addObject("page", page);
