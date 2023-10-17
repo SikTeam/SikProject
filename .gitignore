@@ -15,11 +15,17 @@ local.properties
 .recommenders
 .deployables
 */.git/*
-targer
-Servers
-apache-maven-3.9.4/*
+
+/targer
+
+/target/*
+*/Servers/*
+*/apache-maven-3.9.4/*
 *.xml
-*/.classpath
+sik/.classpath
+
+*/*.log
+
 
 # External tool builders
 .externalToolBuilders/
@@ -79,8 +85,8 @@ apache-maven-3.9.4/*
 *.class
 
 # Log file
-/**/*.log*
-log/*
+*.log
+
 # BlueJ files
 *.ctxt
 
@@ -126,10 +132,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
-sik/src/main/resources/logs/system.log
-*.log
-/target
-sik/target/*
 sik/.classpath
-sik/.settings/*
+
+apache-maven-3.9.4/
+
+Servers/Tomcat v9.0 Server at localhost-config/
+sik/target/classes/logs/system.log2023-10-15
+Servers/.project
