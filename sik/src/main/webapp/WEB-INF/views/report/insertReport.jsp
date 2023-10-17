@@ -11,6 +11,10 @@
 <script type='text/javascript'>
 $(function() {
     $('#dept, #position').change(function() {
+    	
+    	$('#name').html('');
+    	$('#memberId').html('');
+    	
         $.ajax({
             url: 'addApprover.do',
             type: 'post',
@@ -27,11 +31,12 @@ $(function() {
             	var output = $('#name').html();
                 
                 for(var i in jsonObj.list){
+
                 	output +='<option value="' + decodeURIComponent(jsonObj.list[i].memberId)'">'
                 	+ decodeURIComponent(jsonObj.list[i].memberName) + '</option>';
                 	console.log(jsonObj.list[i].memberName);
+
                 }
-                
                 $('#name').html(output);
             },
             error : function(request, status, errorData){
@@ -89,14 +94,15 @@ $(function() {
 									</select>
 																 
 									</form>
-									<button>+</button>				
+									<button type="button" class="btn btn-danger"
+        								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+									  +
+									</button>				
 								</div>
 								<hr>
-
-								<br> <br>
 								<div>
-									<span>Date: 2023 - 10 - 15 &nbsp&nbsp&nbsp&nbsp&nbsp</span> <span>보고서
-										번호 : ${ reportId }</span>
+									<span>보고서 번호 : ${ reportId }</span><br>
+									보고서 종류 : <span id="reportselect"></span>
 								</div>
 								<br> <br> <label for="proposalTitle"
 									class="form-label">제목</label> <input type="text"
