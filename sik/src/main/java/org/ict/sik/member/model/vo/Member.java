@@ -1,17 +1,19 @@
 package org.ict.sik.member.model.vo;
 
+import java.util.Date;
+
 public class Member implements java.io.Serializable{
 	private static final long serialVersionUID = -8259111127292047344L;
 	private String memberId;		//사번
 	private String memberName;	//이름
 	private String pw;				//패스워드
-
-	private String enrollDate;		//입사일
-
 	private String adminYn;		//관리자YN
 	private String superiorId;		//상급자사번
 	private String deptId;			//부서ID
 	private String positionId;		//직책ID
+	private Date enrollDate;		//입사일
+	private String profileImage;		//프로필사진
+	private String signImage;		//프로필사진
 	
 	public Member() {
 		super();
@@ -27,26 +29,19 @@ public class Member implements java.io.Serializable{
 	 * @param positionId
 	 */
 
-	public Member(String memberId, String memberName, String pw, String enrollDate, String adminYn, String superiorId, String deptId,
-			String positionId) {
-
+	public Member(String memberId, String memberName, String pw, String adminYn, String superiorId, String deptId,
+			String positionId, Date enrollDate, String profileImage, String signImage) {
 		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
 		this.pw = pw;
-		this.enrollDate = enrollDate;
 		this.adminYn = adminYn;
 		this.superiorId = superiorId;
 		this.deptId = deptId;
 		this.positionId = positionId;
-	}
-
-	public String getEnrollDate() {
-		return enrollDate;
-	}
-
-	public void setEnrollDate(String enrollDate) {
 		this.enrollDate = enrollDate;
+		this.profileImage = profileImage;
+		this.signImage = signImage;
 	}
 
 	public String getMemberId() {
@@ -71,14 +66,6 @@ public class Member implements java.io.Serializable{
 
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
-	
-	public String getEnrollDate() {
-		return enrollDate;
-	}
-
-	public void setEnrollDate(String enrollDate) {
-		this.enrollDate = enrollDate;
 	}
 
 	public String getAdminYn() {
@@ -113,11 +100,6 @@ public class Member implements java.io.Serializable{
 		this.positionId = positionId;
 	}
 
-<<<<<<< Updated upstream
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-=======
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
@@ -140,7 +122,6 @@ public class Member implements java.io.Serializable{
 
 	public void setSignImage(String signImage) {
 		this.signImage = signImage;
->>>>>>> Stashed changes
 	}
 
 	@Override
