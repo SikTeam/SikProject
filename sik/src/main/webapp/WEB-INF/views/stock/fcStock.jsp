@@ -15,8 +15,8 @@
 <title>매장별 재고 현황</title>
 <script type="text/javascript"
 	src="/first/resources/js/jquery-3.7.0.min.js"></script>
-<script type="text/javascript">
-/* 	$(function() {
+<!-- <script type="text/javascript">
+ 	$(function() {
 		var limit = "${ currentLimit }";
 		document.getElementById("limit").value = limit;
 
@@ -35,18 +35,17 @@
 			}); //each
 		}); //on
 	}); //document ready
- */
-</script>
+</script> -->
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
-	<h1 align="center">${ listCount }개의 매장 list</h1>
+	<h1 align="center">${ listCount }개의 매장 </h1>
 			<hr>
 	<table align="center" width="1000" border="1" cellspacing="0"
-		cellpadding="0">
+		cellpadding="3">
 		<tr>
-			<th align="center" width="150">가맹점 ID</th>
-			<th align="center" width="300">점포명</th>
+			<th align="center" width="100">가맹점ID</th>
+			<th align="center" width="350">점포명</th>
 			<th align="center" width="300">상품명</th>
 			<th align="center" width="100">수량</th>
 			<th align="center" width="150">비고</th>
