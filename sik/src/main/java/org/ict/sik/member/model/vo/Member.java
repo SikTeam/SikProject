@@ -5,7 +5,9 @@ public class Member implements java.io.Serializable{
 	private String memberId;		//사번
 	private String memberName;	//이름
 	private String pw;				//패스워드
+
 	private String enrollDate;		//입사일
+
 	private String adminYn;		//관리자YN
 	private String superiorId;		//상급자사번
 	private String deptId;			//부서ID
@@ -27,6 +29,7 @@ public class Member implements java.io.Serializable{
 
 	public Member(String memberId, String memberName, String pw, String enrollDate, String adminYn, String superiorId, String deptId,
 			String positionId) {
+
 		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
@@ -36,6 +39,14 @@ public class Member implements java.io.Serializable{
 		this.superiorId = superiorId;
 		this.deptId = deptId;
 		this.positionId = positionId;
+	}
+
+	public String getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(String enrollDate) {
+		this.enrollDate = enrollDate;
 	}
 
 	public String getMemberId() {
@@ -113,5 +124,4 @@ public class Member implements java.io.Serializable{
 				+ enrollDate + ", adminYn=" + adminYn + ", superiorId=" + superiorId + ", deptId=" + deptId
 				+ ", positionId=" + positionId + "]";
 	}
-	
 }

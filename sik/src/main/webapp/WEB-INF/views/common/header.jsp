@@ -131,7 +131,7 @@ a {
 	<c:set var="Stationery">출고요청,출고진행사항,생산업체관리,생산요청,발주</c:set>
 	<c:set var="MenuDevelopment">메뉴관리,레시피관리</c:set>
 	<c:set var="FranchiseSales">가맹계약현황</c:set>
-	<c:set var="ProductManagement">상품현황,매장별재고,본사재고</c:set>
+	<c:set var="ProductManagement">상품관리,매장별재고,본사재고</c:set>
 	<c:set var="AdvertisingPlanning">프로모션현황,마케팅현황</c:set>
 	<c:set var="Sales">매출</c:set>
 	<header class="p-3 mb-3 border-bottom small shadow">
@@ -324,6 +324,7 @@ a {
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '매장상세조회' }">
 											<a href="/sik/views/main.jsp">매장상세조회</a>
+											<br>
 										</c:if>
 									</c:forEach>
 								</div>
@@ -393,7 +394,7 @@ a {
 										</c:if>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '샌산요청' }">
+										<c:if test="${board eq '생산요청' }">
 											<a href="/sik/views/main.jsp">생산요청</a>
 										</c:if>
 									</c:forEach>
@@ -540,10 +541,24 @@ a {
 								data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
-										<c:if test="${board eq '상품관리' }">
-											<a href="/sik/views/main.jsp">상품현황</a>
+										<c:if test="${board eq '매장별재고현황' }">
+											<a href="fcStock.do">매장별재고현황</a>
+											<br>
 										</c:if>
 									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '본사재고현황' }">
+											<a href="brandStock.do">본사재고현황</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									<c:forEach var="board" items="${ sessionScope.board }">
+										<c:if test="${board eq '상품관리' }">
+											<a href="/sik/views/main.jsp">상품관리</a>
+											<br>
+										</c:if>
+									</c:forEach>
+									
 								</div>
 							</div>
 						</div>

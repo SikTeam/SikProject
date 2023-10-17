@@ -34,4 +34,8 @@ public class BrandDao {
 		List<Brand> list = sqlSessionTemplate.selectList("brandMapper.selectListName",search);
 		return (ArrayList<Brand>)list;
 	}
+	public ArrayList<Brand> selectList() {
+		List<Brand> list = sqlSessionTemplate.selectList("brandMapper.selectListAll");
+		return (ArrayList<Brand>)list;
+	}
 }

@@ -10,6 +10,7 @@ public interface BrandService {
 
 	public int selectListCount();
 	public ArrayList<Brand> selectList(Paging paging);
+	public ArrayList<Brand> selectList();
 	public int selectListNameCount(String keyword);
 	public ArrayList<Brand> selectListName(Search search);
 }

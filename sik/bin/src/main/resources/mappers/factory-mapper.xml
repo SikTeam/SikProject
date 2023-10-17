@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="factoryMapper">
+
+	<resultMap id="resultFactory" type="Factory">
+		<id property="factoryId" column="FACTORY_ID" />
+		<result property="factoryName" column="FACTORY_NAME" />
+		<result property="factotyCeoname" column="FACTORY_CEONAME" />
+		<result property="number" column="FACTORY_NUMBER" />
+		<result property="factoryRegistration" column="FACTORY_REGISTRATION"/>
+		<result property="factoryAccount" column="FACTORY_ACCOUNT" />
+		<result property="factoryAddress" column="FACTORY_ADRESS" />
+	</resultMap>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
