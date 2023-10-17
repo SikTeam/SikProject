@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>보고서 등록</title>
 <script src="/sik/resources/common/js/jquery-3.7.0.min.js"></script>
 <script type='text/javascript'>
-$(document).ready(function() {
+$(function() {
     $('#dept, #position').change(function() {
     	
     	$('#name').html('');
@@ -21,25 +21,28 @@ $(document).ready(function() {
             dataType: 'json',
             data: { dept: $('#dept').val(), position: $('#position').val() },
             success: function(data) {
-            	console.log(data);
+            	console.log("data :  "+data);
             	
             	var dataStr = JSON.stringify(data);
+            	 console.log("dataStr : "+dataStr);
             	var jsonObj = JSON.parse(dataStr);
-            	
+            	 console.log("jsonObj" + jsonObj);
+            	 
             	var output = $('#name').html();
                 
                 for(var i in jsonObj.list){
-                	output +='<option value="' + decodeURIComponent(jsonObj.list[i].memberId) + '">' 
-                	+ decodeURIComponent(jsonObj.list[i].memberName)+ " "+ decodeURIComponent(jsonObj.list[i].memberId) + '</option>';
-                }
-                
-                $('#name').html(output);
-                
 
+                	output +='<option value="' + decodeURIComponent(jsonObj.list[i].memberId)'">'
+                	+ decodeURIComponent(jsonObj.list[i].memberName) + '</option>';
+                	console.log(jsonObj.list[i].memberName);
+
+                }
+                $('#name').html(output);
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
                 + "\nError : " + errorData);
+                
              }
         });
     });

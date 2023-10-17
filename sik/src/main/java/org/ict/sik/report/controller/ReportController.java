@@ -110,7 +110,7 @@ public class ReportController {
 		sendJson.put("list", jsonArray);
 		
 		return sendJson.toJSONString();
-	}	
+	}
 	
 	
 	//결재 등록 페이지 이동
