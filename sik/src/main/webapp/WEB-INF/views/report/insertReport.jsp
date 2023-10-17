@@ -33,6 +33,7 @@ $(document).ready(function() {
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
                 + "\nError : " + errorData);
+                
              }
         });
     });
