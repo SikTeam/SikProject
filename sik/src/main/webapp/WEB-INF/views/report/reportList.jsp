@@ -10,10 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>boardList</title>
-<script type="text/javascript" src="/first/resources/js/jquery-3.7.0.min.js"></script>
-<script>
 
-</script>
+<style type="text/css">
+.custom-table, .custom-input .custom-button{
+    font-size: 14px;
+}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -25,40 +27,58 @@
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
 						<br />
 					</div>
-					<div class="bg-body-tertiary border rounded-3">
-						<table class="table table-hover border rounded-5">
-							<h1 style="text-align: center; margin-top: 10px; margin-bottom: 15px;">
-								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h1>
+					<div class="bg-body">
+						<table class="table table-sm custom-table table-hover">
+							<h4 style="text-align: left; margin-top: 10px; margin-bottom: 15px;">
+								결&nbsp&nbsp&nbsp&nbsp&nbsp재</h4>
 							<thead class="table-dark">
-								<tr align = "center">
+								<tr>
 									<th scope="col">No</th>
 									<th scope="col">제 목</th>
-									<th scope="col">결재여부</th>
-									<th scope="col">읽음여부</th>
+									<td align = "center">결재여부</td>
+									<td align = "center">읽음여부</td>
 								</tr>
 							</thead>
 							<c:set var="a" value="${ requestScope.list2 }" />
 							<c:set var="b" value="${ requestScope.list }" />
 							<c:forEach items="${ a }" var="reportList" varStatus="status">
-							<tbody class="table-group-divider">
 								<tr>
-									<th scope="row">${ reportList.reportId }</th>
+									<th scope="col">${ reportList.reportId }</th>
 									<td>${ reportList.reTitle }</td>
-									<td>${ b[status.index].reSign }</td>
-									<td>${ b[status.index].reRead }</td>
+									<td align = "center">${ b[status.index].reSign }</td>
+									<td align = "center">${ b[status.index].reRead }</td>
 								</tr>
-							</tbody>
 							</c:forEach>
 						</table>
-						<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+						
+							<c:import url="/WEB-INF/views/common/pagingView.jsp" />
+							<br>
+
+						<div class="d-grid gap-3" style="grid-template-columns: 0.4fr 0.6fr 0.1fr; margin-bottom: 15px;">
+							<div class="bg-body">
+		        				<form class="d-flex" role="search">
+						          <input class="form-control custom-input form-control-sm me-1" type="search" placeholder="제목" aria-label="Search">
+						          <button class="btn btn-dark btn-sm" type="submit">search</button>
+						        </form>
+							</div>
+							<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
+							<br />
+							</div>
+							<div class="bg-body">
+								<a href="${ pageContext.servletContext.contextPath }/getReportId.do" class="btn btn-dark btn-sm">
+								  등록
+								</a> 
+							</div>
+						</div>
 					</div>
 					<div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
-						<br />
+						<br>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 </body>
 </html>

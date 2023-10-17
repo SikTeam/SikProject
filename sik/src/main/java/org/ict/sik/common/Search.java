@@ -4,12 +4,12 @@ import java.sql.Date;
 
 public class Search {
 	private String keyword;
+	private String brand; // 브랜드 검색 시 필요
 	private int startRow;  //페이지에 출력할 시작행
 	private int endRow;   //페이지에 출력할 끝행
 	private Date begin;
 	private Date end;
 	private int age;	//나이 검색 시 필요
-	private String brand; // 브랜드 검색 시 필요
 	
 	
 	

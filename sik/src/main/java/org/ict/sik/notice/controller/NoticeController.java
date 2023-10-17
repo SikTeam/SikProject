@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,8 +42,6 @@ public class NoticeController {
 		// 총 페이지 수 계산을 위한 공지글 총 갯수 조회
 		Search search = new Search();
 		
-		
-		
 		int listCount = 0;
 		if(brand == null || brand.equals("all")) {
 			if(keyword == null) {
@@ -69,7 +68,6 @@ public class NoticeController {
 		// 페이지에 출력할 목록 조회해 옴
 		ArrayList<BrandNotice> list = noticeService.selectList(search);
 		
-		
 		ArrayList<Brand> brandList = brandService.selectList();
 		if (list != null && list.size() > 0) {
 			mv.addObject("listCount", listCount);
@@ -81,6 +79,22 @@ public class NoticeController {
 			mv.setViewName("brand/notice/brandNoticeListView");
 		} else {
 			mv.addObject("message", "브랜드 리스트를 읽어오지 못했습니다.");
+			mv.setViewName("common/error");
+		}
+		return mv;
+	}
+	
+	@RequestMapping("noticeDetailView.do")
+	public ModelAndView noticeDetailViewMethod(@RequestParam("noid") String noId,
+			@RequestParam("page") String page,
+			ModelAndView mv) {
+		BrandNotice notice = noticeService.selectDetail(noId);
+		if(notice != null) {
+			mv.addObject("page", page);
+			mv.addObject("notice", notice);
+			mv.setViewName("brand/notice/noticeDetailView");
+		}else {
+			mv.addObject("message", noId+"번 공지사항을 읽어오는대 실패함");
 			mv.setViewName("common/error");
 		}
 		return mv;
