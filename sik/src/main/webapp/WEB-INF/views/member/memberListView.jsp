@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,11 +40,12 @@
 				      <th scope="col">사번</th>
 				      <th scope="col">이름</th>
 				      <th scope="col">패스워드</th>
-				      <th scope="col">입사일</th>
 				      <th scope="col">관리자여부</th>
-				      <th scope="col">상급자사번</th>
 				      <th scope="col">부서</th>
 				      <th scope="col">직책</th>
+				      <th scope="col">입사일</th>
+				      <th scope="col">프로필사진</th>
+				      <th scope="col">사인</th>
 				    </tr>
 				  </thead>
 				  <tbody class="table-group-divider">
@@ -52,11 +54,14 @@
 					      <td>${ m.memberId }</td>
 					      <td>${ m.memberName }</td>
 					      <td>${ m.pw }</td>
-					      <td>${ m.enrollDate }</td>
 					      <td>${ m.adminYn }</td>
-					      <td>${ m.superiorId }</td>
  					      <td>${ m.deptName }</td>
 					      <td>${ m.positionName }</td>
+					      <c:if test="${ m.enrollDate ne null }">
+							<td><fmt:formatDate value="${ m.enrollDate }" pattern="yyyy-MM-dd" /></td>
+						  </c:if>
+					      <td>${ m.profileImage }</td>
+					      <td>${ m.signImage }</td>
 					    </tr>
 					</c:forEach>
 				  </tbody>
