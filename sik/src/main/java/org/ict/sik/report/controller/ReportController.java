@@ -102,15 +102,15 @@ public class ReportController {
 		for (MemberDeptPosition mdp : list) {
 	        JSONObject jsonObject = new JSONObject();
 	        
-	        jsonObject.put("dept", URLEncoder.encode(mdp.getDeptName(), "utf-8"));
-	        jsonObject.put("position", URLEncoder.encode(mdp.getPositionName(), "utf-8"));
+	        jsonObject.put("memberName", URLEncoder.encode(mdp.getMemberName(), "utf-8"));
+	        jsonObject.put("memberId", URLEncoder.encode(mdp.getMemberId(), "utf-8"));
 	        
 	        jsonArray.add(jsonObject);
 	    }
 		sendJson.put("list", jsonArray);
 		
 		return sendJson.toJSONString();
-	}	
+	}
 	
 	
 	//결재 등록 페이지 이동

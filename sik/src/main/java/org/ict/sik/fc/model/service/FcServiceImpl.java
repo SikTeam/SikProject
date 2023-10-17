@@ -23,30 +23,10 @@ public class FcServiceImpl implements FcService{
 	public int selectFcCheck(Fc fc) {
 		return fcDao.selectFcCheck(fc);
 	}
-	
-	@Override
-	public ArrayList<Fc> selectList(Paging paging) {
-		return fcDao.selectList(paging);
-	}
 
 	@Override
 	public Fc selectLogin(Fc fc) {
 		return fcDao.selectLogin(fc);
 	}
-	
-	@Override
-	public int selectListFcCount(String keyword) {
-		return fcDao.selectListFcCount(keyword);
-	}
-	
-	@Override
-	public ArrayList<Fc> selectFcListName(Search search){
-		return fcDao.selectFcListName(search);
-	}
 
-	@Override
-	public int selectListCount() {
-		return fcDao.selectListCount();
-	}
-	
 }
