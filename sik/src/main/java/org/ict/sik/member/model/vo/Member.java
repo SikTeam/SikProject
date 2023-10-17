@@ -8,7 +8,6 @@ public class Member implements java.io.Serializable{
 	private String memberName;	//이름
 	private String pw;				//패스워드
 	private String adminYn;		//관리자YN
-	private String superiorId;		//상급자사번
 	private String deptId;			//부서ID
 	private String positionId;		//직책ID
 	private Date enrollDate;		//입사일
@@ -19,24 +18,13 @@ public class Member implements java.io.Serializable{
 		super();
 	}
 
-	/**
-	 * @param memberId
-	 * @param memberName
-	 * @param pw
-	 * @param adminYn
-	 * @param superiorId
-	 * @param deptId
-	 * @param positionId
-	 */
-
-	public Member(String memberId, String memberName, String pw, String adminYn, String superiorId, String deptId,
-			String positionId, Date enrollDate, String profileImage, String signImage) {
+	public Member(String memberId, String memberName, String pw, String adminYn, String deptId, String positionId,
+			Date enrollDate, String profileImage, String signImage) {
 		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
 		this.pw = pw;
 		this.adminYn = adminYn;
-		this.superiorId = superiorId;
 		this.deptId = deptId;
 		this.positionId = positionId;
 		this.enrollDate = enrollDate;
@@ -74,14 +62,6 @@ public class Member implements java.io.Serializable{
 
 	public void setAdminYn(String adminYn) {
 		this.adminYn = adminYn;
-	}
-
-	public String getSuperiorId() {
-		return superiorId;
-	}
-
-	public void setSuperiorId(String superiorId) {
-		this.superiorId = superiorId;
 	}
 
 	public String getDeptId() {
@@ -124,10 +104,17 @@ public class Member implements java.io.Serializable{
 		this.signImage = signImage;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", pw=" + pw + ", enrollDate="
-				+ enrollDate + ", adminYn=" + adminYn + ", superiorId=" + superiorId + ", deptId=" + deptId
-				+ ", positionId=" + positionId + "]";
+		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", pw=" + pw + ", adminYn=" + adminYn
+				+ ", deptId=" + deptId + ", positionId=" + positionId + ", enrollDate=" + enrollDate + ", profileImage="
+				+ profileImage + ", signImage=" + signImage + "]";
 	}
+	
+	
+	
 }
