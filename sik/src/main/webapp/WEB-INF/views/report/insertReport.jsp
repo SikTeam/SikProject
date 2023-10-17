@@ -11,31 +11,29 @@
 <script type='text/javascript'>
 $(document).ready(function() {
     $('#dept, #position').change(function() {
-    	console.log("ajax 요청")
-        var dept = $('#dept').val();
-        var position = $('#position').val();
-
-        if(dept == '부서' || dept == '대표이사' || position == '직급') {
-            $('#name').empty();
-            return;
-        }
-        
         $.ajax({
             url: 'addApprover.do',
-            type: 'POST',
+            type: 'post',
+            dataType: 'json',
             data: { dept: dept, position: position },
             success: function(data) {
             	console.log(data);
-            	var list = JSON.parse(data);
-                var options = '';
-                $.each(list, function(index, value) {
-                    options += '<option value="' + value.memberName + '">' + value.memberName + '</option>';
-                });
-                $('#name').html(options);
+            	
+            	var dataStr = JSON.stringify(data);
+            	var jsonObj = JSON.parse(dataStr);
+            	
+            	var output = $('#name').html();
+                
+                for(var i in jsonObj.list){
+                	output +='<option value="' + jsonObj.list[i].memberName + '">' + jsonObj.list[i].memberName + '</option>';
+                }
+                
+                $('#name').html(output);
             },
-            error: function(error) {
-                console.log(error);
-            }
+            error : function(request, status, errorData){
+                connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
+                + "\nError : " + errorData);
+             }
         });
     });
 });
@@ -83,7 +81,8 @@ $(document).ready(function() {
 									 </select>
 									 <select id="name" class="btn btn-secondary btn-sm dropdown-toggle">
 										    <!-- 옵션을 생성하는 영역 ★ -->
-									</select>									 
+									</select>
+																 
 									</form>
 									<button>+</button>				
 								</div>

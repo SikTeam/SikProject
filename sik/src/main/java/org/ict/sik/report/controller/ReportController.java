@@ -1,7 +1,10 @@
 package org.ict.sik.report.controller;
 
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.ict.sik.common.Paging;
@@ -81,27 +84,32 @@ public class ReportController {
 	@RequestMapping(value="addApprover.do", method={RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody
 	public String ApproverMemberSelect(
+			HttpServletResponse response,
 			@RequestParam(name="dept", required=false) String dept,
 			@RequestParam(name="position", required=false) String position
-			) {
+			) throws IOException {
 		
 		logger.info(dept+"/"+position);
 		
 		MemberDeptPosition dp = new MemberDeptPosition(dept,position);
-		ArrayList<MemberDeptPosition> list = memberService.addApprover(dp);
 		
+		ArrayList<MemberDeptPosition> list = memberService.addApprover(dp);
+		response.setContentType("application/json; charset=utf-8");
+		
+		JSONObject sendJson = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
 		
 		for (MemberDeptPosition mdp : list) {
 	        JSONObject jsonObject = new JSONObject();
 	        
-	        jsonObject.put("dept", mdp.getDeptName());
-	        jsonObject.put("position", mdp.getPositionName());
+	        jsonObject.put("dept", URLEncoder.encode(mdp.getDeptName(), "utf-8"));
+	        jsonObject.put("position", URLEncoder.encode(mdp.getPositionName(), "utf-8"));
 	        
 	        jsonArray.add(jsonObject);
 	    }
+		sendJson.put("list", jsonArray);
 		
-		return jsonArray.toString();
+		return sendJson.toJSONString();
 	}	
 	
 	
