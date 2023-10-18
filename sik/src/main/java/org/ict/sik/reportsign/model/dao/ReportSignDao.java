@@ -35,4 +35,5 @@ public class ReportSignDao {
 	public int countApproval(String reportId) {
 		return sqlSessionTemplate.selectOne("reportSignMapper.countApproval", reportId);
 	}
+	
 }

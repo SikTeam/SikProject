@@ -179,7 +179,7 @@ public class ReportController {
 		}else {
 		    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		    JSONObject errorJson = new JSONObject();
-		    errorJson.put("error", "결재보고서 임시저장 실패했다 이놈아");
+		    errorJson.put("error", "결재보고서 임시저장 실패");
 		    return errorJson.toJSONString();
 		}
 	}

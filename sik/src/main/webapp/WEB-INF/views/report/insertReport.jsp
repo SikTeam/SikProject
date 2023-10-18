@@ -56,7 +56,7 @@ $(function() {
             	var str = JSON.stringify(data);
             	var obj = JSON.parse(str);
             	
-            	$('#approvalLine').html('');
+            	$('#approval').html('');
             	var gualho = '<tr>';
             	var endgualho = '</tr>';            	
             	var memberNames = $('#approvalLine').html();
@@ -65,8 +65,8 @@ $(function() {
             		memberNames += '<td>'+ decodeURIComponent(obj.list[i].memberId) +'</td>';
             	}
             	
-            	$('#approvalLine').html(gualho+memberNames+endgualho);
-            	$('#approvalLine').html(gualho+memberNames+endgualho);	
+            	$('#approval').html(gualho+memberNames+endgualho);
+            	$('#approval').html(gualho+memberNames+endgualho);	
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -130,7 +130,7 @@ $(function() {
 									</button>				
 								</div>
 								<div>
-									<table id="approval" class="">
+									<table id="approval" class="table-responsive table-bordered">
 									
 									</table>
 								</div>
