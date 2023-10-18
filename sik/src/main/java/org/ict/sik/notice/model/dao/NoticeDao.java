@@ -31,8 +31,4 @@ public class NoticeDao {
 	public BrandNotice selectDetail(String noId) {
 		return sqlSessionTemplate.selectOne("noticeMapper.selectDetail",noId);
 	}
-
-	public int updateAddReadCount(String noId) {
-		return sqlSessionTemplate.update("noticeMapper.updateAddReadCount",noId);
-	}
 }

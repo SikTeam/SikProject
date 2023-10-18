@@ -24,19 +24,4 @@ public class ReportSignServiceImpl implements ReportSignService{
 	public ArrayList<ReportSign> selectList(Search search){
 		return reportSignDao.selectList(search);
 	}
-
-	@Override
-	public int insertReport(ReportSign reSign) {
-		return reportSignDao.insertReport(reSign);
-	}
-
-	@Override
-	public ArrayList<ReportSign> selectApproval(ReportSign reSign) {
-		return reportSignDao.selectApproval(reSign);
-	}
-
-	@Override
-	public int countApproval(String reportId) {
-		return reportSignDao.countApproval(reportId);
-	}
 }

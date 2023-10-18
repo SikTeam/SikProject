@@ -67,6 +67,7 @@
 					type="submit" value="검색">
 			</fieldset>
 		</form>
+
 		<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	</div>
 </body>

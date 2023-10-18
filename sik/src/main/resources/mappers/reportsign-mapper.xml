@@ -9,7 +9,6 @@
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="reSign" column="RE_SIGN" />
 		<result property="reRead" column="RE_READ" />
-		<result property="reportSignCounter" column="REPORT_SIGN_COUNTER" />
 	</resultMap>
 	
 	<select id="listCount" parameterType="Search" resultType="_int">
@@ -28,24 +27,6 @@
 		            where member_id = #{ keyword }
 		            order by re_date desc, report_id desc))
 		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
-	</select>
-	
-	<insert id="insertReport" parameterType="ReportSign">
-		INSERT INTO REPORT_SIGN (REPORT_ID, MEMBER_ID, RE_SIGN, RE_READ, REPORT_SIGN_COUNTER)
-		VALUES (#{ reportId }, #{ memberId }, 'Y', 'N', #{ reportSignCounter })
-	</insert>
-	
-	<select id="selectApproval" parameterType="ReportSign" resultMap="resultReportSign">
-		select *
-		from REPORT_SIGN
-		where REPORT_ID = #{ reportId } and REPORT_SIGN_COUNTER != 0
-		order by REPORT_SIGN_COUNTER
-	</select>
-	
-	<select id="countApproval" parameterType="string" resultType="_int">
-		select count(*)+1
-		from REPORT
-		where REPORT_ID = #{ reportId }
 	</select>
 	
 </mapper>

@@ -33,9 +33,4 @@ public class NoticeServiceImpl implements NoticeService{
 	public BrandNotice selectDetail(String noId) {
 		return noticeDao.selectDetail(noId);
 	}
-
-	@Override
-	public int updateAddReadCount(String noId) {
-		return noticeDao.updateAddReadCount(noId);
-	}
 }

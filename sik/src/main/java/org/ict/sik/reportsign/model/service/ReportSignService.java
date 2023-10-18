@@ -9,7 +9,4 @@ public interface ReportSignService {
 	
 	public int listCount(String kerword);
 	public ArrayList<ReportSign> selectList(Search search);
-	public int insertReport(ReportSign reSign);
-	public ArrayList<ReportSign> selectApproval(ReportSign reSign);
-	public int countApproval(String reportId);
 }

@@ -32,12 +32,11 @@ public class NoticeController {
 			@RequestParam(name = "brand", required = false) String brand,
 			@RequestParam(name = "keyword", required = false) String keyword,
 			ModelAndView mv) {
-		//logger.info("넘어온값 확인 : { brand : " + brand + ", page :" + page+", keyword : " + keyword+"}");
+		logger.info("넘어온값 확인 : { brand : " + brand + ", page :" + page+", keyword : " + keyword+"}");
 		int currentPage = 1;
 		if (page != null) {
 			currentPage = Integer.parseInt(page);
 		}
-		
 		// 한 페이지 공지 10개 씩 출력되게 한다면
 		int limit = 10;
 		// 총 페이지 수 계산을 위한 공지글 총 갯수 조회
@@ -89,7 +88,6 @@ public class NoticeController {
 	public ModelAndView noticeDetailViewMethod(@RequestParam("noid") String noId,
 			@RequestParam("page") String page,
 			ModelAndView mv) {
-		int result =noticeService.updateAddReadCount(noId);
 		BrandNotice notice = noticeService.selectDetail(noId);
 		if(notice != null) {
 			mv.addObject("page", page);
