@@ -43,9 +43,12 @@
 						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <form class="d-flex" action="msearchMId.do" method="post">
-								<input class="form-control me-1" type="Search" placeholder="사번" aria-label="Search" name="keyword">
-						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+						      <form class="d-flex" role="search" action="msearchMId.do" method="post">
+						      	<input type="hidden" name="action" value="id">	
+								<fieldset>
+									<input class="form-control me-1" type="Search" placeholder="사번" aria-label="Search" name="keyword">
+						        	<button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+								</fieldset>
 						      </form>
 						    </ul>
   					  	</div>
@@ -60,8 +63,11 @@
 						    </button>
 						    <ul class="dropdown-menu">
 						      <form class="d-flex" role="search" action="msearchDept.do" method="post">
-						        <input class="form-control me-1" type="search" placeholder="부서" aria-label="Search">
-						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+					        	<input type="hidden" name="action" value="dept">	
+								<fieldset>
+									<input class="form-control me-1" type="search" placeholder="부서" aria-label="Search" name="keyword">
+					        		<button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+								</fieldset>
 						      </form>
 						    </ul>
   					  	</div>
@@ -73,8 +79,11 @@
 						    </button>
 						    <ul class="dropdown-menu">
 						      <form class="d-flex" role="search" action="msearchPosition.do" method="post">
-						        <input class="form-control me-1" type="search" placeholder="직책" aria-label="Search">
-						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+						        <input type="hidden" name="action" value="position">	
+								<fieldset>
+						        	<input class="form-control me-1" type="search" placeholder="직책" aria-label="Search" name="keyword">
+						        	<button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+								</fieldset>
 						      </form>
 						    </ul>
   					  	</div>
@@ -85,10 +94,13 @@
 						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						    	<form class="d-flex" role="search" action="mearchEnrollDate.do" method="post">
-							      <input type="date" name="begin">~<input type="date" name="end"> &nbsp;
+						      <form class="d-flex" role="search" action="mearchEnrollDate.do" method="post">
+						        <input type="hidden" name="action" value="enroll">	
+								<fieldset>
+						        	<input type="date" name="begin">~<input type="date" name="end"> &nbsp;
 								  <input type="submit" value="검색">
-								</form>
+								</fieldset>
+							  </form>
 						    </ul>
 	  					  </div>
 					  </th>

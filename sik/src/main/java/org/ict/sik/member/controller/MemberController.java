@@ -100,12 +100,12 @@ public class MemberController {
 	}
 
 	//직원 사번으로 검색용 (페이징)
-	@RequestMapping(value="msearchMId.do", method=RequestMethod.POST)
+	@RequestMapping(value="msearchMId.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView memberSearchIdMethod(
 			@RequestParam("keyword") String keyword,
+			@RequestParam("action") String action,
 			@RequestParam(name="limit", required=false) String slimit,
 			@RequestParam(name="page", required=false) String page,
-			
 			ModelAndView mv) {
 		
 		//검색 결과에 대한 페이징 처리
@@ -144,19 +144,174 @@ public class MemberController {
 			mv.addObject("paging", paging);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("limit", limit);
+			mv.addObject("action", action);
 			mv.addObject("keyword", keyword);
 			mv.setViewName("member/memberListView");
 		}else {
-			mv.addObject(keyword + " 검색 결과가 존재하지 않습니다.");
+			mv.addObject("message", action + "에 대한 " 
+					+ keyword + " 검색 결과가 존재하지 않습니다.");
 			mv.setViewName("common/error");
 		}
 		
 		return mv;
 	}
+	
 	//직원 부서로 검색용 (페이징)
+	@RequestMapping(value="msearchDept.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView memberSearchDeptMethod(
+			@RequestParam("keyword") String keyword,
+			@RequestParam("action") String action,
+			@RequestParam(name="limit", required=false) String slimit,
+			@RequestParam(name="page", required=false) String page,
+			ModelAndView mv) {
+		
+		//검색 결과에 대한 페이징 처리
+		//출력할 페이지 지정
+		int currentPage = 1;
+		//전송온 페이지 값이 있다면 추출
+		if(page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		
+		//한 페이지당 출력할 목록 갯수 지정
+		int limit = 10;
+		//전송 온 limit 값이 있다면
+		if(slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+		
+		//총 페이지수 계산을 위한 검색 결과 적용된 총 목록 갯수 조회
+		int listCount = memberService.selectSearchDeptCount(keyword);
+		
+		//뷰 페이지에 사용할 페이징 관련 값 계산 처리
+		Paging paging = new Paging(listCount, currentPage, limit, "msearchDept.do");
+		paging.calculator();
+		
+		//서비스 메소드 호출하고 리턴결과 다루기
+		Search search = new Search();
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		search.setKeyword(keyword);
+		
+		ArrayList<MemberDeptPosition> list = memberService.selectSearchDept(search);
+		
+		//받은 결과에 따라 성공/실패 페이지 내보내기
+		if(list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.addObject("action", action);
+			mv.addObject("keyword", keyword);
+			mv.setViewName("member/memberListView");
+		}else {
+			mv.addObject("message", action + "에 대한 " 
+					+ keyword + " 검색 결과가 존재하지 않습니다.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}
 	
 	//직원 직급으로 검색용 (페이징)
+	@RequestMapping(value="msearchPosition.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView memberSearchPositionMethod(
+			@RequestParam(name="keyword",required=false) String keyword,
+			@RequestParam("action") String action,
+			@RequestParam(name="limit", required=false) String slimit,
+			@RequestParam(name="page", required=false) String page,
+			ModelAndView mv) {
+		
+		//검색 결과에 대한 페이징 처리
+		//출력할 페이지 지정
+		int currentPage = 1;
+		//전송온 페이지 값이 있다면 추출
+		if(page != null) {
+			currentPage = Integer.parseInt(page);
+		}
+		
+		//한 페이지당 출력할 목록 갯수 지정
+		int limit = 10;
+		//전송 온 limit 값이 있다면
+		if(slimit != null) {
+			limit = Integer.parseInt(slimit);
+		}
+		
+		//총 페이지수 계산을 위한 검색 결과 적용된 총 목록 갯수 조회
+		int listCount = memberService.selectSearchPositionCount(keyword);
+		
+		//뷰 페이지에 사용할 페이징 관련 값 계산 처리
+		Paging paging = new Paging(listCount, currentPage, limit, "msearchPosition.do");
+		paging.calculator();
+		
+		//서비스 메소드 호출하고 리턴결과 다루기
+		Search search = new Search();
+		search.setStartRow(paging.getStartRow());
+		search.setEndRow(paging.getEndRow());
+		search.setKeyword(keyword);
+		
+		ArrayList<MemberDeptPosition> list = memberService.selectSearchPosition(search);
+		
+		//받은 결과에 따라 성공/실패 페이지 내보내기
+		if(list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.addObject("paging", paging);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("limit", limit);
+			mv.addObject("action", action);
+			mv.addObject("keyword", keyword);
+			mv.setViewName("member/memberListView");
+		}else {
+			mv.addObject("message", action + "에 대한 " 
+					+ keyword + " 검색 결과가 존재하지 않습니다.");
+			mv.setViewName("common/error");
+		}
+		
+		return mv;
+	}
 	
-	//직원 등록날짜 검색용 (페이징)
+	/*
+	 * //직원 등록날짜 검색용 (페이징)
+	 * 
+	 * @RequestMapping(value="msearchPosition.do", method = { RequestMethod.GET,
+	 * RequestMethod.POST }) public ModelAndView memberSearchPositionMethod(
+	 * 
+	 * @RequestParam(name="keyword",required=false) String keyword,
+	 * 
+	 * @RequestParam("action") String action,
+	 * 
+	 * @RequestParam(name="limit", required=false) String slimit,
+	 * 
+	 * @RequestParam(name="page", required=false) String page, ModelAndView mv) {
+	 * 
+	 * //검색 결과에 대한 페이징 처리 //출력할 페이지 지정 int currentPage = 1; //전송온 페이지 값이 있다면 추출
+	 * if(page != null) { currentPage = Integer.parseInt(page); }
+	 * 
+	 * //한 페이지당 출력할 목록 갯수 지정 int limit = 10; //전송 온 limit 값이 있다면 if(slimit != null)
+	 * { limit = Integer.parseInt(slimit); }
+	 * 
+	 * //총 페이지수 계산을 위한 검색 결과 적용된 총 목록 갯수 조회 int listCount =
+	 * memberService.selectSearchPositionCount(keyword);
+	 * 
+	 * //뷰 페이지에 사용할 페이징 관련 값 계산 처리 Paging paging = new Paging(listCount,
+	 * currentPage, limit, "msearchPosition.do"); paging.calculator();
+	 * 
+	 * //서비스 메소드 호출하고 리턴결과 다루기 Search search = new Search();
+	 * search.setStartRow(paging.getStartRow());
+	 * search.setEndRow(paging.getEndRow()); search.setKeyword(keyword);
+	 * 
+	 * ArrayList<MemberDeptPosition> list =
+	 * memberService.selectSearchPosition(search);
+	 * 
+	 * //받은 결과에 따라 성공/실패 페이지 내보내기 if(list != null && list.size() > 0) {
+	 * mv.addObject("list", list); mv.addObject("paging", paging);
+	 * mv.addObject("currentPage", currentPage); mv.addObject("limit", limit);
+	 * mv.addObject("action", action); mv.addObject("keyword", keyword);
+	 * mv.setViewName("member/memberListView"); }else { mv.addObject("message",
+	 * action + "에 대한 " + keyword + " 검색 결과가 존재하지 않습니다.");
+	 * mv.setViewName("common/error"); }
+	 * 
+	 * return mv; }
+	 */
 	
 }

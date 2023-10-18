@@ -12,8 +12,8 @@
 		<result property="deptId" column="DEPT_ID" />
 		<result property="positionId" column="POSITION_ID" />
 		<result property="enrollDate" column="ENROLL_DATE" />
-		<result property="" column="PROFILE_IMAGE" />
-		<result property="" column="SIGN_IMAGE" />
+		<result property="profileImage" column="PROFILE_IMAGE" />
+		<result property="signImage" column="SIGN_IMAGE" />
 	</resultMap>
 	
 	<resultMap id="resultList" type="MemberDeptPosition">
@@ -110,6 +110,58 @@
 		          full join position using (POSITION_ID)
 		          full join department using (DEPT_ID)
 		          where ADMIN_YN = 'N' and MEMBER_ID like '%' || #{keyword} || '%'
+		          order by MEMBER_ID
+        		)
+		)
+		where rnum between #{ startRow } and #{ endRow }
+		]]>
+		
+	</select>
+	
+	<select id="selectSearchDeptCount" resultType="_int" parameterType="string">
+		select count(*) from member
+		full join position using (POSITION_ID)
+		full join department using (DEPT_ID)
+		where admin_yn = 'N' and DEPT_NAME like '%' || #{keyword} || '%' 
+	</select>
+	
+	<select id="selectSearchDept" parameterType="Search" resultMap="resultList">
+		<![CDATA[
+		select *
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N' and DEPT_NAME like '%' || #{keyword} || '%'
+		          order by MEMBER_ID
+        		)
+		)
+		where rnum between #{ startRow } and #{ endRow }
+		]]>
+		
+	</select>
+	
+	<select id="selectSearchPositionCount" resultType="_int" parameterType="string">
+		select count(*) from member 
+		full join position using (POSITION_ID)
+		full join department using (DEPT_ID)
+		where admin_yn = 'N' and POSITION_NAME like '%' || #{keyword} || '%' 
+	</select>
+	
+	<select id="selectSearchPosition" parameterType="Search" resultMap="resultList">
+		<![CDATA[
+		select *
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N' and POSITION_NAME like '%' || #{keyword} || '%'
 		          order by MEMBER_ID
         		)
 		)
