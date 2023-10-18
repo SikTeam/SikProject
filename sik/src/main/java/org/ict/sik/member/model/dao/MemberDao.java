@@ -77,12 +77,16 @@ public class MemberDao {
 	}
 	
 	public ArrayList<MemberDeptPosition> selectSearchPosition(Search search) {
-		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("MemberMapper.selectSearchPosition", search);
+
+		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.selectSearchPosition", search);
+
 		return (ArrayList<MemberDeptPosition>)list;
 	}
 
 	public ArrayList<MemberDeptPosition> selectSearchDate(Search search) {
-		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("MemberMapper.selectSearchDate", search);
+
+		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.selectSearchDate", search);
+
 		return (ArrayList<MemberDeptPosition>)list;
 	}
 	
