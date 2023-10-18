@@ -3,6 +3,7 @@ package org.ict.sik.member.model.service;
 import java.util.ArrayList;
 
 import org.ict.sik.common.Paging;
+import org.ict.sik.common.Search;
 import org.ict.sik.member.model.dao.MemberDao;
 import org.ict.sik.member.model.vo.Member;
 import org.ict.sik.member.model.vo.MemberDeptPosition;
@@ -50,5 +51,45 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp) {
 		return memberDao.addApprover(dp);
 	}
+	@Override
+	public int selectSearchIdCount(String keyword) {
+		return memberDao.selectSearchIdCount(keyword);
+	}
+	
+	@Override
+	public int selectSearchDeptCount(String keyword) {
+		return memberDao.selectSearchDeptCount(keyword);
+	}
+	
+	@Override
+	public int selectSearchPositionCount(String keyword) {
+		return memberDao.selectSearchPositionCount(keyword);
+	}
+	
+	@Override
+	public int selectSearchDateCount(Search date) {
+		return memberDao.selectSearchDateCount(date);
+	}
+	
+	@Override
+	public ArrayList<MemberDeptPosition> selectSearchId(Search search) {
+		return memberDao.selectSearchId(search);
+	}
+
+	@Override
+	public ArrayList<MemberDeptPosition> selectSearchDept(Search search) {
+		return memberDao.selectSearchDept(search);
+	}
+	
+	@Override
+	public ArrayList<MemberDeptPosition> selectSearchPosition(Search search) {
+		return memberDao.selectSearchPosition(search);
+	}
+
+	@Override
+	public ArrayList<MemberDeptPosition> selectSearchDate(Search search) {
+		return memberDao.selectSearchDate(search);
+	}
+
 	
 }
