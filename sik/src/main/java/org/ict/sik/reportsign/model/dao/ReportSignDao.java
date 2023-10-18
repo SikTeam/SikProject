@@ -22,4 +22,18 @@ public class ReportSignDao {
 		List<ReportSign> list = sqlSessionTemplate.selectList("reportSignMapper.selectList", search);
 		return (ArrayList<ReportSign>)list;
 	}
+	
+	public int insertReport(ReportSign reSign) {
+		return sqlSessionTemplate.insert("reportSignMapper.insertReport", reSign);
+	}
+	
+	public ArrayList<ReportSign> selectApproval(ReportSign reSign){
+		List<ReportSign> list = sqlSessionTemplate.selectList("reportSignMapper.selectApproval", reSign);
+		return (ArrayList<ReportSign>)list;
+	}
+	
+	public int countApproval(String reportId) {
+		return sqlSessionTemplate.selectOne("reportSignMapper.countApproval", reportId);
+	}
+	
 }

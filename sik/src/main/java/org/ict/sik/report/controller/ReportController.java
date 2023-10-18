@@ -112,7 +112,6 @@ public class ReportController {
 		return sendJson.toJSONString();
 	}
 	
-	
 	//결재 등록 페이지 이동
 	@RequestMapping("getReportId.do")
 	public ModelAndView getReportId(ModelAndView mv) {
@@ -131,5 +130,67 @@ public class ReportController {
 		}
 		return mv;
 	}
+	
+	//결재 라인 등록
+	@RequestMapping(value="approvalLine.do", method={RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public String approvalLine(
+			HttpServletResponse response,
+			@RequestParam(name="memberId", required=false) String memberId,
+			@RequestParam(name="reportId", required=false) String reportId
+			) throws IOException {
+		logger.info(reportId+"/"+memberId);
+		
+		Report report = new Report();
+		ReportSign reSign = new ReportSign();
+		response.setContentType("application/json; charset=utf-8");
+		int countApproval = reportSignService.countApproval(reportId);
+		Search search = new Search();
+		search.setKeyword(memberId);
+		ArrayList<MemberDeptPosition> memberList = memberService.selectSearchId(search);
+		
+		report.setReportId(reportId);
+		reSign.setReportId(reportId);
+		reSign.setMemberId(memberId);
+		reSign.setReportSignCounter(countApproval);
+		
+		int reportResult= 0;
+		
+		if(countApproval == 1) {
+			reportResult = reportService.insertReport(report);
+		}
+		
+		int reportSignResult = reportSignService.insertReport(reSign);
+		ArrayList<ReportSign> list = reportSignService.selectApproval(reSign);
+		
+		if(reportSignResult > 0) {
+			
+			JSONObject sendJson = new JSONObject();
+			JSONArray jarr = new JSONArray();
+			
+			for(ReportSign r : list) {
+				JSONObject job = new JSONObject();
+				
+				job.put("reportId", URLEncoder.encode(r.getReportId(), "UTF-8"));
+				job.put("memberId", URLEncoder.encode(r.getMemberId(), "UTF-8"));
+				job.put("reSign", URLEncoder.encode(r.getReSign(), "UTF-8"));
+				job.put("reRead", URLEncoder.encode(r.getReRead(), "UTF-8"));
+				job.put("reportSignCounter", r.getReportSignCounter());
+				
+				jarr.add(job);
+			}
+			sendJson.put("list", jarr);
+			
+		return sendJson.toJSONString();
+		
+		}else {
+		    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+		    JSONObject errorJson = new JSONObject();
+		    errorJson.put("error", "결재보고서 임시저장 실패");
+		    return errorJson.toJSONString();
+		}
+	}
+	
+	
 
 }

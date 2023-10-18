@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<select id="selectList" parameterType="Search" resultMap="resultReport">
-	select * 
+		select * 
 		from (select rownum rnum, REPORT_ID, RE_TITLE, RE_CONTENT, RE_FILE, RE_DATE
 		      from (select *
                     from REPORT
@@ -22,6 +22,17 @@
 		            order by re_date desc, report_id desc))
 		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>
+	
+	<select id="getReportId" resultType="string">
+		SELECT 're' || LPAD(TO_NUMBER(SUBSTR(MAX(report_id), 3)) + 1, 4, '0') AS report_id
+		FROM report
+	</select>
+	
+	<insert id="insertReport" parameterType="Report">
+		insert into Report
+		values ((SELECT 're' || LPAD(TO_NUMBER(SUBSTR(MAX(report_id), 3)) + 1, 4, '0') AS report_idFROM report),
+				#{reTitle}, #{reContent}, #{reFile}, null)
+	</insert>
 	
 </mapper>
 

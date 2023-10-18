@@ -19,7 +19,13 @@ local.properties
 */apache-maven-3.9.4/*
 *.xml
 */*.log
-
+**/log4j.xml
+**/pom.xml
+**/spring-security.xml
+**/servlet-context.xml
+**/root-context.xml
+**/web.xml
+/logs/
 
 # External tool builders
 .externalToolBuilders/

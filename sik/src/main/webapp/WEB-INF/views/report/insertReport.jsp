@@ -11,6 +11,10 @@
 <script type='text/javascript'>
 $(function() {
     $('#dept, #position').change(function() {
+    	
+    	$('#name').html('');
+    	$('#memberId').html('');
+    	
         $.ajax({
             url: 'addApprover.do',
             type: 'post',
@@ -20,30 +24,64 @@ $(function() {
             	console.log("data :  "+data);
             	
             	var dataStr = JSON.stringify(data);
-            	 console.log("dataStr : "+dataStr);
             	var jsonObj = JSON.parse(dataStr);
-            	 console.log("jsonObj" + jsonObj);
             	 
-            	var output = $('#name').html();
+            	var output = $('#memberId').html();
                 
                 for(var i in jsonObj.list){
-                	output +='<option value="' + decodeURIComponent(jsonObj.list[i].memberId)'">'
+
+                	output +='<option value=' + decodeURIComponent(jsonObj.list[i].memberId)+'>'
+                	+ decodeURIComponent(jsonObj.list[i].memberId)+ " "
                 	+ decodeURIComponent(jsonObj.list[i].memberName) + '</option>';
-                	console.log(jsonObj.list[i].memberName);
                 }
-                
-                $('#name').html(output);
+                $('#memberId').html(output);
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
                 + "\nError : " + errorData);
                 
              }
-        });
-    });
-});
+        }); //ajax -> addApprover.do
+    }); //$('#dept, #position').change(function()
+    
+    $('#approvalLine').on('click',function() {
+    	var reportId = $('#reportId').text();
+        $.ajax({
+            url: 'approvalLine.do',
+            type: 'post',
+            dataType: 'json',
+            data: { memberId: $('#memberId').val(), reportId: reportId },
+            success: function(data) {
+            	console.log("data : "+data);
+            	var str = JSON.stringify(data);
+            	var obj = JSON.parse(str);
+            	
+            	$('#approval').html('');
+            	var gualho = '<tr>';
+            	var endgualho = '</tr>';            	
+            	var memberNames = $('#approvalLine').html();
+            	
+            	for(var i in obj.list){
+            		memberNames += '<td>'+ decodeURIComponent(obj.list[i].memberId) +'</td>';
+            	}
+            	
+            	$('#approval').html("<tr>"+memberNames+"</tr><tr><td></tr>");
+            },
+            error : function(request, status, errorData){
+                connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
+                + "\nError : " + errorData);
+                var jsonResponse = JSON.parse(xhr.responseText);
+                alert(jsonResponse.error);
+             }
+   	 }); //$('#dept').on('click',function()
+   });	//$('#approvalLine').on('click',function()
+}); //$(function()
 </script>
-
+<style>
+.custom-table{
+    font-size: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -59,7 +97,7 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
-						<form action="insertReport.do" method="POST"
+						<form action="" method="POST"
 							enctype='multipart/form-data'>
 							<div class="mb-3">
 								<div>
@@ -84,19 +122,39 @@ $(function() {
 									  	<option class="dropdown-item" value="팀장">팀장</option>
 									  	<option class="dropdown-item" value="대표이사">대표이사</option>
 									 </select>
-									 <select id="name" class="btn btn-secondary btn-sm dropdown-toggle">
+									 <select id="memberId" class="btn btn-secondary btn-sm dropdown-toggle">
 										    <!-- 옵션을 생성하는 영역 ★ -->
-									</select>
-																 
+									</select>							 
 									</form>
-									<button>+</button>				
+									<button id="approvalLine" type="button" class="btn btn-danger"
+        								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+									  +
+									</button>				
 								</div>
 								<hr>
-
-								<br> <br>
+								<div style="text-align: -webkit-right;">
+									<!-- 결재서명영역 -->
+									<div style="width:200px;">
+										<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;">
+											<tr>
+												<td>부서</td>
+												<td>부서</td>
+											</tr>
+											<tr>
+												<td>직책</td>
+												<td>부서</td>
+											</tr>
+											<tr>
+												<td><img src="/sik/resources/common/images/sign1.png" style="width:100px;"></td>
+												<td><img src="/sik/resources/common/images/sign2.png" style="width:100px;"></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<hr>
 								<div>
-									<span>Date: 2023 - 10 - 15 &nbsp&nbsp&nbsp&nbsp&nbsp</span> <span>보고서
-										번호 : ${ reportId }</span>
+									보고서 번호 : <span id="reportId">${ reportId }</span><br>
+									보고서 종류 : <span id="reportselect"></span>
 								</div>
 								<br> <br> <label for="proposalTitle"
 									class="form-label">제목</label> <input type="text"

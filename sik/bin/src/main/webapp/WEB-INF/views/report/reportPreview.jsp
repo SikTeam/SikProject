@@ -4,15 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+.custom-table{
+    font-size: 14px;
+}
+.custom-thead{
+	 background-color: #E7DAF9 !important;
+}
+</style>
 </head>
 <body>
 <div class="table-responsive table-bordered" style="padding: 10px;">
-<table class="table table-hover border rounded-5">
+<table class="table custom-table table-hover border rounded-5">
 	<a href="${ pageContext.servletContext.contextPath }/reportList.do">
-	<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
+	<h6 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 	결&nbsp&nbsp&nbsp&nbsp&nbsp재
-	</h4></a>
+	</h6></a>
   <thead class="table-dark">
     <tr>
       <th scope="col">No</th>
