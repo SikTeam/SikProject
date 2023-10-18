@@ -91,5 +91,8 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectSearchDate(search);
 	}
 
-	
+	@Override
+	public ArrayList<MemberDeptPosition> selectApprovalList(String reportId) {
+		return memberDao.selectApprovalList(reportId);
+	}
 }

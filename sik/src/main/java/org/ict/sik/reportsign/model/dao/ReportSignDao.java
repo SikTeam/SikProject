@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.ict.sik.common.Search;
+import org.ict.sik.member.model.vo.MemberDeptPosition;
 import org.ict.sik.reportsign.model.vo.ReportSign;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,4 @@ public class ReportSignDao {
 	public int countApproval(String reportId) {
 		return sqlSessionTemplate.selectOne("reportSignMapper.countApproval", reportId);
 	}
-	
 }

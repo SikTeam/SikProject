@@ -3,6 +3,7 @@ package org.ict.sik.reportsign.model.service;
 import java.util.ArrayList;
 
 import org.ict.sik.common.Search;
+import org.ict.sik.member.model.vo.MemberDeptPosition;
 import org.ict.sik.reportsign.model.vo.ReportSign;
 
 public interface ReportSignService {
