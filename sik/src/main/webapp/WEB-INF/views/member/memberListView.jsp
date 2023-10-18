@@ -37,13 +37,63 @@
 					</h4></a>
 				  <thead class="table-dark">
 				    <tr>
-				      <th scope="col">사번</th>
+				      <th scope="col">사번
+				      	<div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						      <span class="visually-hidden">Toggle Dropdown</span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <form class="d-flex" role="search">
+						        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+						        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+						      </form>
+						    </ul>
+  					  	</div>
+				      </th>
 				      <th scope="col">이름</th>
 				      <th scope="col">패스워드</th>
 				      <th scope="col">관리자여부</th>
-				      <th scope="col">부서</th>
-				      <th scope="col">직책</th>
-				      <th scope="col">입사일</th>
+				      <th scope="col">부서
+				      	<div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						      <span class="visually-hidden">Toggle Dropdown</span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <form class="d-flex" role="search">
+						        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+						        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+						      </form>
+						    </ul>
+  					  	</div>
+				      </th>
+				      <th scope="col">직책
+				      	<div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						      <span class="visually-hidden">Toggle Dropdown</span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <nav class="navbar bg-body-tertiary">
+								  <div class="container-fluid">
+								    <form class="d-flex" role="search">
+								      <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+								      <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+								    </form>
+								  </div>
+								</nav>
+						    </ul>
+  					  	</div>
+				      </th>
+				      <th scope="col">입사일
+					      <div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						      <span class="visually-hidden"></span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <input type="date" name="begin"><input type="date" name="end"> &nbsp;
+							  <input type="submit" value="검색">
+						    </ul>
+	  					  </div>
+					  </th>
 				      <th scope="col">프로필사진</th>
 				      <th scope="col">사인</th>
 				    </tr>
