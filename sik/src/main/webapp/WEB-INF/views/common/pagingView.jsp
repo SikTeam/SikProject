@@ -21,18 +21,14 @@
 <title></title>
 </head>
 <body>
-
 	<c:if test="${ empty action }">
 		<div style="text-align: center;">
-
 			<c:if test="${ currentPage eq 1 }">
 		[맨처음] &nbsp;
 	</c:if>
-
 			<c:if test="${ currentPage gt 1 }">
 				<a href="/sik/${ urlMapping }?page=1">[맨처음]</a> &nbsp;
 	</c:if>
-
 			<c:if
 				test="${ (currentPage - 10) lt startPage and (currentPage - 10) gt 1 }">
 				<a href="/sik/${ urlMapping }?page=${ startPage - 10 }">[이전그룹]</a> &nbsp;

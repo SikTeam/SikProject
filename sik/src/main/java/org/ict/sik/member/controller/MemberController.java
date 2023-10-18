@@ -35,16 +35,13 @@ public class MemberController {
 
 		loginMember = (Member) memberService.selectLogin(member);
 
-		ArrayList<Roll> rollList = memberService.selectRollList(member.getMemberId());
+		ArrayList<Roll> rollList = memberService.selectRollList(loginMember.getMemberId());
 		ArrayList<String> boardList = new ArrayList<String>();
-		ArrayList<String> numRollList = new ArrayList<String>();
 		
 		for(int i = 0; i < rollList.size(); i++) {
 			String roll = new Roll(rollList.get(i)).getRoll();
 			String board = roll.substring(0, roll.length()-4);
-			String numRoll = roll.substring(roll.length()-4,roll.length());
 			boardList.add(board);
-			numRollList.add(numRoll);
 		}
 		
 		
@@ -55,16 +52,15 @@ public class MemberController {
 			} else if (rollList.size() > 0 && loginMember.getAdminYn().equals("N")) {
 				session.setAttribute("loginMember", loginMember);
 				session.setAttribute("board", boardList);
-				session.setAttribute("numRollList", numRollList);
-				logger.info("boardList : " + boardList);
-				logger.info("numRollList : " + numRollList);
 			}
 			mv.setViewName("main");
 		} else {
 			mv.addObject("message", "로그인 실패!");
 			mv.setViewName("common/error");
-
 		}
+		
+		
+		
 		return mv;
 	}
 
