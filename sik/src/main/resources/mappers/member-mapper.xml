@@ -25,8 +25,8 @@
 		<result property="deptName" column="DEPT_NAME" />
 		<result property="positionName" column="POSITION_NAME" />
 		<result property="enrollDate" column="ENROLL_DATE" />
-		<result property="" column="PROFILE_IMAGE" />
-		<result property="" column="SIGN_IMAGE" />
+		<result property="profileImage" column="PROFILE_IMAGE" />
+		<result property="signImage" column="SIGN_IMAGE" />
 	</resultMap>
 	
 	<resultMap id="resultRoll" type="Roll">

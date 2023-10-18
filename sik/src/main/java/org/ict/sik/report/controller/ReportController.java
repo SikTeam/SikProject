@@ -1,7 +1,6 @@
 package org.ict.sik.report.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -146,17 +145,25 @@ public class ReportController {
 		ReportSign reSign = new ReportSign();
 		response.setContentType("application/json; charset=utf-8");
 		int countApproval = reportSignService.countApproval(reportId);
+		Search search = new Search();
+		search.setKeyword(memberId);
+		ArrayList<MemberDeptPosition> memberList = memberService.selectSearchId(search);
 		
 		report.setReportId(reportId);
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
 		reSign.setReportSignCounter(countApproval);
 		
-		int reportResult = reportService.insertReport(report);
+		int reportResult= 0;
+		
+		if(countApproval == 1) {
+			reportResult = reportService.insertReport(report);
+		}
+		
 		int reportSignResult = reportSignService.insertReport(reSign);
 		ArrayList<ReportSign> list = reportSignService.selectApproval(reSign);
 		
-		if(reportResult > 0 && reportSignResult > 0) {
+		if(reportSignResult > 0) {
 			
 			JSONObject sendJson = new JSONObject();
 			JSONArray jarr = new JSONArray();
