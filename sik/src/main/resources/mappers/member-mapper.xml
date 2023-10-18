@@ -61,19 +61,17 @@
 	
 	<select id="selectListP" parameterType="Paging" resultMap="resultList">
 		select *
-
     		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
     								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
     		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
     								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
-		            from member 
-		            full join position using (POSITION_ID)
-		            full join department using (DEPT_ID)
-		            where ADMIN_YN = 'N'
-		            order by MEMBER_ID
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N'
+		          order by MEMBER_ID
         		)
 		)
-
 		where rnum between #{ startRow } and #{ endRow }
 	</select>
 	
@@ -87,15 +85,37 @@
 					ORDER BY MEMBER_ID
 	</select>
 	
-		<select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
-		        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
-			        d.DEPT_NAME, p.POSITION_NAME
-					FROM member m 
-					FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
-					FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
-					WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
-					ORDER BY MEMBER_ID
-		</select>
+	<select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
+	        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+		        d.DEPT_NAME, p.POSITION_NAME
+				FROM member m 
+				FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+				FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+				WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
+				ORDER BY MEMBER_ID
+	</select>
+	
+	<select id="selectSearchIdCount" resultType="_int" parameterType="string">
+		select count(*) from member where admin_yn = 'N' and MEMBER_ID like '%' || #{keyword} || '%' 
+	</select>
+
+	<select id="selectSearchId" parameterType="Search" resultMap="resultList">
+		<![CDATA[
+		select *
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N' and MEMBER_ID like '%' || #{keyword} || '%'
+		          order by MEMBER_ID
+        		)
+		)
+		where rnum between #{ startRow } and #{ endRow }
+		]]>
+	</select>
 	
 </mapper>
 
