@@ -152,11 +152,16 @@ public class ReportController {
 		reSign.setMemberId(memberId);
 		reSign.setReportSignCounter(countApproval);
 		
-		int reportResult = reportService.insertReport(report);
+		int reportResult= 0;
+		
+		if(countApproval == 1) {
+			reportResult = reportService.insertReport(report);
+		}
+		
 		int reportSignResult = reportSignService.insertReport(reSign);
 		ArrayList<ReportSign> list = reportSignService.selectApproval(reSign);
 		
-		if(reportResult > 0 && reportSignResult > 0) {
+		if(reportSignResult > 0) {
 			
 			JSONObject sendJson = new JSONObject();
 			JSONArray jarr = new JSONArray();

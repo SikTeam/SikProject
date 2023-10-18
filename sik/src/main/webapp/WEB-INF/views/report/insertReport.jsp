@@ -65,8 +65,7 @@ $(function() {
             		memberNames += '<td>'+ decodeURIComponent(obj.list[i].memberId) +'</td>';
             	}
             	
-            	$('#approval').html(gualho+memberNames+endgualho);
-            	$('#approval').html(gualho+memberNames+endgualho);	
+            	$('#approval').html("<tr>"+memberNames+"</tr><tr><td></tr>");
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -78,7 +77,11 @@ $(function() {
    });	//$('#approvalLine').on('click',function()
 }); //$(function()
 </script>
-
+<style>
+.custom-table{
+    font-size: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -94,7 +97,7 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
-						<form action="insertReport.do" method="POST"
+						<form action="" method="POST"
 							enctype='multipart/form-data'>
 							<div class="mb-3">
 								<div>
@@ -121,18 +124,32 @@ $(function() {
 									 </select>
 									 <select id="memberId" class="btn btn-secondary btn-sm dropdown-toggle">
 										    <!-- 옵션을 생성하는 영역 ★ -->
-									</select>
-																 
+									</select>							 
 									</form>
 									<button id="approvalLine" type="button" class="btn btn-danger"
         								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
 									  +
 									</button>				
 								</div>
-								<div>
-									<table id="approval" class="table-responsive table-bordered">
-									
-									</table>
+								<hr>
+								<div style="text-align: -webkit-right;">
+									<!-- 결재서명영역 -->
+									<div style="width:200px;">
+										<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;">
+											<tr>
+												<td>부서</td>
+												<td>부서</td>
+											</tr>
+											<tr>
+												<td>직책</td>
+												<td>부서</td>
+											</tr>
+											<tr>
+												<td><img src="/sik/resources/common/images/sign1.png" style="width:100px;"></td>
+												<td><img src="/sik/resources/common/images/sign2.png" style="width:100px;"></td>
+											</tr>
+										</table>
+									</div>
 								</div>
 								<hr>
 								<div>
