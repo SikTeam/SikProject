@@ -43,7 +43,9 @@ $(function() {
              }
         }); //ajax -> addApprover.do
     }); //$('#dept, #position').change(function()
-    
+});
+
+$(function() {
     $('#approvalLine').on('click',function() {
     	var reportId = $('#reportId').text();
         $.ajax({
@@ -56,16 +58,42 @@ $(function() {
             	var str = JSON.stringify(data);
             	var obj = JSON.parse(str);
             	
-            	$('#approval').html('');
-            	var gualho = '<tr>';
-            	var endgualho = '</tr>';            	
-            	var memberNames = $('#approvalLine').html();
-            	
-            	for(var i in obj.list){
-            		memberNames += '<td>'+ decodeURIComponent(obj.list[i].memberId) +'</td>';
+            	$('#approval').html('');           	
+            	var memberNames = $('#approval').html();
+            	var deptnPositions = $('#approval').html();
+            	var sign = $('#approval').html();
+            	var widths = $('#approval').html();
+            	console.log(obj.memberList);
+
+            	for(var i in obj.memberlist){
+            		widths = '<div style="width:'+i+'00px;">'
+            		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
+            		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
+            		sign += '<td><img src="/sik/resources/common/images/'+decodeURIComponent(obj.memberList[i].signImage)+' style="width:100px;"></td>'
             	}
             	
-            	$('#approval').html("<tr>"+memberNames+"</tr><tr><td></tr>");
+             	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
+            	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>'); 
+            	
+            	
+            	
+/*             	<div style="width:200px;">
+				<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;">
+					<tr>
+						<td>부서</td>
+						<td>부서</td>
+					</tr>
+					<tr>
+						<td>직책</td>
+						<td>부서</td>
+					</tr>
+					<tr>
+						<td><img src="/sik/resources/common/images/sign1.png" style="width:100px;"></td>
+						<td><img src="/sik/resources/common/images/sign2.png" style="width:100px;"></td>
+					</tr>
+				</table>
+			</div> */  	
+            	
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -132,23 +160,10 @@ $(function() {
 									</button>				
 								</div>
 								<hr>
-								<div style="text-align: -webkit-right;">
+								<div id="approval" style="text-align: -webkit-right;">
 									<!-- 결재서명영역 -->
-									<div style="width:200px;">
-										<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;">
-											<tr>
-												<td>부서</td>
-												<td>부서</td>
-											</tr>
-											<tr>
-												<td>직책</td>
-												<td>부서</td>
-											</tr>
-											<tr>
-												<td><img src="/sik/resources/common/images/sign1.png" style="width:100px;"></td>
-												<td><img src="/sik/resources/common/images/sign2.png" style="width:100px;"></td>
-											</tr>
-										</table>
+									<div style="width:300px; border:1px;">
+										
 									</div>
 								</div>
 								<hr>

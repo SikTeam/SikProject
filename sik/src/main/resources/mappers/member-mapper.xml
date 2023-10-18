@@ -4,117 +4,179 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 
-	<resultMap id="resultMember" type="Member">
-		<id property="memberId" column="MEMBER_ID" />
-		<result property="memberName" column="MEMBER_NAME" />
-		<result property="pw" column="PW" />
-		<result property="adminYn" column="ADMIN_YN" />
-		<result property="deptId" column="DEPT_ID" />
-		<result property="positionId" column="POSITION_ID" />
-		<result property="enrollDate" column="ENROLL_DATE" />
-		<result property="" column="PROFILE_IMAGE" />
-		<result property="" column="SIGN_IMAGE" />
-	</resultMap>
-	
-	<resultMap id="resultList" type="MemberDeptPosition">
-		<result property="memberId" column="MEMBER_ID" />
-		<result property="memberName" column="MEMBER_NAME" />
-		<result property="pw" column="PW" />
-		<result property="adminYn" column="ADMIN_YN" />
-		<result property="superiorId" column="SUPERIOR_ID" />
-		<result property="deptName" column="DEPT_NAME" />
-		<result property="positionName" column="POSITION_NAME" />
-		<result property="enrollDate" column="ENROLL_DATE" />
-		<result property="profileImage" column="PROFILE_IMAGE" />
-		<result property="signImage" column="SIGN_IMAGE" />
-	</resultMap>
-	
-	<resultMap id="resultRoll" type="Roll">
-		<id property="deptId" column="DEPT_ID" />
-		<result property="positionId" column="POSITION_ID" />
-		<result property="roll" column="ROLL" />
-	</resultMap>
-	
-	<select id="selectLogin" parameterType="Member" resultMap="resultMember">
-		select * from member
-		where MEMBER_ID = #{ memberId } and PW = #{ pw }
-	</select>
-	
-	<select id="selectMemberCheck" parameterType="Member" resultType="_int">
-		select count(*) from member
-		where MEMBER_ID like #{ memberId }
-	</select>
-	<select id="selectRollList" parameterType="string" resultMap="resultRoll">
-		select *
-		from roll
-		where dept_id = (select dept_id
-		                from member
-		                where member_id = #{ member_id }) and 
-						position_id = (select position_id
-		                from member
-		                where member_id = #{ member_id })
-	</select>
-	
-	<select id="selectListCount" resultType="_int">
-		select count(*) from member where admin_yn = 'N'
-	</select>
-	
-	<select id="selectListP" parameterType="Paging" resultMap="resultList">
-		select *
-    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
-    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
-    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
-    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
-		          from member 
-		          full join position using (POSITION_ID)
-		          full join department using (DEPT_ID)
-		          where ADMIN_YN = 'N'
-		          order by MEMBER_ID
-        		)
-		)
-		where rnum between #{ startRow } and #{ endRow }
-	</select>
-	
-	<select id="selectFullList" resultMap="resultList">
-		        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
-			        d.DEPT_NAME, p.POSITION_NAME
-					FROM member m 
-					FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
-					FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
-					WHERE ADMIN_YN = 'N'
-					ORDER BY MEMBER_ID
-	</select>
-	
-	<select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
-	        SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
-		        d.DEPT_NAME, p.POSITION_NAME
-				FROM member m 
-				FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
-				FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
-				WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
-				ORDER BY MEMBER_ID
-	</select>
-	
-	<select id="selectSearchIdCount" resultType="_int" parameterType="string">
-		select count(*) from member where admin_yn = 'N' and MEMBER_ID like '%' || #{keyword} || '%' 
-	</select>
+   <resultMap id="resultMember" type="Member">
+      <id property="memberId" column="MEMBER_ID" />
+      <result property="memberName" column="MEMBER_NAME" />
+      <result property="pw" column="PW" />
+      <result property="adminYn" column="ADMIN_YN" />
+      <result property="deptId" column="DEPT_ID" />
+      <result property="positionId" column="POSITION_ID" />
+      <result property="enrollDate" column="ENROLL_DATE" />
+      <result property="profileImage" column="PROFILE_IMAGE" />
+      <result property="signImage" column="SIGN_IMAGE" />
+   </resultMap>
+   
+   <resultMap id="resultList" type="MemberDeptPosition">
+      <result property="memberId" column="MEMBER_ID" />
+      <result property="memberName" column="MEMBER_NAME" />
+      <result property="pw" column="PW" />
+      <result property="adminYn" column="ADMIN_YN" />
+      <result property="superiorId" column="SUPERIOR_ID" />
+      <result property="deptName" column="DEPT_NAME" />
+      <result property="positionName" column="POSITION_NAME" />
+      <result property="enrollDate" column="ENROLL_DATE" />
+      <result property="profileImage" column="PROFILE_IMAGE" />
+      <result property="signImage" column="SIGN_IMAGE" />
+   </resultMap>
+   
+   <resultMap id="resultRoll" type="Roll">
+      <id property="deptId" column="DEPT_ID" />
+      <result property="positionId" column="POSITION_ID" />
+      <result property="roll" column="ROLL" />
+   </resultMap>
+   
+   <select id="selectLogin" parameterType="Member" resultMap="resultMember">
+      select * from member
+      where MEMBER_ID = #{ memberId } and PW = #{ pw }
+   </select>
+   
+   <select id="selectMemberCheck" parameterType="Member" resultType="_int">
+      select count(*) from member
+      where MEMBER_ID like #{ memberId }
+   </select>
+   <select id="selectRollList" parameterType="string" resultMap="resultRoll">
+      select *
+      from roll
+      where dept_id = (select dept_id
+                      from member
+                      where member_id = #{ member_id }) and 
+                  position_id = (select position_id
+                      from member
+                      where member_id = #{ member_id })
+   </select>
+   
+   <select id="selectListCount" resultType="_int">
+      select count(*) from member where admin_yn = 'N'
+   </select>
+   
+   <select id="selectListP" parameterType="Paging" resultMap="resultList">
+      select *
+          from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+          from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+                from member 
+                full join position using (POSITION_ID)
+                full join department using (DEPT_ID)
+                where ADMIN_YN = 'N'
+                order by MEMBER_ID
+              )
+      )
+      where rnum between #{ startRow } and #{ endRow }
+   </select>
+   
+   <select id="selectFullList" resultMap="resultList">
+              SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+                 d.DEPT_NAME, p.POSITION_NAME
+               FROM member m 
+               FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+               FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+               WHERE ADMIN_YN = 'N'
+               ORDER BY MEMBER_ID
+   </select>
+   
+   <select id="addApprover" parameterType="MemberDeptPosition" resultMap="resultList">
+           SELECT  m.MEMBER_ID, m.MEMBER_NAME, m.PW, m.ADMIN_YN,
+              d.DEPT_NAME, p.POSITION_NAME
+            FROM member m 
+            FULL JOIN position p ON m.POSITION_ID = p.POSITION_ID     
+            FULL JOIN department d ON m.DEPT_ID = d.DEPT_ID
+            WHERE ADMIN_YN = 'N' and dept_name=#{ deptName } and position_name=#{ positionName }
+            ORDER BY MEMBER_ID
+   </select>
+   
+   <select id="selectSearchIdCount" resultType="_int" parameterType="string">
+      select count(*) from member where admin_yn = 'N' and MEMBER_ID like '%' || #{keyword} || '%' 
+   </select>
 
-	<select id="selectSearchId" parameterType="Search" resultMap="resultList">
-		<![CDATA[
-		select *
-    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
-    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
-    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
-    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
-		          from member 
-		          full join position using (POSITION_ID)
-		          full join department using (DEPT_ID)
-		          where ADMIN_YN = 'N' and MEMBER_ID like '%' || #{keyword} || '%'
-		          order by MEMBER_ID
-        		)
-		)
-		where rnum between #{ startRow } and #{ endRow }
-		]]>
+   <select id="selectSearchId" parameterType="Search" resultMap="resultList">
+      <![CDATA[
+      select *
+          from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+          from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+                from member 
+                full join position using (POSITION_ID)
+                full join department using (DEPT_ID)
+                where ADMIN_YN = 'N' and MEMBER_ID like '%' || #{keyword} || '%'
+                order by MEMBER_ID
+              )
+      )
+      where rnum between #{ startRow } and #{ endRow }
+      ]]>
+      
+   </select>
+   
+   <select id="selectSearchDeptCount" resultType="_int" parameterType="string">
+      select count(*) from member
+      full join position using (POSITION_ID)
+      full join department using (DEPT_ID)
+      where admin_yn = 'N' and DEPT_NAME like '%' || #{keyword} || '%' 
+   </select>
+   
+   <select id="selectSearchDept" parameterType="Search" resultMap="resultList">
+      <![CDATA[
+      select *
+          from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+          from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+                from member 
+                full join position using (POSITION_ID)
+                full join department using (DEPT_ID)
+                where ADMIN_YN = 'N' and DEPT_NAME like '%' || #{keyword} || '%'
+                order by MEMBER_ID
+              )
+      )
+      where rnum between #{ startRow } and #{ endRow }
+      ]]>
+      
+   </select>
+   
+   <select id="selectSearchPositionCount" resultType="_int" parameterType="string">
+      select count(*) from member 
+      full join position using (POSITION_ID)
+      full join department using (DEPT_ID)
+      where admin_yn = 'N' and POSITION_NAME like '%' || #{keyword} || '%' 
+   </select>
+   
+   <select id="selectSearchPosition" parameterType="Search" resultMap="resultList">
+      <![CDATA[
+      select *
+          from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+          from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+                            DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+                from member 
+                full join position using (POSITION_ID)
+                full join department using (DEPT_ID)
+                where ADMIN_YN = 'N' and POSITION_NAME like '%' || #{keyword} || '%'
+                order by MEMBER_ID
+              )
+      )
+      where rnum between #{ startRow } and #{ endRow }
+      ]]>
+   </select>
+	
+	<select id="selectApprovalList" parameterType="string" resultMap="resultList">
+		select report_id, member_name, dept_name, POSITION_NAME, sign_image
+		from member
+		join DEPARTMENT using(dept_id)
+		join POSITION using(POSITION_ID)
+		join report_sign using(member_id)
+		where report_id = #{ reportId }
+
 	</select>
 	
 </mapper>

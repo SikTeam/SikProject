@@ -24,6 +24,7 @@ public interface MemberService {
 	public ArrayList<MemberDeptPosition> selectSearchDept(Search search);
 	public ArrayList<MemberDeptPosition> selectSearchPosition(Search search);
 	public ArrayList<MemberDeptPosition> selectSearchDate(Search search);
+	public ArrayList<MemberDeptPosition> selectApprovalList(String reportId);
 	
 	
 }
