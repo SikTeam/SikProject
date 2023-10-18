@@ -28,7 +28,11 @@
 		            order by re_date desc, report_id desc))
 		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>
-	
+	<select id="selectMyReportCount" parameterType="string" resultType="_int">
+		select count(*)
+		from report_sign
+		where member_id = #{ keyword } and re_read = 'N'
+	</select>
 </mapper>
 
 

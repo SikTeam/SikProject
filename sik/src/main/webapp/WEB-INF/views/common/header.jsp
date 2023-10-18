@@ -121,18 +121,6 @@ a {
 	color: black;
 }
 </style>
-<script type="text/javascript"
-	src="/sik/resources/js/jquery-3.7.0.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		var loginSession = '<c:out value="${sessionScope.loginMember}"/>'
-		//alert(loginSession);
-		if(loginSession == null || loginSession == ""){
-			location.href ='loginMain.do';
-		}	
-	});
-
-</script>
 </head>
 <body>
 	
@@ -302,7 +290,7 @@ a {
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${ board eq '브랜드공지' }">
-											<a href="brandNoticeListView.do?page=1">브랜드공지</a>
+											<a href="brandNoticeListView.do?page=1&board=${ board }">브랜드공지</a>
 											<br>
 										</c:if>
 									</c:forEach>

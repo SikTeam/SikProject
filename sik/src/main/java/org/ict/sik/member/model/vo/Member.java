@@ -108,6 +108,16 @@ public class Member implements java.io.Serializable{
 		return serialVersionUID;
 	}
 
+	/*
+	 * 로그인에 사용되는 메소드 isMember(Object object) 작성 
+	 * 맞다면 true 리턴
+	 * 아니라면 false 리턴
+	 * */
+	
+	public boolean isMember(Object object) {
+		return object instanceof Member;
+	}
+	
 	@Override
 	public String toString() {
 		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", pw=" + pw + ", enrollDate="

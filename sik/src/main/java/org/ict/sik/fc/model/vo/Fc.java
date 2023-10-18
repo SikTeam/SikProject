@@ -127,7 +127,18 @@ public class Fc {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-
+	
+	/*
+	 * 로그인에 사용되는 메소드 isFc(Object object) 작성 
+	 * 맞다면 true 리턴
+	 * 아니라면 false 리턴
+	 * */
+	
+	public boolean isFc(Object object) {
+		return object instanceof Fc;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Fc [fcId=" + fcId + ", brandId=" + brandId + ", fcPw=" + fcPw + ", fcName=" + fcName + ", fcAdd="

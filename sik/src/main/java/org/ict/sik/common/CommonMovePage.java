@@ -1,5 +1,6 @@
 package org.ict.sik.common;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.ict.sik.fc.model.vo.Fc;
@@ -17,7 +18,7 @@ public class CommonMovePage {
 		return "main";
 	}
 	@RequestMapping("loginMain.do")
-	public String moveLoginPageMethod() {
+	public String moveLoginPageMethod(HttpServletRequest request) {
 		return "login";
 	}
 
