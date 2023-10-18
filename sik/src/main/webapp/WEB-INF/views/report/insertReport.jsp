@@ -43,9 +43,7 @@ $(function() {
              }
         }); //ajax -> addApprover.do
     }); //$('#dept, #position').change(function()
-});
 
-$(function() {
     $('#approvalLine').on('click',function() {
     	var reportId = $('#reportId').text();
         $.ajax({
@@ -65,35 +63,15 @@ $(function() {
             	var widths = $('#approval').html();
             	console.log(obj.memberList);
 
-            	for(var i in obj.memberlist){
-            		widths = '<div style="width:'+i+'00px;">'
+            	for(var i in obj.memberList){
+            		widths = '<div style="width:'+i+'00px;">';
             		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
             		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
-            		sign += '<td><img src="/sik/resources/common/images/'+decodeURIComponent(obj.memberList[i].signImage)+' style="width:100px;"></td>'
+            		sign += '<td><img src="/sik/resources/common/images/'+decodeURIComponent(obj.memberList[i].signImage)+'" style="width:100px;"></td>';
             	}
             	
              	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
-            	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>'); 
-            	
-            	
-            	
-/*             	<div style="width:200px;">
-				<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;">
-					<tr>
-						<td>부서</td>
-						<td>부서</td>
-					</tr>
-					<tr>
-						<td>직책</td>
-						<td>부서</td>
-					</tr>
-					<tr>
-						<td><img src="/sik/resources/common/images/sign1.png" style="width:100px;"></td>
-						<td><img src="/sik/resources/common/images/sign2.png" style="width:100px;"></td>
-					</tr>
-				</table>
-			</div> */  	
-            	
+            	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -104,6 +82,7 @@ $(function() {
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
 }); //$(function()
+
 </script>
 <style>
 .custom-table{

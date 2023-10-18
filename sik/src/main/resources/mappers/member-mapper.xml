@@ -3,7 +3,6 @@
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
-
    <resultMap id="resultMember" type="Member">
       <id property="memberId" column="MEMBER_ID" />
       <result property="memberName" column="MEMBER_NAME" />
@@ -95,10 +94,19 @@
             ORDER BY MEMBER_ID
    </select>
    
+   <select id="selectApprovalList" parameterType="string" resultMap="resultList">
+      select report_id, member_name, dept_name, POSITION_NAME, sign_image
+      from member
+      join DEPARTMENT using(dept_id)
+      join POSITION using(POSITION_ID)
+      join report_sign using(member_id)
+      where report_id = #{ reportId }
+   </select>
+   
    <select id="selectSearchIdCount" resultType="_int" parameterType="string">
       select count(*) from member where admin_yn = 'N' and MEMBER_ID like '%' || #{keyword} || '%' 
    </select>
-
+   
    <select id="selectSearchId" parameterType="Search" resultMap="resultList">
       <![CDATA[
       select *
@@ -167,20 +175,10 @@
       )
       where rnum between #{ startRow } and #{ endRow }
       ]]>
+
    </select>
-	
-	<select id="selectApprovalList" parameterType="string" resultMap="resultList">
-		select report_id, member_name, dept_name, POSITION_NAME, sign_image
-		from member
-		join DEPARTMENT using(dept_id)
-		join POSITION using(POSITION_ID)
-		join report_sign using(member_id)
-		where report_id = #{ reportId }
-
-	</select>
-	
+   
 </mapper>
-
 
 
 
