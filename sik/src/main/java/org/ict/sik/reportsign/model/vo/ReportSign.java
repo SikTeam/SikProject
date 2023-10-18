@@ -6,18 +6,28 @@ public class ReportSign {
 	public String memberId; //사번
 	public String reSign; //결재라인여부
 	public String reRead; //승인/읽음여부
+	public int reportSignCounter; //결재 순서
 	
 	public ReportSign() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReportSign(String reportId, String memberId, String reSign, String reRead) {
+	public ReportSign(String reportId, String memberId, String reSign, String reRead, int reportSignCounter) {
 		super();
 		this.reportId = reportId;
 		this.memberId = memberId;
 		this.reSign = reSign;
 		this.reRead = reRead;
+		this.reportSignCounter = reportSignCounter;
+	}
+	
+	public int getReportSignCounter() {
+		return reportSignCounter;
+	}
+
+	public void setReportSignCounter(int reportSignCounter) {
+		this.reportSignCounter = reportSignCounter;
 	}
 
 	public String getReportId() {
