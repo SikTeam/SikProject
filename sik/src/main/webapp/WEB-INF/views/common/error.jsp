@@ -17,7 +17,7 @@
  <c:if test="${ empty e }">
  	<h3>Servlet 오류 :  : ${ requestScope.message }</h3>
  </c:if>
- <c:url var="movemain" value="main.do"/>
+ <c:url var="movemain" value="loginMain.do"/>
  <a href="${ movemain }">시작페이지로 이동</a>
  
 </body>

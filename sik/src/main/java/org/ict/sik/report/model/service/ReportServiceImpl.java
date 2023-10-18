@@ -29,4 +29,8 @@ public class ReportServiceImpl implements ReportService{
 	public int insertReport(Report report) {
 		return reportDao.insertReport(report);
 	}
+
+	public int selectMyReportCount(String memberId) {
+		return reportDao.selectMyReportCount(memberId);
+	}
 }

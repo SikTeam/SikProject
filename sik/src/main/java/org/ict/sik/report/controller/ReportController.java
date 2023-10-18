@@ -117,12 +117,12 @@ public class ReportController {
 	public ModelAndView getReportId(ModelAndView mv) {
 		String reportId = reportService.getReportId();
 		
-		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
+//		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
 		
 		logger.info(reportId);
 		if (reportId != null) {
 			mv.addObject("reportId", reportId);
-			mv.addObject("list", list);
+//			mv.addObject("list", list);
 			mv.setViewName("report/insertReport");
 		} else {
 			mv.addObject("message", "결재창 불러오기 실패.");
@@ -144,10 +144,10 @@ public class ReportController {
 		Report report = new Report();
 		ReportSign reSign = new ReportSign();
 		response.setContentType("application/json; charset=utf-8");
+		// 지금 사인이 몇번째인지 알아보는 작업
 		int countApproval = reportSignService.countApproval(reportId);
-		Search search = new Search();
-		search.setKeyword(memberId);
-		ArrayList<MemberDeptPosition> memberList = memberService.selectSearchId(search);
+
+		ArrayList<MemberDeptPosition> memberList = memberService.selectApprovalList(reportId);
 		
 		report.setReportId(reportId);
 		reSign.setReportId(reportId);
@@ -155,20 +155,21 @@ public class ReportController {
 		reSign.setReportSignCounter(countApproval);
 		
 		int reportResult= 0;
-		
+		// 내 사인이 첫번째라면 생성
 		if(countApproval == 1) {
 			reportResult = reportService.insertReport(report);
 		}
-		
+		// 인설트 성공여부
 		int reportSignResult = reportSignService.insertReport(reSign);
-		ArrayList<ReportSign> list = reportSignService.selectApproval(reSign);
+		ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
 		
 		if(reportSignResult > 0) {
 			
 			JSONObject sendJson = new JSONObject();
 			JSONArray jarr = new JSONArray();
+			JSONArray jarr2 = new JSONArray();
 			
-			for(ReportSign r : list) {
+			for(ReportSign r : relist) {
 				JSONObject job = new JSONObject();
 				
 				job.put("reportId", URLEncoder.encode(r.getReportId(), "UTF-8"));
@@ -179,9 +180,24 @@ public class ReportController {
 				
 				jarr.add(job);
 			}
-			sendJson.put("list", jarr);
 			
-		return sendJson.toJSONString();
+			
+			for(MemberDeptPosition m : memberList) {
+				JSONObject job2 = new JSONObject();
+				
+				job2.put("memberName", URLEncoder.encode(m.getMemberName(), "UTF-8"));
+				job2.put("signImage", URLEncoder.encode(m.getSignImage(), "UTF-8"));
+				job2.put("deptName", URLEncoder.encode(m.getDeptName(), "UTF-8"));
+				job2.put("positionName", URLEncoder.encode(m.getPositionName(), "UTF-8"));
+				
+				jarr2.add(job2);
+			}
+			
+			sendJson.put("relist", jarr);
+			sendJson.put("memberList", jarr2);
+			logger.info("sendJson : "+sendJson.toString());
+			
+			return sendJson.toJSONString();
 		
 		}else {
 		    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

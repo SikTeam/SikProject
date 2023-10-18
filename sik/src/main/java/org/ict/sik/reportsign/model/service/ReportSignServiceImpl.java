@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
+import org.ict.sik.member.model.vo.MemberDeptPosition;
 import org.ict.sik.reportsign.model.dao.ReportSignDao;
 import org.ict.sik.reportsign.model.vo.ReportSign;
 import org.springframework.beans.factory.annotation.Autowired;
