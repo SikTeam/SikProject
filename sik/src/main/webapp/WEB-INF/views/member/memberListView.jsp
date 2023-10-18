@@ -40,12 +40,12 @@
 				      <th scope="col">사번
 				      	<div class="btn-group">
 	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-						      <span class="visually-hidden">Toggle Dropdown</span>
+						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <form class="d-flex" role="search">
-						        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-						        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+						      <form class="d-flex" action="msearchMId.do" method="post">
+								<input class="form-control me-1" type="Search" placeholder="사번" aria-label="Search" name="keyword">
+						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
 						      </form>
 						    </ul>
   					  	</div>
@@ -56,12 +56,12 @@
 				      <th scope="col">부서
 				      	<div class="btn-group">
 	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-						      <span class="visually-hidden">Toggle Dropdown</span>
+						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <form class="d-flex" role="search">
-						        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-						        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+						      <form class="d-flex" role="search" action="msearchDept.do" method="post">
+						        <input class="form-control me-1" type="search" placeholder="부서" aria-label="Search">
+						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
 						      </form>
 						    </ul>
   					  	</div>
@@ -69,17 +69,13 @@
 				      <th scope="col">직책
 				      	<div class="btn-group">
 	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-						      <span class="visually-hidden">Toggle Dropdown</span>
+						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <nav class="navbar bg-body-tertiary">
-								  <div class="container-fluid">
-								    <form class="d-flex" role="search">
-								      <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-								      <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
-								    </form>
-								  </div>
-								</nav>
+						      <form class="d-flex" role="search" action="msearchPosition.do" method="post">
+						        <input class="form-control me-1" type="search" placeholder="직책" aria-label="Search">
+						        <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+						      </form>
 						    </ul>
   					  	</div>
 				      </th>
@@ -89,8 +85,10 @@
 						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <input type="date" name="begin"><input type="date" name="end"> &nbsp;
-							  <input type="submit" value="검색">
+						    	<form class="d-flex" role="search" action="mearchEnrollDate.do" method="post">
+							      <input type="date" name="begin">~<input type="date" name="end"> &nbsp;
+								  <input type="submit" value="검색">
+								</form>
 						    </ul>
 	  					  </div>
 					  </th>
@@ -104,7 +102,7 @@
 					      <td>${ m.memberId }</td>
 					      <td>${ m.memberName }</td>
 					      <td>${ m.pw }</td>
-					      <td>${ m.adminYn }</td>
+					      <td style="text-align:center">${ m.adminYn }</td>
  					      <td>${ m.deptName }</td>
 					      <td>${ m.positionName }</td>
 					      <c:if test="${ m.enrollDate ne null }">
