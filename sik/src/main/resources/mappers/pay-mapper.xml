@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payMapper">
+
+	<resultMap id="resultPay" type="Pay">
+		<id property="payId" column="PAY_ID" />
+		<result property="payTime" column="PAY_TIME" />
+		<result property="payCon" column="PAY_CON" />
+		<result property="payType" column="PAY_TYPE" />
+		<result property="payTake" column="PAY_TAKE" />
+		<result property="payPrice" column="PAY_PRICE" />
+		<result property="payStatus" column="PAY_STATUS" />
+		<result property="fcId" column="FC_ID" />
+		<result property="muId" column="MU_ID" />
+	</resultMap>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

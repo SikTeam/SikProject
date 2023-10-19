@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fcStockMapper">
+
+   <resultMap id="resultFcStock" type="FcStock">
+      <id property="itemId" column="ITEM_ID" />
+      <result property="fcId" column="FC_ID" />
+      <result property="fcStockQuan" column="FC_STOCK_QUAN" />
+      <result property="fcStockEtc" column="FC_STOCK_ETC" />
+   </resultMap>
+   <resultMap id="resultFcStockName" type="FcStockName">
+      <result property="fcId" column="FC_ID" />
+      <result property="itemName" column="ITEM_NAME" />
+      <result property="fcName" column="FC_NAME" />
+      <result property="fcStockQuan" column="FC_STOCK_QUAN" />
+      <result property="fcStockEtc" column="FC_STOCK_ETC" />
+   </resultMap>
+   <select id="selectListFcCount" parameterType="Search"
+      resultType="_int">
+      SELECT count(*)
+      FROM (
+      SELECT rownum rnum, ITEM_NAME,FC_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+      FROM fc_stock
+      JOIN item USING (item_id)
+      JOIN fc USING (fc_id))
+      <if test="searchOption == 'fcName'">
+         WHERE FC_NAME LIKE '%' || #{keyword} || '%')
+      </if>
+      <if test="searchOption == 'fcStockEtc'">
+         WHERE FC_STOCK_ETC LIKE '%' || #{keyword} || '%')
+      </if>
+      <if test="searchOption == 'itemName'">
+         WHERE ITEM_NAME LIKE '%' || #{keyword} || '%')
+      </if>
+   </select>
+
+   <select id="selectList" parameterType="Paging"
+      resultMap="resultFcStockName">
+      SELECT rownum rnum, FC_ID, ITEM_NAME, FC_NAME, FC_STOCK_QUAN,
+      FC_STOCK_ETC
+      FROM (
+      SELECT rownum rnum, FC_ID, FC_NAME,ITEM_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+      FROM (SELECT * FROM fc_stock
+      JOIN item USING (item_id)
+      JOIN fc USING (fc_id)
+      <if test="searchOption == 'fcName'">
+         WHERE FC_NAME LIKE '%' || #{keyword} || '%'
+      </if>
+      <if test="searchOption == 'fcStockEtc'">
+         WHERE FC_STOCK_ETC LIKE '%' || #{keyword} || '%'
+      </if>
+      <if test="searchOption == 'itemName'">
+         WHERE ITEM_NAME LIKE '%' || #{keyword} || '%'
+      </if>
+      ORDER BY fc_id
+      ))
+      WHERE rnum BETWEEN #{startRow} AND #{endRow}
+      
+   </select>
+
+   <select id="selectListFcName" parameterType="search"
+      resultMap="resultFcStockName">
+      SELECT rownum rnum, FC_ID, ITEM_NAME, FC_NAME, FC_STOCK_QUAN,
+      FC_STOCK_ETC
+      FROM (
+      SELECT rownum rnum, FC_ID, FC_NAME,ITEM_NAME,FC_STOCK_QUAN,FC_STOCK_ETC
+      FROM (SELECT * FROM fc_stock
+      JOIN item USING (item_id)
+      JOIN fc USING (fc_id)
+      <if test="searchOption == 'fcName'">
+         WHERE FC_NAME LIKE '%' || #{keyword} || '%'
+      </if>
+      <if test="searchOption == 'fcStockEtc'">
+         WHERE FC_STOCK_ETC LIKE '%' || #{keyword} || '%'
+      </if>
+      <if test="searchOption == 'itemName'">
+         WHERE ITEM_NAME LIKE '%' || #{keyword} || '%'
+      </if>
+      ORDER BY fc_id
+      ))
+      WHERE rnum BETWEEN #{startRow} AND #{endRow}
+      </select>
+</mapper>

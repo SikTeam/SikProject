@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="brandStockMapper">
+
+	<resultMap id="resultBrandStock" type="BrandStock">
+		<id property="brandId" column="BRAND_ID" />
+		<result property="itemId" column="ITEM_ID" />
+		<result property="brStockQuan" column="BR_STOCK_QUAN" />
+		<result property="brStockEtc" column="BR_STOCK_ETC" />
+	</resultMap>
+	<resultMap id="resultBrandStockName" type="BrandStockName">
+		<result property="brandId" column="BRAND_ID" />
+		<result property="brandName" column="BRAND_NAME" />
+		<result property="itemName" column="ITEM_NAME" />
+		<result property="brStockQuan" column="BR_STOCK_QUAN" />
+		<result property="brStockEtc" column="BR_STOCK_ETC" />
+	</resultMap>
+	<select id="selectListBrandNameCount" parameterType="Search"
+		resultType="_int">
+		SELECT count(*)
+		FROM (
+		SELECT rownum rnum, BRAND_ID, ITEM_NAME, BRAND_NAME, BR_STOCK_QUAN,
+		BR_STOCK_ETC
+		FROM brand_stock
+		JOIN item USING (item_id)
+		JOIN brand USING (brand_id))
+		<if test="searchOption == 'brandId'">
+			WHERE brand_id LIKE '%' || #{keyword} || '%')
+		</if>
+		<if test="searchOption == 'brandName'">
+			WHERE brand_name LIKE '%' || #{keyword} || '%')
+		</if>
+		<if test="searchOption == 'itemName'">
+			WHERE item_name LIKE '%' || #{keyword} || '%')
+		</if>
+	</select>
+
+	<select id="selectList" parameterType="Paging"
+		resultMap="resultBrandStockName">
+		SELECT rownum rnum, BRAND_ID, ITEM_NAME, BRAND_NAME, BR_STOCK_QUAN,
+		BR_STOCK_ETC
+		FROM (
+		SELECT rownum rnum, BRAND_ID, ITEM_NAME, BRAND_NAME, BR_STOCK_QUAN,
+		BR_STOCK_ETC
+		FROM (SELECT * FROM brand_stock
+		JOIN item USING (item_id)
+		JOIN brand USING (brand_id)
+		<if test="searchOption == 'brandId'">
+			WHERE brand_id LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="searchOption == 'brandName'">
+			WHERE brand_name LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="searchOption == 'itemName'">
+			WHERE item_name LIKE '%' || #{keyword} || '%'
+		</if>
+		ORDER BY brand_id))
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
+
+	<select id="selectListBrandName" parameterType="search"
+		resultMap="resultBrandStockName">
+		SELECT rownum rnum, BRAND_ID, ITEM_NAME, BRAND_NAME, BR_STOCK_QUAN,
+		BR_STOCK_ETC
+		FROM (
+		SELECT rownum rnum, BRAND_ID, ITEM_NAME, BRAND_NAME, BR_STOCK_QUAN,
+		BR_STOCK_ETC
+		FROM (SELECT * FROM brand_stock
+		JOIN item USING (item_id)
+		JOIN brand USING (brand_id)
+		<if test="searchOption == 'brandId'">
+			WHERE brand_id LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="searchOption == 'brandName'">
+			WHERE brand_name LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="searchOption == 'itemName'">
+			WHERE item_name LIKE '%' || #{keyword} || '%'
+		</if>
+		ORDER BY brand_id))
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

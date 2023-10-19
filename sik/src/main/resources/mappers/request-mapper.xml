@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="requestMapper">
+
+	<resultMap id="resultRequest" type="Request">
+		<id property="mgId" column="MG_ID" />
+		<result property="reqContent" column="REQ_CONTENT" />
+		<result property="reqState" column="REQ_STATE" />
+	</resultMap>
+	
+	<resultMap id="resultFranchiseeRequest" type="FranchiseeRequest">
+		
+		<result property="fcOwner" column="fc_owner" />
+		<result property="reqContent" column="REQ_CONTENT" />
+		<result property="reqState" column="REQ_STATE" />
+		<result property="mgCdate" column="mg_cdate" />
+	</resultMap>
+	
+	
+	<insert id="insertOriginRequest" parameterType="Request">
+		insert into request 
+		values (#{mgId},#{reqContent},#{reqState})
+	</insert>
+	
+	
+	<select id="selectListCount" resultType="_int">
+		select count(*) from request
+	</select>
+	
+	<select id="selectList" resultMap="resultFranchiseeRequest">
+		select fc_owner ,REQ_CONTENT, REQ_STATE, mg_cdate
+		from request
+		join management using(mg_id)
+		join fc using (member_id)
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
