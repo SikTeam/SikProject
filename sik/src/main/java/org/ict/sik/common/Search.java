@@ -12,76 +12,68 @@ public class Search {
 	private int age;	//나이 검색 시 필요
 	private String searchOption;
 	
-	
-	public String getSearchOption() {
-		return searchOption;
-	}
-
-	public void setSearchOption(String searchOption) {
-		this.searchOption = searchOption;
-	}
-
-	public Search(String searchOption) {
+	public Search() {
 		super();
+	}
+	public Search(String keyword, String brand, int startRow, int endRow, Date begin, Date end, int age,
+			String searchOption) {
+		super();
+		this.keyword = keyword;
+		this.brand = brand;
+		this.startRow = startRow;
+		this.endRow = endRow;
+		this.begin = begin;
+		this.end = end;
+		this.age = age;
 		this.searchOption = searchOption;
 	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public Search() {}
-
 	public String getKeyword() {
 		return keyword;
 	}
-
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
+	public String getBrand() {
+		return brand;
+	}
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 	public int getStartRow() {
 		return startRow;
 	}
-
 	public void setStartRow(int startRow) {
 		this.startRow = startRow;
 	}
-
 	public int getEndRow() {
 		return endRow;
 	}
-
 	public void setEndRow(int endRow) {
 		this.endRow = endRow;
 	}
-
 	public Date getBegin() {
 		return begin;
 	}
-
 	public void setBegin(Date begin) {
 		this.begin = begin;
 	}
-
 	public Date getEnd() {
 		return end;
 	}
-
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getSearchOption() {
+		return searchOption;
+	}
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
 	}
 
 	@Override
@@ -89,9 +81,6 @@ public class Search {
 		return "Search [keyword=" + keyword + ", brand=" + brand + ", startRow=" + startRow + ", endRow=" + endRow
 				+ ", begin=" + begin + ", end=" + end + ", age=" + age + ", searchOption=" + searchOption + "]";
 	}
-
-	
-
 	
 		
 }

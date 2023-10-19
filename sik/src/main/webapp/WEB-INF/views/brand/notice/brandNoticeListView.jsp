@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="nowpage" value="1" /> 
+<c:if test="${ !empty requestScope.currentPage }">
+	<c:set var="nowpage" value="${ requestScope.currentPage }"/>
+</c:if>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -66,7 +72,10 @@
 		<form id="titleform" class="sform" action="brandNoticeListView.do"
 			method="post" align="center">
 			<input type="hidden" name="page" value="${ nowpage }">
-			<input type="hidden" name="action" value="keyword">
+
+			<input type="hidden" name="action" value="title">
+			<input type="hidden" name="board" value="${ board }">
+
 			<select name="brand">
 				<option value="all">모두</option>
 				<c:forEach var="b" items="${ brandList }">
@@ -79,7 +88,9 @@
 			</fieldset>
 		</form>
 		<c:if test="${ Create eq 'Y' }">
-			<button type="button" class="btn btn-dark" onclick="javascript:location.href='brandNoticeInsert.do?roll=${Create}';">신규 작성</button>
+
+			<button type="button" class="btn btn-dark" onclick="javascript:location.href='brandNoticeInsert.do?roll=${Create}&board=${ board }';">신규 작성</button>
+
 		</c:if>
 		<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	</div>
