@@ -53,7 +53,22 @@
 						    </ul>
   					  	</div>
 				      </th>
-				      <th scope="col">이름</th>
+				      <th scope="col">이름
+				      	<div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						      <span class="visually-hidden"></span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <form class="d-flex" role="search" action="msearchName.do" method="post">
+						      	<input type="hidden" name="action" value="name">	
+								<fieldset>
+									<input class="form-control me-1" type="Search" placeholder="이름" aria-label="Search" name="keyword">
+						        	<button class="btn btn-outline-success btn-sm" type="submit">검색</button>
+								</fieldset>
+						      </form>
+						    </ul>
+  					  	</div>
+				      </th>
 				      <th scope="col">패스워드</th>
 				      <th scope="col">관리자여부</th>
 				      <th scope="col">부서
@@ -94,11 +109,11 @@
 						      <span class="visually-hidden"></span>
 						    </button>
 						    <ul class="dropdown-menu">
-						      <form class="d-flex" role="search" action="mearchEnrollDate.do" method="post">
-						        <input type="hidden" name="action" value="enroll">	
+						      <form class="d-flex" role="search" action="msearchEnrollDate.do" method="post">
+						        <input type="hidden" name="action" value="date">	
 								<fieldset>
-						        	<input type="date" name="begin">~<input type="date" name="end"> &nbsp;
-								  <input type="submit" value="검색">
+						          <input type="date" name="begin">~<input type="date" name="end"> &nbsp;
+								  <button class="btn btn-outline-success btn-sm" type="submit">검색</button>
 								</fieldset>
 							  </form>
 						    </ul>

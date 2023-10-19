@@ -17,10 +17,12 @@ public interface MemberService {
 	public ArrayList<MemberDeptPosition> selectFullList();
 	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp);
 	public int selectSearchIdCount(String keyword);
+	public int selectSearchNameCount(String keyword);
 	public int selectSearchDeptCount(String keyword);
 	public int selectSearchPositionCount(String keyword);
 	public int selectSearchDateCount(Search date);
 	public ArrayList<MemberDeptPosition> selectSearchId(Search search);
+	public ArrayList<MemberDeptPosition> selectSearchName(Search search);
 	public ArrayList<MemberDeptPosition> selectSearchDept(Search search);
 	public ArrayList<MemberDeptPosition> selectSearchPosition(Search search);
 	public ArrayList<MemberDeptPosition> selectSearchDate(Search search);
