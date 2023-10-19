@@ -54,6 +54,10 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne("memberMapper.selectSearchIdCount", keyword);
 	}
 	
+	public int selectSearchNameCount(String keyword) {
+		return sqlSessionTemplate.selectOne("memberMapper.selectSearchNameCount", keyword);
+	}
+	
 	public int selectSearchDeptCount(String keyword) {
 		return sqlSessionTemplate.selectOne("memberMapper.selectSearchDeptCount", keyword);
 	}
@@ -68,6 +72,11 @@ public class MemberDao {
 	
 	public ArrayList<MemberDeptPosition> selectSearchId(Search search) {
 		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.selectSearchId", search);
+		return (ArrayList<MemberDeptPosition>)list;
+	}
+	
+	public ArrayList<MemberDeptPosition> selectSearchName(Search search) {
+		List<MemberDeptPosition> list = sqlSessionTemplate.selectList("memberMapper.selectSearchName", search);
 		return (ArrayList<MemberDeptPosition>)list;
 	}
 

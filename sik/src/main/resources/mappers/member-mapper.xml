@@ -126,6 +126,29 @@
 		
 	</select>
 	
+	<select id="selectSearchNameCount" resultType="_int" parameterType="string">
+		select count(*) from member where admin_yn = 'N' and MEMBER_NAME like '%' || #{keyword} || '%' 
+	</select>
+	
+	<select id="selectSearchName" parameterType="Search" resultMap="resultList">
+		<![CDATA[
+		select *
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N' and MEMBER_NAME like '%' || #{keyword} || '%'
+		          order by MEMBER_ID
+        		)
+		)
+		where rnum between #{ startRow } and #{ endRow }
+		]]>
+		
+	</select>
+	
 	<select id="selectSearchDeptCount" resultType="_int" parameterType="string">
 		select count(*) from member
 		full join position using (POSITION_ID)
@@ -175,7 +198,30 @@
 		)
 		where rnum between #{ startRow } and #{ endRow }
 		]]>
-
 	</select>
 	
+	<select id="selectSearchDateCount" resultType="_int" parameterType="date">
+		select count(*) from member 
+		full join position using (POSITION_ID)
+		full join department using (DEPT_ID)
+		where admin_yn = 'N' and ENROLL_DATE between #{begin} and #{end}
+	</select>
+	
+	<select id="selectSearchDate" parameterType="Search" resultMap="resultList">
+		<![CDATA[
+		select *
+    		from (select rownum rnum, MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+    		from (select MEMBER_ID, MEMBER_NAME, PW, ADMIN_YN, 
+    								DEPT_NAME, POSITION_NAME, ENROLL_DATE, PROFILE_IMAGE, SIGN_IMAGE
+		          from member 
+		          full join position using (POSITION_ID)
+		          full join department using (DEPT_ID)
+		          where ADMIN_YN = 'N' and ENROLL_DATE between #{begin} and #{end}
+		          order by MEMBER_ID
+        		)
+		)
+		where rnum between #{ startRow } and #{ endRow }
+		]]>
+	</select>
 </mapper>
