@@ -69,17 +69,19 @@ $(function() {
             	}
             	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
              	for(var i in obj.memberList){
-            		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+' '+'<button type="button" class="btn-close" aria-label="Close"></button></td>';
+            		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
             		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
-            		sign += '<td style="width:100px; height=100px;"></td>';
+            		sign += '<td><img src="/sik/resources/common/images/memberSign/'+decodeURIComponent(obj.memberList[i].signImage)+'" style="width:100px;"></td>';
             	}
             	
              	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
                     	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
             },
-            	error: function (request, status, error) {
-            	console.log("error code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
-            	alert("동일한 결재자가 존재해서 추가할수 없습니다.");
+            error : function(request, status, errorData){
+                connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
+                + "\nError : " + errorData);
+                var jsonResponse = JSON.parse(xhr.responseText);
+                alert(jsonResponse.error);
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()

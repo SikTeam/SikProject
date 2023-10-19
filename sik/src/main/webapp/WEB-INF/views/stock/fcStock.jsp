@@ -16,28 +16,36 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-nanum@1/css/nanumgothic/nanumgothic.min.css">
 
 <script type="text/javascript"
-	src="/sik/resources/js/jquery-3.7.0.min.js"></script>
-<!-- <script type="text/javascript">
- 	$(function() {
-		var limit = "${ currentLimit }";
-		document.getElementById("limit").value = limit;
+	src="/sik/resources/js/jquery-3.7.0.min.js">
+$(document).ready(function() {
+    // 이전 선택을 저장하는 변수
+    var previousSelectedOption = $('#searchOption').val();
 
-		//input 태그의 name 이 item 의 값이 바뀌면(change) 작동되는 이벤트 핸들러 작성
-		$('input[name=item]').on('change', function() {
-			//여러 개의 태그 중에서 체크표시가 된 태그를 선택
-			$('input[name=item]').each(function(index) {
-				//선택된 radio 순번대로 하나씩 checked 인지 확인함
-				if ($(this).is(':checked')) {
-					//체크 표시된 아이템에 대한 폼이 보여지게 처리함
-					$('form.sform').eq(index).css('display', 'block');
-				} else {
-					//체크 표시 안된 아이템의 폼은 안 보이게 처리함
-					$('form.sform').eq(index).css('display', 'none');
-				}
-			}); //each
-		}); //on
-	}); //document ready
-</script> -->
+    // 드롭다운 메뉴가 변경될 때 이벤트 핸들러
+    $('#searchOption').change(function() {
+        var selectedOption = $(this).val();
+
+        // 서버로 Ajax 요청을 보냅니다.
+        $.ajax({
+            type: "GET",
+            url: "/getDropdownOptions",
+            data: { selectedOption: selectedOption },
+            success: function(response) {
+                // 서버에서 받은 응답을 처리하고 원하는 방식으로 드롭다운 메뉴를 업데이트합니다.
+                // 예를 들어, 새로운 드롭다운 항목을 생성하거나 기존 항목을 변경할 수 있습니다.
+            },
+            error: function(xhr, status, error) {
+                console.error("Ajax 요청 실패:", error);
+            }
+        });
+    });
+
+    // 검색 결과 창을 노출할 때 이전 선택을 복원
+    // 이 코드는 검색 결과를 표시하는 방법에 따라 약간 다를 수 있습니다.
+    // 예를 들어, 검색 결과를 동적으로 로드하는 경우, 이 코드를 로드 이후에 실행해야 합니다.
+    $('#searchOption').val(previousSelectedOption);
+});
+</script>
 <script>
 function saveSearch() {
     // 검색 상자의 값을 가져와서 로컬 스토리지에 저장
