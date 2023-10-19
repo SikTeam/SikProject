@@ -51,7 +51,7 @@ public class ItemController {
 		
 	}
 	
-	@RequestMapping(value = "searchItem.do", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "searchItemName.do", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView searchItemNameMethod(
 	        @RequestParam(name = "page", required = false) String page,
 	        @RequestParam("keyword") String keyword,
@@ -63,8 +63,8 @@ public class ItemController {
 	    }
 
 	    int limit = 10;
-	    int listCount = itemService.selectListFcCount(keyword, searchOption); // 검색 옵션을 포함한 카운트
-	    Paging paging = new Paging(listCount, currentPage, limit, "searchItem.do");
+	    int listCount = itemService.selectListItemCount(keyword, searchOption); // 검색 옵션을 포함한 카운트
+	    Paging paging = new Paging(listCount, currentPage, limit, "searchItemName.do");
 	    paging.calculator();
 	    Search search = new Search();
 	    search.setKeyword(keyword);
@@ -72,17 +72,17 @@ public class ItemController {
 	    search.setEndRow(paging.getEndRow());
 	    search.setSearchOption(searchOption); // 검색 옵션을 설정
 
-	    ArrayList<Item> list = itemService.selectListItemName(search);
+	    ArrayList<Item> items = itemService.selectListItemName(search);
 
-	    if (list != null && list.size() > 0) {
+	    if (items != null && items.size() > 0) {
 	        mv.addObject("listCount", listCount);
-	        mv.addObject("list", list);
+	        mv.addObject("items", items);
 	        mv.addObject("paging", paging);
 	        mv.addObject("currentPage", currentPage);
 	        mv.addObject("limit", limit);
 	    }
 
-	    mv.setViewName("stock/fcStock");
+	    mv.setViewName("item/itemList");
 
 	    return mv;
 	}

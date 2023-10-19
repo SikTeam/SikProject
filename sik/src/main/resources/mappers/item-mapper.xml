@@ -23,6 +23,32 @@
      	from item)
 		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	</select>
+	
+	<select id="selectListItemCount" parameterType="Search"
+      resultType="_int">
+      SELECT count(*)
+      FROM item
+      <if test="searchOption == 'itemId'">
+         WHERE ITEM_ID LIKE '%' || #{keyword} || '%')
+      </if>
+      <if test="searchOption == 'itemName'">
+         WHERE ITEM_NAME LIKE '%' || #{keyword} || '%')
+      </if>
+   </select>
+   
+   <select id="selectListItemName" parameterType="search"
+      resultMap="resultItem">
+      SELECT rownum rnum, ITEM_ID, ITEM_NAME, ITEM_PRICE, ITEM_YN, SECOND_CATEGORY_ID
+      FROM (select rownum rnum, ITEM_ID, ITEM_NAME, ITEM_PRICE, ITEM_YN, SECOND_CATEGORY_ID
+      		from item 
+       <if test="searchOption == 'itemId'">
+         WHERE ITEM_ID LIKE '%' || #{keyword} || '%')
+      </if>
+      <if test="searchOption == 'itemName'">
+         WHERE ITEM_NAME LIKE '%' || #{keyword} || '%')
+      </if>
+      where rnum BETWEEN #{startRow} AND #{endRow}
+      </select>
 </mapper>
 
 

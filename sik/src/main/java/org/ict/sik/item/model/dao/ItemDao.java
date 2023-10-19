@@ -6,6 +6,8 @@ import java.util.List;
 import javax.swing.text.TableView.TableRow;
 
 import org.ict.sik.common.Paging;
+import org.ict.sik.common.Search;
+import org.ict.sik.fcstock.model.vo.FcStock;
 import org.ict.sik.item.model.vo.Item;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,16 @@ public class ItemDao {
 		List<Item> list = sqlSessionTemplate.selectList("itemMapper.getAllItems", paging);
 		return (ArrayList<Item>)list;
 	}
+
+	public int selectListItemCount(String keyword, String searchOption) {
+		return sqlSessionTemplate.selectOne("itemMapper.selectListItemCount", keyword);
+	}
+
+	public ArrayList<Item> selectListItemName(Search search) {
+		List<Item> list = sqlSessionTemplate.selectList("itemMapper.selectListItemName",search);
+		return (ArrayList<Item>)list;
+	}
+
+
 
 }
