@@ -106,4 +106,10 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<MemberDeptPosition> selectApprovalList(String reportId) {
 		return memberDao.selectApprovalList(reportId);
 	}
+	
+	@Override
+	public int insertMember(Member member) {
+
+		return memberDao.insertMember(member);
+	}
 }

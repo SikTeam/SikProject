@@ -104,5 +104,8 @@ public class MemberDao {
 		return (ArrayList<MemberDeptPosition>)list;
 	}
 
+	public int insertMember(Member member) {
+		return sqlSessionTemplate.insert("memberMapper.insertMember", member);
+	}
 
 }

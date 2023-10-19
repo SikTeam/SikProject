@@ -224,4 +224,10 @@
 		where rnum between #{ startRow } and #{ endRow }
 		]]>
 	</select>
+	
+	<insert id="insertMember" parameterType="Member">
+		insert into member 
+		values (#{ memberId }, #{ memberName }, #{ pw }, 'N', 
+		#{ deptId }, #{ positionId }, #{ enrollDate }, default , default )
+	</insert>
 </mapper>

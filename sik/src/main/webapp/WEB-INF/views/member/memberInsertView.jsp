@@ -90,7 +90,7 @@
 					  <div class="input-group flex-nowrap">
 			  			  <span class="input-group-text" id="addon-wrapping">입사일</span>
 							<fieldset>
-					          <input type="date" name="enrollDate" style="margin-top:4px; margin-left:5px">
+					          <input type="date" style="margin-top:4px; margin-left:5px" name="enrollDate">
 							</fieldset>
 					  </div>
 	  				</div>
