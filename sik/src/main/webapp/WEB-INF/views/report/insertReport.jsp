@@ -83,7 +83,6 @@ $(function() {
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
-		 
 }); //$(function() 
 
 </script>
@@ -168,10 +167,14 @@ $(function() {
 								</div>
 								<hr>
 								<div style="text-align: center;">
-								<input type="submit" class="btn btn-dark">
-								<input type="reset" class="btn btn-danger">
+								<input type="submit" class="btn btn-dark" value="등록">
+								</form>
+								<form action="deleteReport.do" method="POST" enctype='multipart/form-data'>
+									<input type="hidden" name="reportId" value="${ reportId }">
+									<input type="submit" class="btn btn-danger" value="취소">
+								</form>
 								</div>
-						</form>
+						
 					</div>
 					<div class="bg-body-tertiary border rounded-3"
 						style="visibility: hidden;">

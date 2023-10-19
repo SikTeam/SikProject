@@ -289,5 +289,14 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+	
+	@RequestMapping(value = "deleteReport.do", method = RequestMethod.POST)
+	public String deleteReport(HttpServletRequest request,
+			@RequestParam(name = "reportId", required = false) String reportId) {
+		logger.info("reportId : "+reportId);
+		
+		return " ";
+	}
+	
 
 }
