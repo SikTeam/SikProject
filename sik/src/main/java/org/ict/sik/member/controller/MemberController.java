@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,7 +56,11 @@ public class MemberController {
 				session.setAttribute("board", boardList);
 			}
 			mv.setViewName("main");
+		} else {
+			mv.addObject("message", "로그인 실패!");
+			mv.setViewName("common/error");
 		}
+
 		return mv;
 	}
 
@@ -375,4 +380,27 @@ public class MemberController {
 	public String moveBoardWritePage() {
 		return "member/memberInsertView";
 	}
+	
+	// 직원등록 요청 처리용 메소드
+	@RequestMapping(value="enroll.do", method = RequestMethod.POST)
+	public String memberInsertMethod(Member member, Model model) {
+		logger.info("enroll.do" + member);
+		
+		if(memberService.insertMember(member) > 0) {
+			return "redirect:mlist.do";
+		}else {
+			model.addAttribute("message", "직원 등록 실패!");
+			return "common/error";
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+

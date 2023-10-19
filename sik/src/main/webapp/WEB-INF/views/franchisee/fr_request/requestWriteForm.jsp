@@ -141,7 +141,7 @@ a {
 
 <h5 align="center">요청사항 작성 페이지</h5>
 <br>
-<form action="rinsert.do" method="get" >
+<form action="requestinsert.do" method="get" >
 <table align="center" width="500" border="1"  cellspacing="0" cellpadding="3">
 	<tr>
 		<th colspan="2" align="center"> 요청사항</th>
@@ -150,12 +150,15 @@ a {
 	
 	<tr>
 		<th align="center">작성자</th>
-		<td><input type="text" name="fcOwner" readonly value="${ sessionScope.logimMember.mgId }" > </td>
+		
+		<td><input type="text" readonly value="${ sessionScope.loginMember.fcOwner }" > </td>
 	</tr>
 	
 	<tr>
 		<th align="center">요청내용</th>
-		<td><textarea rows="5" cols="40" name="reqContent"></textarea></td>
+		<td>
+		<textarea rows="5" cols="40" name="reqContent"></textarea>
+		</td>
 	</tr>
 	<tr>
 	<th colspan="2" align="center">

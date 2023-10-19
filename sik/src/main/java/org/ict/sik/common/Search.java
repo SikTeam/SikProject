@@ -12,10 +12,6 @@ public class Search {
 	private int age;	//나이 검색 시 필요
 	private String searchOption;
 	
-	
-	
-	
-	
 	public Search() {
 		super();
 	}
@@ -79,12 +75,12 @@ public class Search {
 	public void setSearchOption(String searchOption) {
 		this.searchOption = searchOption;
 	}
+
 	@Override
 	public String toString() {
 		return "Search [keyword=" + keyword + ", brand=" + brand + ", startRow=" + startRow + ", endRow=" + endRow
 				+ ", begin=" + begin + ", end=" + end + ", age=" + age + ", searchOption=" + searchOption + "]";
 	}
-	
 	
 		
 }

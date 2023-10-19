@@ -2,8 +2,10 @@ package org.ict.sik.notice.controller;
 
 import static org.ict.sik.common.AuthorityCheck.Authority;
 
+
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -12,22 +14,28 @@ import javax.servlet.http.HttpSession;
 
 import org.ict.sik.brand.model.service.BrandService;
 import org.ict.sik.brand.model.vo.Brand;
+
 import org.ict.sik.common.FileNameChange;
+
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
 import org.ict.sik.member.model.service.MemberService;
 import org.ict.sik.member.model.vo.Member;
 import org.ict.sik.notice.model.service.NoticeService;
 import org.ict.sik.notice.model.vo.BrandNotice;
+
 import org.ict.sik.notice.model.vo.Notice;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -68,6 +76,7 @@ public class NoticeController {
 			// 권한이 없음
 		}
 		
+
 		logger.info("roll : " + roll);
 		// 한 페이지 공지 10개 씩 출력되게 한다면
 		int limit = 10;
@@ -75,6 +84,7 @@ public class NoticeController {
 		Search search = new Search();
 		
 		int listCount = 0;
+
 		if (brand == null || brand.equals("all")) {
 			if (keyword == null) {
 				listCount = noticeService.selectListCount();
@@ -88,11 +98,13 @@ public class NoticeController {
 			if (keyword == null) {
 				listCount = noticeService.selectListCount(search);
 			} else {
+
 				search.setKeyword(keyword);
 				listCount = noticeService.selectListCount(search);
 			}
 		}
 		String url = "brandNoticeListView.do";
+
 
 		Paging paging = new Paging(listCount, currentPage, limit, url);
 		paging.calculator();
@@ -107,14 +119,17 @@ public class NoticeController {
 		if (list != null && list.size() > 0) {
 			mv.addObject("action", action);
 			mv.addObject("board", boardName);
+
 			mv.addObject("listCount", listCount);
 			mv.addObject("list", list);
 			mv.addObject("brandList", brandList);
 			mv.addObject("paging", paging);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("limit", limit);
+
 			mv.addObject("roll", roll);
 			mv.addObject("keyword",keyword);
+
 			mv.setViewName("brand/notice/brandNoticeListView");
 		} else {
 			mv.addObject("message", "브랜드 리스트를 읽어오지 못했습니다.");
@@ -122,6 +137,7 @@ public class NoticeController {
 		}
 		return mv;
 	}
+
 
 	@RequestMapping("noticeDetailView.do")
 	public ModelAndView noticeDetailViewMethod(@RequestParam("noid") String noId, @RequestParam("page") String page,
@@ -134,10 +150,12 @@ public class NoticeController {
 			mv.setViewName("brand/notice/noticeDetailView");
 		} else {
 			mv.addObject("message", noId + "번 공지사항을 읽어오는대 실패함");
+
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
+
 
 	@RequestMapping("brandNoticeInsert.do")
 	public ModelAndView brandNoticeInsertMethod(@RequestParam("roll") String check, @RequestParam("board") String board,
@@ -198,4 +216,5 @@ public class NoticeController {
 
 		return mv;
 	}
+
 }

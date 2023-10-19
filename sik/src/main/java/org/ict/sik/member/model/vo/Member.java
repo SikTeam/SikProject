@@ -1,6 +1,6 @@
 package org.ict.sik.member.model.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Member implements java.io.Serializable{
 	private static final long serialVersionUID = -8259111127292047344L;

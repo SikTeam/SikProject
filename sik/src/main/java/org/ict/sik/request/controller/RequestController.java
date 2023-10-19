@@ -3,10 +3,11 @@ package org.ict.sik.request.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.ict.sik.fc.model.vo.Fc;
+import org.ict.sik.request.model.service.RequestService;
 import org.ict.sik.request.model.vo.FranchiseeRequest;
-import org.ict.sik.request.model.vo.Request;
-import org.ict.sik.request.service.RequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,7 @@ public class RequestController {
 	
 	//뷰페이지 이동 처리용 -------------------------------------
 	
-	//요청사항 쓰기 페이지 이동 처리용
-	/*
-	 * @RequestMapping(value="requestwriteform.do") public String
-	 * moveRequestWritePage() { return "franchisee/fr_request/requestWriteForm"; }
-	 */
+
 	
 	//요청 처리용---------------------------------------------
 	
@@ -54,44 +51,20 @@ public class RequestController {
 	//요청사항 목록보기 요청 처리용 (페이징)
 	@RequestMapping("rlist.do")
 	public ModelAndView requestListMethod(@RequestParam(name="page", required= false) String page,
-			@RequestParam(name="limit", required=false) String limitStr, ModelAndView mv) {
+			@RequestParam(name="limit", required=false) String limitStr, ModelAndView mv, HttpSession session) {
 		int currentPage = 1;
-
-		int requestCount = requestService.selectListCount();
-		ArrayList<FranchiseeRequest> list = requestService.selectList();
+		
+		Fc loginMember = (Fc)session.getAttribute("loginMember");
 		
 		
-//		if (page != null) {
-//			currentPage = Integer.parseInt(page);
-//		}
-//		
-//		// 한 페이지에 요청사항 10개씩 출력되게 
-//		int limit = 10;
-//		if (limitStr != null) {
-//			limit = Integer.parseInt(limitStr);
-//		}
-//		// 총 페이지 수 계산을 위한 게시글 총 개수 조회
-//		int listCount = requestService.selectListCount();
-//		// 페이지 관련 항목 계산 처리
-//		Paging paging = new Paging(listCount, currentPage, limit, "rlist.do");
-//		paging.calculator();
-//
-//		// 페이지에 출력할 목록 조회
-//		ArrayList<Request> list = requestService.selectList(paging);
-//
-//		if (list != null && list.size() > 0) {
-//			model.addAttribute("list", list);
-//			model.addAttribute("paging", paging);
-//			model.addAttribute("currentPage", currentPage);
-//			model.addAttribute("limit", limit);
+		//int requestCount = requestService.selectListCount();
+		ArrayList<FranchiseeRequest> list = requestService.selectList(loginMember.getFcId());
+		
+		
 		mv.addObject("list", list);
 		mv.setViewName("franchisee/fr_request/fr_requestListView");
 			return mv;
-//		} else {
-//			model.addAttribute("message", currentPage + " 요청사항 목록 조회 실패!");
-//
-//			return "common/error";
-//		}
+
 	}
 }
 	

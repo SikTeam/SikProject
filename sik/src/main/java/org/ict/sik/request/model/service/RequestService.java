@@ -1,4 +1,4 @@
-package org.ict.sik.request.service;
+package org.ict.sik.request.model.service;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public interface RequestService {
 
 	int selectListCount();
 
-	ArrayList<FranchiseeRequest> selectList();
+	ArrayList<FranchiseeRequest> selectList(String fcId);
 	
 //	ArrayList<Request> selectList(Paging paging);
 

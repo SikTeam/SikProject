@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.ict.sik.common.Search;
 import org.ict.sik.notice.model.dao.NoticeDao;
 import org.ict.sik.notice.model.vo.BrandNotice;
+
 import org.ict.sik.notice.model.vo.Notice;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,4 +46,5 @@ public class NoticeServiceImpl implements NoticeService{
 	public int insertNotice(Notice notice) {
 		return noticeDao.insertNotice(notice);
 	}
+
 }

@@ -47,8 +47,7 @@
 		</if>
 		<if test="brand != null and brand !='all'">
 			join BRAND using(brand_id)
-			where brand_name like '%' || #{brand} ||
-			'%'
+			where brand_name like '%' || #{brand} || '%'
 			<if test="keyword != null">
 				and NO_TITLE like '%' || #{keyword} || '%'
 			</if>
@@ -77,8 +76,7 @@
 			</if>
 		</if>
 		order by to_number(no_id) desc))
-		where rnum BETWEEN #{startRow} and
-		#{endRow}
+		where rnum BETWEEN #{startRow} and #{endRow}
 	</select>
 	<select id="selectDetail" parameterType="string"
 		resultMap="resultBrandNotice">

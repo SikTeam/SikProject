@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,7 @@
 <title>sik</title>
 </head>
 <body>
+
 	<div class="container-fluid">
 		<c:import url="/WEB-INF/views/common/header.jsp" />
 		<form action="noticeInsert.do" method="post" enctype="multipart/form-data">
@@ -24,5 +27,6 @@
 			<input type="submit" value="공지하기">
 		</form>
 	</div>
+
 </body>
 </html>
