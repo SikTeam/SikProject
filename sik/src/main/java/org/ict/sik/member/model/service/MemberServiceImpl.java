@@ -51,9 +51,15 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<MemberDeptPosition> addApprover(MemberDeptPosition dp) {
 		return memberDao.addApprover(dp);
 	}
+	
 	@Override
 	public int selectSearchIdCount(String keyword) {
 		return memberDao.selectSearchIdCount(keyword);
+	}
+	
+	@Override
+	public int selectSearchNameCount(String keyword) {
+		return memberDao.selectSearchNameCount(keyword);
 	}
 	
 	@Override
@@ -74,6 +80,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<MemberDeptPosition> selectSearchId(Search search) {
 		return memberDao.selectSearchId(search);
+	}
+	
+	@Override
+	public ArrayList<MemberDeptPosition> selectSearchName(Search search) {
+		return memberDao.selectSearchName(search);
 	}
 
 	@Override
