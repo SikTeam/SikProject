@@ -1,0 +1,10 @@
+
+.metadata/
+apache-maven-3.9.4/
+Servers/
+sik/.classpath
+sik/.project
+sik/.settings/
+sik/bin/
+sik/target/
+*.log
