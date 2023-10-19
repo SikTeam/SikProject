@@ -51,6 +51,7 @@
 		<typeAlias type="org.ict.sik.member.model.vo.MemberDeptPosition" alias="MemberDeptPosition"/>
 		<typeAlias type="org.ict.sik.fcstock.model.vo.FcStockName" alias="FcStockName"/>
 		<typeAlias type="org.ict.sik.request.model.vo.FranchiseeRequest" alias="FranchiseeRequest"/>
+		<typeAlias type="org.ict.sik.brandstock.model.vo.BrandStockName" alias="BrandStockName"/>
 		
 	</typeAliases>
 	<mappers>

@@ -9,34 +9,51 @@
 		<result property="reqContent" column="REQ_CONTENT" />
 		<result property="reqState" column="REQ_STATE" />
 	</resultMap>
-	
-	<resultMap id="resultFranchiseeRequest" type="FranchiseeRequest">
-		
-		<result property="fcOwner" column="fc_owner" />
+
+	<resultMap id="resultFranchiseeRequest"
+		type="FranchiseeRequest">
+		<result property="fcId" column="fc_id" />
+		<result property="mgId" column="mg_id" />
 		<result property="reqContent" column="REQ_CONTENT" />
-		<result property="reqState" column="REQ_STATE" />
 		<result property="mgCdate" column="mg_cdate" />
+		<result property="reqState" column="REQ_STATE" />
+
 	</resultMap>
-	
-	
+
+
 	<insert id="insertOriginRequest" parameterType="Request">
-		insert into request 
-		values (#{mgId},#{reqContent},#{reqState})
+		insert into
+		request
+		values (#{mgId},#{reqContent},default)
 	</insert>
-	
-	
+
+
 	<select id="selectListCount" resultType="_int">
-		select count(*) from request
+		select count(*) from
+		request
+	</select>
+
+	<select id="selectList" parameterType="string"
+		resultMap="resultFranchiseeRequest">
+		select fc_id,mg_id,req_content, mg_cdate,req_state
+		from
+		management
+		join request using(mg_id)
+		join fc on franchise_id =fc_id
+		where franchise_id = #{keyword}
 	</select>
 	
-	<select id="selectList" resultMap="resultFranchiseeRequest">
-		select fc_owner ,REQ_CONTENT, REQ_STATE, mg_cdate
-		from request
-		join management using(mg_id)
-		join fc using (member_id)
+	<select id="selectManagementDetail"
+		parameterType="FranchiseeRequest" resultMap="resultFranchiseeRequest">
+		select
+		fc_id,mg_id,req_content, mg_cdate,req_state
+		from management
+		join request using(mg_id)
+		join fc on franchise_id = fc_id
+		where franchise_id = #{fcId} and mg_id = #{mgId}
+
 	</select>
-	
-	
+
 </mapper>
 
 

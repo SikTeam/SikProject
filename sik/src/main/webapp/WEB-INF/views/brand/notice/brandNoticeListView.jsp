@@ -21,7 +21,17 @@
 		<c:import url="/WEB-INF/views/common/header.jsp" />
 		<h1 align="center">${ listCount }개의브랜드list</h1>
 		<hr>
-
+		<c:forEach var="r" items="${ roll }">
+			<c:if test="${ r.key eq 'Create' }">
+				<c:set var="Create" value="${r.value }"></c:set>
+			</c:if>
+			<c:if test="${ r.key eq 'Update' }">
+				<c:set var="Update" value="${r.value }"></c:set>
+			</c:if>
+			<c:if test="${ r.key eq 'Delete' }">
+				<c:set var="Delete" value="${r.value }"></c:set>
+			</c:if>
+		</c:forEach>
 		<table align="center" width="700" border="1" cellspacing="0"
 			cellpadding="0">
 			<tr>
@@ -68,6 +78,9 @@
 					type="submit" value="검색">
 			</fieldset>
 		</form>
+		<c:if test="${ Create eq 'Y' }">
+			<button type="button" class="btn btn-dark" onclick="javascript:location.href='brandNoticeInsert.do?roll=${Create}';">신규 작성</button>
+		</c:if>
 		<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	</div>
 </body>

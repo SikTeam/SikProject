@@ -63,9 +63,12 @@ $(function() {
             	var sign = $('#approval').html();
             	var widths = $('#approval').html();
             	console.log(obj.memberList);
-
+            	
             	for(var i in obj.memberList){
-            		widths = '<div style="width:'+i+'00px;">';
+            		
+            	}
+            	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
+             	for(var i in obj.memberList){
             		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
             		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
             		sign += '<td><img src="/sik/resources/common/images/memberSign/'+decodeURIComponent(obj.memberList[i].signImage)+'" style="width:100px;"></td>';

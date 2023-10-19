@@ -10,9 +10,22 @@ public class Search {
 	private Date begin;
 	private Date end;
 	private int age;	//나이 검색 시 필요
+	private String searchOption;
 	
 	
-	
+	public String getSearchOption() {
+		return searchOption;
+	}
+
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+
+	public Search(String searchOption) {
+		super();
+		this.searchOption = searchOption;
+	}
+
 	public String getBrand() {
 		return brand;
 	}
@@ -73,8 +86,8 @@ public class Search {
 
 	@Override
 	public String toString() {
-		return "Search [keyword=" + keyword + ", startRow=" + startRow + ", endRow=" + endRow + ", begin=" + begin
-				+ ", end=" + end + ", age=" + age + ", brand=" + brand + "]";
+		return "Search [keyword=" + keyword + ", brand=" + brand + ", startRow=" + startRow + ", endRow=" + endRow
+				+ ", begin=" + begin + ", end=" + end + ", age=" + age + ", searchOption=" + searchOption + "]";
 	}
 
 	

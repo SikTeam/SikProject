@@ -53,32 +53,55 @@
 					  &nbsp;
 					</div>
 					
-					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-					  <label for="floatingTextarea">관리자 여부</label>
-					  &nbsp;
+					<div class="dropdown">
+	  					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					      부서선택
+					    </button>
+					    <ul class="dropdown-menu">
+					      <li><a class="dropdown-item" href="#">가맹관리팀</a></li>
+					      <li><a class="dropdown-item" href="#">물류팀</a></li>
+					      <li><a class="dropdown-item" href="#">메뉴개발팀</a></li>
+					      <li><a class="dropdown-item" href="#">가맹영업팀</a></li>
+					      <li><a class="dropdown-item" href="#">상품관리팀</a></li>
+					      <li><a class="dropdown-item" href="#">광고기획팀</a></li>
+					    </ul>
 					</div>
-					
-					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-					  <label for="floatingTextarea">부서 입력</label>
-					  &nbsp;
+					<br>
+					<div class="dropdown">
+	  					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					      직급선택
+					    </button>
+					    <ul class="dropdown-menu">
+					      <li><a class="dropdown-item" href="#">사원</a></li>
+					      <li><a class="dropdown-item" href="#">대리</a></li>
+					      <li><a class="dropdown-item" href="#">주임</a></li>
+					      <li><a class="dropdown-item" href="#">과장</a></li>
+					      <li><a class="dropdown-item" href="#">팀장</a></li>
+					      <li><a class="dropdown-item" href="#">부장</a></li>
+					      <li><a class="dropdown-item" href="#">대표이사</a></li>
+					    </ul>
+					    &nbsp;
 					</div>
-					
-					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-					  <label for="floatingTextarea">직급 입력</label>
-					  &nbsp;
-					</div>
-					
-					<!-- 입사일 넣어야함-->
-					
-					<div class="input-group mb-3">
+					<br>
+					<!-- 입사일 선택 -->
+					<div class="bg-body-tertiary border rounded-4" style="width: 14rem;">
+					  <div class="input-group flex-nowrap">
+			  			  <span class="input-group-text" id="addon-wrapping">입사일</span>
+					      <form class="d-flex" role="search" action="msearchEnrollDate.do" method="post">
+					        <input type="hidden" name="action" value="date">	
+							<fieldset>
+					          <input type="date" name="enroll" style="margin-top:4px; margin-left:5px">
+							</fieldset>
+						  </form>
+					  </div>
+	  				</div>
+					<br>
+					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">프로필 사진</label>
-					  <input type="file" class="form-control" id="inputGroupFile01">
+					  <input type="file" class="form-control" id ="inputGroupFile01">
 					</div>
 					
-					<div class="input-group mb-3">
+					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">사인 이미지</label>
 					  <input type="file" class="form-control" id="inputGroupFile01">
 					</div>

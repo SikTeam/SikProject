@@ -32,8 +32,5 @@ public class AuthorityCheck {
 		return null;
 	}
 	
-	public static int MyReportCount(String memberId) {
-		return new ReportServiceImpl().selectMyReportCount(memberId);
-		// memberId가 참조 혹은 결재로 포함된 보고서의 수를 리턴함
-	}
+
 }

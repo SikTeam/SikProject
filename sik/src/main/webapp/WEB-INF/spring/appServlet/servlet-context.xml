@@ -42,7 +42,7 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/**"/>
-			<exclude-mapping path="/login*.do"/>
+			<exclude-mapping path="/*login*.do"/>
 			<beans:bean class="org.ict.sik.common.interceptor.LoginCheckInterceptor" id="loginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>

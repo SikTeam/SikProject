@@ -25,15 +25,11 @@ public class RequestDao {
 		return sqlSessionTemplate.selectOne("requestMapper.selectListCount");
 	}
 
-	public ArrayList<FranchiseeRequest> selectList() {
-		List<FranchiseeRequest> list = sqlSessionTemplate.selectList("requestMapper.selectList");
+
+	public ArrayList<FranchiseeRequest> selectList(String fcId) {
+		List<FranchiseeRequest> list = sqlSessionTemplate.selectList("requestMapper.selectList",fcId);
 		return (ArrayList<FranchiseeRequest>)list;
 	}
 
-//	public ArrayList<Request> selectList(Paging paging) {
-//		// TODO Auto-generated method stub
-//		List <Request> list = sqlSessionTemplate.selectList("requestMapper.selectList", paging);
-//		return (ArrayList<Request>) list;
-//	}
 
 }

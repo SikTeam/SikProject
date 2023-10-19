@@ -15,6 +15,22 @@
 		<result property="mgState" column="MG_STATE" />
 	</resultMap>
 	
+
+	
+	<!-- 요청사항 추가  -->
+	<insert id="insertOriginRequestManage" parameterType="Management" >
+	 insert into management 
+	 values (#{mgId}, #{memberId}, #{franchiseId}, sysdate, #{mgClassify}, sysdate, default, default )	
+	</insert>
+	
+	<!-- 매장관리 글 갯수조회 -->
+	<select id="selectCount"  resultType="_int">
+		select count(*)
+		from management
+	</select>
+	
+	<!-- 매장관리 요청사항 게시글 등록 -->
+	
 </mapper>
 
 

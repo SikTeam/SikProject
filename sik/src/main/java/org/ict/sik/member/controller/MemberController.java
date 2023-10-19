@@ -29,12 +29,14 @@ public class MemberController {
 
 	@RequestMapping("login.do")
 	public ModelAndView loginMethod(ModelAndView mv, HttpSession session, SessionStatus status) {
-		Member member = (Member) session.getAttribute("member");
+		Member member = (Member) session.getAttribute("loginMember");
 		logger.info("login.do : " + member);
-		Member loginMember = null;
-
-		loginMember = (Member) memberService.selectLogin(member);
-
+		Member loginMember = (Member) memberService.selectLogin(member);
+		if(loginMember.getAdminYn().equals("Y")) {
+			session.setAttribute("loginMember", loginMember);
+			mv.setViewName("main");
+			return mv;
+		}
 		ArrayList<Roll> rollList = memberService.selectRollList(loginMember.getMemberId());
 		ArrayList<String> boardList = new ArrayList<String>();
 

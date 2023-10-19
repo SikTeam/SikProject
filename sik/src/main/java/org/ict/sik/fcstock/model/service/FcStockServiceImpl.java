@@ -17,8 +17,8 @@ public class FcStockServiceImpl implements FcStockService{
 	private FcStockDao fcstockDao;
 	
 	@Override
-	public int selectListFcNameCount(String keyword) {
-		return fcstockDao.selectListFcNameCount(keyword);
+	public int selectListFcCount(String keyword, String searchOption) {
+		return fcstockDao.selectListFcCount(keyword, searchOption);
 	}
 	
 	

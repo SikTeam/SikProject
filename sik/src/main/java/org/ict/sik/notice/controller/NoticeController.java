@@ -100,6 +100,7 @@ public class NoticeController {
 			mv.addObject("paging", paging);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("limit", limit);
+			mv.addObject("roll",roll);
 			mv.setViewName("brand/notice/brandNoticeListView");
 		} else {
 			mv.addObject("message", "브랜드 리스트를 읽어오지 못했습니다.");
@@ -125,7 +126,23 @@ public class NoticeController {
 		return mv;
 	}
 	
-	
+	@RequestMapping("brandNoticeInsert.do")
+	public ModelAndView brandNoticeInsertMethod(@RequestParam("roll") String check,ModelAndView mv) {
+		if(check.equals("Y")) {
+			
+			ArrayList<Brand> brandList = brandService.selectList();
+			
+			
+			
+			logger.info("check "+check);
+			mv.setViewName("brand/notice/brandNoticeInsertView");
+			
+			
+			
+			
+		}
+		return mv;
+	}
 	
 	//가맹점 메인화면 - 공지사항 상세보기 요청 처리용
 	

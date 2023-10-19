@@ -13,8 +13,10 @@
 <head>
 <meta charset="UTF-8">
 <title>매장별 재고 현황</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-nanum@1/css/nanumgothic/nanumgothic.min.css">
+
 <script type="text/javascript"
-	src="/first/resources/js/jquery-3.7.0.min.js"></script>
+	src="/sik/resources/js/jquery-3.7.0.min.js"></script>
 <!-- <script type="text/javascript">
  	$(function() {
 		var limit = "${ currentLimit }";
@@ -36,19 +38,39 @@
 		}); //on
 	}); //document ready
 </script> -->
+<script>
+function saveSearch() {
+    // 검색 상자의 값을 가져와서 로컬 스토리지에 저장
+    var keyword = document.getElementById("searchBox").value;
+    localStorage.setItem("searchKeyword", keyword);
+}
+
+// 페이지 로드 시, 저장된 검색어를 검색 상자에 채우기
+window.onload = function() {
+    var savedKeyword = localStorage.getItem("searchKeyword");
+    if (savedKeyword) {
+        document.getElementById("searchBox").value = savedKeyword;
+    }
+};
+</script>
+<style>
+#main {
+	font-family: "NanumGothicB", sans-serif;
+}
+</style>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
-	<h1 align="center">${ listCount }개의 매장 </h1>
+	<h1 align="center" id="main"> 매장별 재고 현황 </h1>
 			<hr>
 	<table align="center" width="1000" border="1" cellspacing="0"
 		cellpadding="3">
 		<tr>
-			<th align="center" width="100">가맹점ID</th>
-			<th align="center" width="350">점포명</th>
-			<th align="center" width="300">상품명</th>
-			<th align="center" width="100">수량</th>
-			<th align="center" width="150">비고</th>
+			<th align="center" width="100" bgcolor="#E7DAF9">가맹점ID</th>
+			<th align="center" width="350" bgcolor="#E7DAF9">점포명</th>
+			<th align="center" width="300" bgcolor="#E7DAF9">상품명</th>
+			<th align="center" width="100" bgcolor="#E7DAF9">수량</th>
+			<th align="center" width="150" bgcolor="#E7DAF9">비고</th>
 		</tr>
 
 		<c:forEach items="${ requestScope.list }" var="n">
@@ -65,8 +87,13 @@
 	<form id="titleform" class="sform" action="searchFcName.do" method="post" align="center">
 		<input type="hidden" name="page" value="${ nowpage }">
 		<fieldset>
-			<input type="search" name="keyword" size="50"> &nbsp;
-			<input type="submit" value="검색">
+			<select name="searchOption">
+            	<option value="fcName">점포명</option>
+            	<option value="fcStockEtc">비고</option>
+            	<option value="itemName">상품명</option>
+        	</select>
+			<input type="search" name="keyword" size="50" id="searchBox" value="<%= request.getParameter("keyword") %>">
+			<input type="submit" value="검색" onclick="saveSearch()">
 		</fieldset>
 	</form>
 	

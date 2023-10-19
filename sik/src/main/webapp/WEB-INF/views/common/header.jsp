@@ -455,7 +455,7 @@ a {
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '레시피' }">
-											<a href="brandNoticeList.do?page=1">메뉴관리</a>
+											<a href="brandNoticeList.do?page=1&board=${ board }">메뉴관리</a>
 											<br>
 										</c:if>
 									</c:forEach>
@@ -547,7 +547,7 @@ a {
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '본사재고현황' }">
-											<a href="brandStock.do">본사재고현황</a>
+											<a href="brandStock.do?page=1&board=${ board }">본사재고현황</a>
 											<br>
 										</c:if>
 									</c:forEach>

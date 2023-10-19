@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.ict.sik.common.FileNameChange;
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
 import org.ict.sik.member.model.service.MemberService;
@@ -48,8 +47,11 @@ public class ReportController {
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
+		
+		//session 에서 memberId 받아오기
 		Member member = (Member) session.getAttribute("loginMember");
 		String memberId = member.getMemberId();
+		
 		int currentPage = 1;
 		if (page != null) {
 			currentPage = Integer.parseInt(page);
@@ -118,11 +120,15 @@ public class ReportController {
 
 	// 결재 등록 페이지 이동
 	@RequestMapping("getReportId.do")
-	public ModelAndView getReportId(ModelAndView mv) {
+	public ModelAndView getReportId(ModelAndView mv,
+			HttpServletRequest request) {
 		String reportId = reportService.getReportId();
 
 //		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
-
+		int countApproval = reportSignService.countApproval(reportId) + 1;
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("loginMember");
+		
 		logger.info(reportId);
 		if (reportId != null) {
 			mv.addObject("reportId", reportId);
@@ -211,9 +217,16 @@ public class ReportController {
 
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
-	public String reportInsert(Report report, Model model, HttpServletRequest request,
+	public String reportInsert(Model model, HttpServletRequest request,
+			@RequestParam(name="reTitle", required = false) String reTitle,
+			@RequestParam(name="reContent", required = false) String reContent,
+			@RequestParam(name="reportId", required = false) String reportId,
 			@RequestParam(name = "reFile", required = false) MultipartFile mfile) {
-		
+
+		Report report = new Report();
+		report.setReTitle(reTitle);
+		report.setReContent(reContent);
+		report.setReportId(reportId);
 		String savePath = request.getSession().getServletContext().getRealPath("resources/common/images/report");
 		String renameFileName = null;
 		logger.info("savePath : "+savePath);

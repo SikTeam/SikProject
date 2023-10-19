@@ -1,11 +1,11 @@
-package org.ict.sik.fcstock.controller;
+package org.ict.sik.brandstock.controller;
 
 import java.util.ArrayList;
 
+import org.ict.sik.brandstock.model.service.BrandStockService;
+import org.ict.sik.brandstock.model.vo.BrandStock;
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
-import org.ict.sik.fcstock.model.service.FcStockService;
-import org.ict.sik.fcstock.model.vo.FcStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class FcStockController {
+public class BrandStockController {
 	
 	@Autowired
-	private FcStockService fcstockService;
-
-	@RequestMapping("fcStock.do")
+	private BrandStockService brandstockService;
+	
+	@RequestMapping("brandStock.do")
 	public String moveFcStockMethod() {
-		return "stock/fcStock";
+		return "stock/brandStock";
 	}
 	
-	@RequestMapping(value = "searchFcName.do", method = { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView searchFcNameMethod(
+	@RequestMapping(value = "searchBrandName.do", method = { RequestMethod.POST, RequestMethod.GET })
+	public ModelAndView searchBrandNameMethod(
 	        @RequestParam(name = "page", required = false) String page,
 	        @RequestParam("keyword") String keyword,
 	        @RequestParam("searchOption") String searchOption, // 검색 옵션 파라미터 추가
@@ -36,8 +36,8 @@ public class FcStockController {
 	    }
 
 	    int limit = 10;
-	    int listCount = fcstockService.selectListFcCount(keyword, searchOption); // 검색 옵션을 포함한 카운트
-	    Paging paging = new Paging(listCount, currentPage, limit, "searchFcName.do");
+	    int listCount = brandstockService.selectListBrandNameCount(keyword, searchOption); // 검색 옵션을 포함한 카운트
+	    Paging paging = new Paging(listCount, currentPage, limit, "searchBrandName.do");
 	    paging.calculator();
 	    Search search = new Search();
 	    search.setKeyword(keyword);
@@ -45,7 +45,7 @@ public class FcStockController {
 	    search.setEndRow(paging.getEndRow());
 	    search.setSearchOption(searchOption); // 검색 옵션을 설정
 
-	    ArrayList<FcStock> list = fcstockService.selectListFcName(search);
+	    ArrayList<BrandStock> list = brandstockService.selectListBrandName(search);
 
 	    if (list != null && list.size() > 0) {
 	        mv.addObject("listCount", listCount);
@@ -55,7 +55,7 @@ public class FcStockController {
 	        mv.addObject("limit", limit);
 	    }
 
-	    mv.setViewName("stock/fcStock");
+	    mv.setViewName("stock/brandStock");
 
 	    return mv;
 	}

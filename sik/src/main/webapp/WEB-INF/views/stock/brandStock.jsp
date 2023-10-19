@@ -13,10 +13,12 @@
 <head>
 <meta charset="UTF-8">
 <title>본사 재고 현황</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-nanum@1/css/nanumgothic/nanumgothic.min.css">
+
 <script type="text/javascript"
-	src="/first/resources/js/jquery-3.7.0.min.js"></script>
-<script type="text/javascript">
-	$(function() {
+	src="/sik/resources/js/jquery-3.7.0.min.js"></script>
+<!-- <script type="text/javascript">
+ 	$(function() {
 		var limit = "${ currentLimit }";
 		document.getElementById("limit").value = limit;
 
@@ -35,43 +37,65 @@
 			}); //each
 		}); //on
 	}); //document ready
+</script> -->
+<script>
+function saveSearch() {
+    // 검색 상자의 값을 가져와서 로컬 스토리지에 저장
+    var keyword = document.getElementById("searchBox").value;
+    localStorage.setItem("searchKeyword", keyword);
+}
 
+// 페이지 로드 시, 저장된 검색어를 검색 상자에 채우기
+window.onload = function() {
+    var savedKeyword = localStorage.getItem("searchKeyword");
+    if (savedKeyword) {
+        document.getElementById("searchBox").value = savedKeyword;
+    }
+};
 </script>
+<style>
+#main {
+	font-family: "NanumGothicB", sans-serif;
+}
+</style>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/common/header.jsp" />
-	<h1 align="center">${ listCount }개의브랜드 list</h1>
+	<h1 align="center"> 본사 재고 현황 </h1>
 			<hr>
-	<table align="center" width="500" border="1" cellspacing="0"
-		cellpadding="0">
+	<table align="center" width="1000" border="1" cellspacing="0"
+		cellpadding="3">
 		<tr>
-			<th align="center">브랜드ID</th>
-			<th align="center">브랜드 이름</th>
-			<th align="center">생성일</th>
-			<th align="center">수정일</th>
-			<th align="center">활성화 여부</th>
+			<th align="center" width="100" bgcolor="#E7DAF9">브랜드ID</th>
+			<th align="center" width="350" bgcolor="#E7DAF9">브랜드이름</th>
+			<th align="center" width="300" bgcolor="#E7DAF9">상품명</th>
+			<th align="center" width="100" bgcolor="#E7DAF9">수량</th>
+			<th align="center" width="150" bgcolor="#E7DAF9">비고</th>
 		</tr>
 
 		<c:forEach items="${ requestScope.list }" var="n">
 			<tr>
 				<td align="center">${ n.brandId }</td>
-				<td>${ n.brandName }</td>
-				<td align="center"><fmt:formatDate value="${ n.brandBir }"
-						pattern="yyyy-MM-dd" /></td>
-				<td align="center"><fmt:formatDate value="${ n.brandUp }"
-						pattern="yyyy-MM-dd" /></td>
-				<td align="center">${ n.brandYn }</td>
+				<td align="center">${ n.brandName }</td>
+				<td align="center">${ n.itemName }</td>
+				<td align="center">${ n.brStockQuan }</td>
+				<td align="center">${ n.brStockEtc }</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<!-- 검색폼 입력 -->
-	<form id="titleform" class="sform" action="searchName.do" method="post" align="center">
-		<input type="hidden" name="page" value="${ nowpage }">
-		<fieldset>
-			<input type="search" name="keyword" size="50"> &nbsp;
-			<input type="submit" value="검색">
-		</fieldset>
-	</form>
+	<form id="titleform" class="sform" action="searchBrandName.do" method="post" align="center">
+    <input type="hidden" name="page" value="${nowpage}">
+    <fieldset>
+        <select name="searchOption">
+            <option value="brandId">브랜드ID</option>
+            <option value="brandName">브랜드이름</option>
+            <option value="itemName">상품명</option>
+        </select>
+        <input type="search" name="keyword" size="50" id="searchBox" value="<%= request.getParameter("keyword") %>">
+        <input type="submit" value="검색" onclick="saveSearch()">
+    </fieldset>
+</form>
 	
 	<c:import url="/WEB-INF/views/common/pagingView.jsp"></c:import>
 	<br>

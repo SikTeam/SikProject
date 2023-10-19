@@ -1,4 +1,4 @@
-package org.ict.sik.request.service;
+package org.ict.sik.request.model.service;
 
 import java.util.ArrayList;
 
@@ -27,8 +27,8 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public ArrayList<FranchiseeRequest> selectList() {
-		return requestDao.selectList();
+	public ArrayList<FranchiseeRequest> selectList(String fcId) {
+		return requestDao.selectList(fcId);
 	}
 
 
