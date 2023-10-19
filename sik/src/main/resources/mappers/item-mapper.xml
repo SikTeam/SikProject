@@ -11,7 +11,18 @@
 		<result property="itemYn" column="ITEM_YN" />
 		<result property="secondCategoryId" column="SECOND_CATEGORY_ID" />
 	</resultMap>
+	<select id="selectListCount" parameterType="Search"
+		resultType="_int">
+		SELECT count(*) from item
+	</select>
 	
+	<select id="getAllItems" parameterType="Paging"
+		resultMap="resultItem">
+		select rownum rnum, ITEM_ID, ITEM_NAME, ITEM_PRICE, ITEM_YN, SECOND_CATEGORY_ID
+		from (select rownum rnum, ITEM_ID, ITEM_NAME, ITEM_PRICE, ITEM_YN, SECOND_CATEGORY_ID
+     	from item)
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	</select>
 </mapper>
 
 
