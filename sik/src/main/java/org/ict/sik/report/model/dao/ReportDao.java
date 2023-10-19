@@ -27,4 +27,12 @@ public class ReportDao {
 	public int insertReport(Report report){
 		return sqlSessionTemplate.insert("reportMapper.insertReport", report);
 	}
+
+	public int selectMyReportCount(String memberId) {
+		return sqlSessionTemplate.selectOne("reportSignMapper.selectMyReportCount",memberId);
+	}
+	
+	public int updateReport(Report report) {
+		return sqlSessionTemplate.update("reportMapper.updateReport", report);
+	}
 }

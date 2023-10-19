@@ -9,4 +9,5 @@ public interface ReportService {
 	public ArrayList<Report> selectList(Search search);
 	public String getReportId();
 	public int insertReport(Report report);
+	public int updateReport(Report report);
 }

@@ -43,30 +43,36 @@ $(function() {
              }
         }); //ajax -> addApprover.do
     }); //$('#dept, #position').change(function()
-    
-    $('#approvalLine').on('click',function() {
-    	var reportId = $('#reportId').text();
+    		
+    		
+
+     $('#approvalLine').on('click',function() {
         $.ajax({
             url: 'approvalLine.do',
             type: 'post',
             dataType: 'json',
-            data: { memberId: $('#memberId').val(), reportId: reportId },
+            data: { memberId: $('#memberId').val(), reportId: $('#reportId').val() },
             success: function(data) {
             	console.log("data : "+data);
             	var str = JSON.stringify(data);
             	var obj = JSON.parse(str);
-            	
-            	$('#approvalLine').html('');
-            	var gualho = '<tr>';
-            	var endgualho = '</tr>';            	
-            	var memberNames = $('#approvalLine').html();
-            	
-            	for(var i in obj.list){
-            		memberNames += '<td>'+ decodeURIComponent(obj.list[i].memberId) +'</td>';
+            	$('#approval').html(''); 
+            	          	
+            	var memberNames = $('#approval').html();
+            	var deptnPositions = $('#approval').html();
+            	var sign = $('#approval').html();
+            	var widths = $('#approval').html();
+            	console.log(obj.memberList);
+
+            	for(var i in obj.memberList){
+            		widths = '<div style="width:'+i+'00px;">';
+            		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
+            		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
+            		sign += '<td><img src="/sik/resources/common/images/memberSign/'+decodeURIComponent(obj.memberList[i].signImage)+'" style="width:100px;"></td>';
             	}
             	
-            	$('#approvalLine').html(gualho+memberNames+endgualho);
-            	$('#approvalLine').html(gualho+memberNames+endgualho);	
+             	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
+                    	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
             },
             error : function(request, status, errorData){
                 connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
@@ -76,9 +82,15 @@ $(function() {
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
-}); //$(function()
-</script>
+		 
+}); //$(function() 
 
+</script>
+<style>
+.custom-table{
+    font-size: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -94,8 +106,6 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
-						<form action="insertReport.do" method="POST"
-							enctype='multipart/form-data'>
 							<div class="mb-3">
 								<div>
 									결재자 정보 등록<br>
@@ -121,41 +131,45 @@ $(function() {
 									 </select>
 									 <select id="memberId" class="btn btn-secondary btn-sm dropdown-toggle">
 										    <!-- 옵션을 생성하는 영역 ★ -->
-									</select>
-																 
-									</form>
+									</select>							 
+
 									<button id="approvalLine" type="button" class="btn btn-danger"
         								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
 									  +
 									</button>				
 								</div>
-								<div>
-									<table id="approval" class="">
-									
-									</table>
+								<hr>
+								<div id="approval" style="text-align: -webkit-right;">
+									<!-- 결재서명영역 -->
+									<div style="width:300px; border:1px;">
+										
+									</div>
 								</div>
 								<hr>
+								<form action="reportUpdate.do" method="POST" enctype='multipart/form-data'>
 								<div>
-									보고서 번호 : <span id="reportId">${ reportId }</span><br>
-									보고서 종류 : <span id="reportselect"></span>
+									보고서 번호 : <input type="text" id="reportId" name="reportId" readonly value="${ reportId }" style="border: none;"><br>
+
+									<!-- 보고서 종류 : <span id="reportselect"></span> -->
 								</div>
-								<br> <br> <label for="proposalTitle"
-									class="form-label">제목</label> <input type="text"
-									class="form-control" id="proposalTitle" name="title" required>
-
-
+								<hr>
+								<label for="proposalTitle" class="form-label">제목</label>
+								<input type="text" class="form-control" id="reTitle" name="reTitle" required>
+								<br>
 								<div class='mb - 3'>
 									<label for='proposalContent' class='form-label'>내용 : </label>
-									<textarea rows=10 cols=30 wrap=hard id='proposalContent'
-										name='content' class='form-control'></textarea>
+									<textarea rows=10 cols=30 wrap=hard id='reContent' name='reContent' class='form-control'></textarea>
 								</div>
-
+								<br>
 								파일 첨부 :
 								<div class='mb-3'>
-									<input type='file' id='fileUpload' name='fileUpload' />
+									<input type='file' id='reFile' name='reFile' />
 								</div>
-
-								<button type="submit" class="btn btn-primary">등록</button>
+								<hr>
+								<div style="text-align: center;">
+								<input type="submit" class="btn btn-dark">
+								<input type="reset" class="btn btn-danger">
+								</div>
 						</form>
 					</div>
 					<div class="bg-body-tertiary border rounded-3"

@@ -29,10 +29,15 @@
 	</select>
 	
 	<insert id="insertReport" parameterType="Report">
-		insert into Report
-		values ((SELECT 're' || LPAD(TO_NUMBER(SUBSTR(MAX(report_id), 3)) + 1, 4, '0') AS report_idFROM report),
-				#{reTitle}, #{reContent}, #{reFile}, null)
+		INSERT INTO Report (REPORT_ID, RE_TITLE, RE_CONTENT, RE_FILE, RE_DATE)
+		VALUES (#{ reportId }, '임시저장', '임시저장', NULL, sysdate)
 	</insert>
+	
+	<update id="updateReport" parameterType="Report">
+		UPDATE Report
+		SET RE_TITLE = #{reTitle}, RE_CONTENT = #{reContent}, RE_FILE = #{reFile}, RE_DATE = sysdate
+		WHERE REPORT_ID = #{reportId}
+	</update>
 	
 </mapper>
 

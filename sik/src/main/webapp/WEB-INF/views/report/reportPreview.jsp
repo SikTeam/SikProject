@@ -8,9 +8,6 @@
 .custom-table{
     font-size: 14px;
 }
-.custom-thead{
-	 background-color: #E7DAF9 !important;
-}
 </style>
 </head>
 <body>

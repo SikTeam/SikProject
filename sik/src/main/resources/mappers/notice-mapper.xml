@@ -74,4 +74,9 @@
 		join member using(member_id)
 		where no_id like #{keyword}
 	</select>
+	<update id="updateAddReadCount" parameterType="string">
+		update notice
+		set NO_VCOUNT = NO_VCOUNT + 1
+		where NO_ID = #{keyword}
+	</update>
 </mapper>
