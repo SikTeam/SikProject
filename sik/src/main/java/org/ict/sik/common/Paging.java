@@ -12,7 +12,9 @@ public class Paging implements java.io.Serializable {
 	private int startPage;   //페이지 그룹의 시작값
 	private int endPage;   //페이지 그룹의 끝값
 	private String urlMapping;
-	
+
+	private String board;
+
 	//기본 생성자 없음
 	
 	//매개변수 있는 생성자
@@ -46,6 +48,17 @@ public class Paging implements java.io.Serializable {
 		this.startRow = (currentPage - 1) * limit + 1;
 		this.endRow = startRow + limit - 1;
 	}
+
+
+	
+	public String getBoard() {
+		return board;
+	}
+
+	public void setBoard(String board) {
+		this.board = board;
+	}
+
 
 	public int getStartRow() {
 		return startRow;

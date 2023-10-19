@@ -10,7 +10,9 @@
 <script src="/sik/resources/common/js/jquery-3.7.0.min.js"></script>
 <script type='text/javascript'>
 $(function() {
+
 	//부서, 직급 선택시
+
     $('#dept, #position').change(function() {
     	
     	$('#name').html('');
@@ -46,7 +48,9 @@ $(function() {
     }); //$('#dept, #position').change(function()
     		
     		
+
 	//결재라인 추가버튼 클릭
+
      $('#approvalLine').on('click',function() {
         $.ajax({
             url: 'approvalLine.do',
@@ -83,6 +87,7 @@ $(function() {
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
+
 		   
 	//참조라인 추가
    $('#referenceLine').on('click',function() {
@@ -118,12 +123,15 @@ $(function() {
   	 }); //$('#dept').on('click',function()
   });	//$('#approvalLine').on('click',function()
 		  
+
 }); //$(function() 
 
 </script>
 <style>
+
 .custom-table {
 	font-size: 10px;
+
 }
 </style>
 </head>
@@ -141,6 +149,7 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
+
 						<div class="mb-3">
 							<div sytle="gap : 10px;">
 								결재자 정보 등록<br>
@@ -192,9 +201,11 @@ $(function() {
 									보고서 번호 : <input type="text" id="reportId" name="reportId"
 										readonly value="${ reportId }" style="border: none;"><br>
 
+
 									<!-- 보고서 종류 : <span id="reportselect"></span> -->
 								</div>
 								<hr>
+
 								<label for="proposalTitle" class="form-label">제목</label> <input
 									type="text" class="form-control" id="reTitle" name="reTitle"
 									required> <br>

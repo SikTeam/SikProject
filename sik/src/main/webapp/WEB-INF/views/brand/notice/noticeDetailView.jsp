@@ -18,6 +18,11 @@
 		<br> ${ requestScope.notice.noVcount } <br> ${ requestScope.notice.noCon }
 		<br> ${ requestScope.notice.noTitle } <br>
 
+		<c:if test="${!empty requestScope.notice.noFile }">
+			<img alt="${ requestScope.notice.noTitle }" src="${ pageContext.servletContext.contextPath }/resources/notice_upfiles/${requestScope.notice.noFile}" style="width: 200px;height: 200px">
+		</c:if>
+
+
 		<c:import url="/WEB-INF/views/common/pagingView.jsp" />
 	</div>
 </body>
