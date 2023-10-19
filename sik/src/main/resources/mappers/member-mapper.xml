@@ -95,7 +95,7 @@
 	</select>
 	
 	<select id="selectApprovalList" parameterType="string" resultMap="resultList">
-		select report_id, member_name, dept_name, POSITION_NAME
+		select report_id, member_name, dept_name, POSITION_NAME, sign_image
 		from member
 		join DEPARTMENT using(dept_id)
 		join POSITION using(POSITION_ID)
@@ -224,4 +224,10 @@
 		where rnum between #{ startRow } and #{ endRow }
 		]]>
 	</select>
+	
+	<insert id="insertMember" parameterType="Member">
+		insert into member 
+		values (#{ memberId }, #{ memberName }, #{ pw }, 'N', 
+		#{ deptId }, #{ positionId }, #{ enrollDate }, default , default )
+	</insert>
 </mapper>

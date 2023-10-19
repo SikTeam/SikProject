@@ -542,6 +542,7 @@ a {
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '매장별재고현황' }">
 
+
 											<a href="${ pageContext.servletContext.contextPath }/fcStock.do">매장별재고현황</a>
 
 											<br>

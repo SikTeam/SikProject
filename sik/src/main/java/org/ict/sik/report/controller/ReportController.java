@@ -43,6 +43,8 @@ public class ReportController {
 	@Autowired
 	private MemberService memberService;
 
+
+	// 결재페이지 리스트
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
@@ -126,6 +128,7 @@ public class ReportController {
 		Report report = new Report();
 		ReportSign reSign = new ReportSign();
 		int countApproval = reportSignService.countApproval(reportId) + 1;
+
 
 		// report값 세팅
 		report.setReportId(reportId);
@@ -318,6 +321,7 @@ public class ReportController {
 	}
 
 
+
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
 	public String reportInsert(Model model, HttpServletRequest request,
@@ -375,6 +379,6 @@ public class ReportController {
 		
 		return " ";
 	}
-	
+
 
 }
