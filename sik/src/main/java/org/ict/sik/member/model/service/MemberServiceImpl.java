@@ -112,4 +112,5 @@ public class MemberServiceImpl implements MemberService {
 
 		return memberDao.insertMember(member);
 	}
+  
 }

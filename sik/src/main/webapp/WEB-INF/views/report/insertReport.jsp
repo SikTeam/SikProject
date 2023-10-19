@@ -10,6 +10,7 @@
 <script src="/sik/resources/common/js/jquery-3.7.0.min.js"></script>
 <script type='text/javascript'>
 $(function() {
+	//부서, 직급 선택시
     $('#dept, #position').change(function() {
     	
     	$('#name').html('');
@@ -45,7 +46,7 @@ $(function() {
     }); //$('#dept, #position').change(function()
     		
     		
-
+	//결재라인 추가버튼 클릭
      $('#approvalLine').on('click',function() {
         $.ajax({
             url: 'approvalLine.do',
@@ -64,9 +65,6 @@ $(function() {
             	var widths = $('#approval').html();
             	console.log(obj.memberList);
             	
-            	for(var i in obj.memberList){
-            		
-            	}
             	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
              	for(var i in obj.memberList){
             		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+'</td>';
@@ -85,13 +83,47 @@ $(function() {
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
-		 
+		   
+	//참조라인 추가
+   $('#referenceLine').on('click',function() {
+       $.ajax({
+           url: 'referenceLine.do',
+           type: 'post',
+           dataType: 'json',
+           data: { memberId: $('#memberId').val(), reportId: $('#reportId').val() },
+           success: function(data) {
+           	console.log("data : "+data);
+           	var str = JSON.stringify(data);
+           	var obj = JSON.parse(str);
+           	$('#reference').html(''); 
+           	          	
+           	var memberNames = $('#reference').html();
+
+           	console.log(obj.memberList);
+           	
+           	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
+            	for(var i in obj.memberList){
+           		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '+decodeURIComponent(obj.memberList[i].positionName)+' '+'<button type="button" class="btn-close" aria-label="Close"></button></td>';
+           		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
+           		sign += '<td style="width:100px; height=100px;"></td>';
+           	}
+           	
+            	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
+                   	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
+           },
+           	error: function (request, status, error) {
+           	console.log("error code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
+           	alert("동일한 결재자가 존재해서 추가할수 없습니다.");
+            }
+  	 }); //$('#dept').on('click',function()
+  });	//$('#approvalLine').on('click',function()
+		  
 }); //$(function() 
 
 </script>
 <style>
-.custom-table{
-    font-size: 10px;
+.custom-table {
+	font-size: 10px;
 }
 </style>
 </head>
@@ -109,76 +141,88 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
-							<div class="mb-3">
-								<div>
-									결재자 정보 등록<br>
-									<hr>
-									<select id="dept" class="btn btn-secondary btn-sm dropdown-toggle">
-									    <option class="dropdown-item" value="부서">부서</option>
-									  	<option class="dropdown-item" value="가맹관리팀">가맹관리팀</option>
-									  	<option class="dropdown-item" value="물류팀">물류팀</option>
-									  	<option class="dropdown-item" value="메뉴개발팀">메뉴개발팀</option>
-									  	<option class="dropdown-item" value="가맹영업팀">가맹영업팀</option>
-									  	<option class="dropdown-item" value="상품관리팀">상품관리팀</option>
-									  	<option class="dropdown-item" value="광고기획팀">광고기획팀</option>
-									  	<option class="dropdown-item" value="대표이사">대표이사</option>
-									 </select>
-									<select id="position" class="btn btn-secondary btn-sm dropdown-toggle">
-									    <option class="dropdown-item" value="직급">직급</option>
-									  	<option class="dropdown-item" value="사원">사원</option>
-									  	<option class="dropdown-item" value="대리">대리</option>
-									  	<option class="dropdown-item" value="주임">주임</option>
-									  	<option class="dropdown-item" value="과장">과장</option>
-									  	<option class="dropdown-item" value="팀장">팀장</option>
-									  	<option class="dropdown-item" value="대표이사">대표이사</option>
-									 </select>
-									 <select id="memberId" class="btn btn-secondary btn-sm dropdown-toggle">
-										    <!-- 옵션을 생성하는 영역 ★ -->
-									</select>							 
+						<div class="mb-3">
+							<div sytle="gap : 10px;">
+								결재자 정보 등록<br>
+								<hr>
+								<select id="dept"
+									class="btn btn-secondary btn-sm dropdown-toggle">
+									<option class="dropdown-item" value="부서">부서</option>
+									<option class="dropdown-item" value="가맹관리팀">가맹관리팀</option>
+									<option class="dropdown-item" value="물류팀">물류팀</option>
+									<option class="dropdown-item" value="메뉴개발팀">메뉴개발팀</option>
+									<option class="dropdown-item" value="가맹영업팀">가맹영업팀</option>
+									<option class="dropdown-item" value="상품관리팀">상품관리팀</option>
+									<option class="dropdown-item" value="광고기획팀">광고기획팀</option>
+									<option class="dropdown-item" value="대표이사">대표이사</option>
+								</select> <select id="position"
+									class="btn btn-secondary btn-sm dropdown-toggle">
+									<option class="dropdown-item" value="직급">직급</option>
+									<option class="dropdown-item" value="사원">사원</option>
+									<option class="dropdown-item" value="대리">대리</option>
+									<option class="dropdown-item" value="주임">주임</option>
+									<option class="dropdown-item" value="과장">과장</option>
+									<option class="dropdown-item" value="팀장">팀장</option>
+									<option class="dropdown-item" value="대표이사">대표이사</option>
+								</select> <select id="memberId"
+									class="btn btn-secondary btn-sm dropdown-toggle">
+									<!-- 옵션을 생성하는 영역 ★ -->
+								</select>
 
-									<button id="approvalLine" type="button" class="btn btn-danger"
-        								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-									  +
-									</button>				
-								</div>
-								<hr>
-								<div id="approval" style="text-align: -webkit-right;">
-									<!-- 결재서명영역 -->
-									<div style="width:300px; border:1px;">
-										
-									</div>
-								</div>
-								<hr>
-								<form action="reportUpdate.do" method="POST" enctype='multipart/form-data'>
+								<button id="approvalLine" type="button" class="btn btn-success btn-sm"
+									style="-bs-btn-padding-y: .25rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .75rem;">
+									결재라인추가</button>
+								<button id="referenceLine" type="button" class="btn btn-info btn-sm"
+									style="-bs-btn-padding-y: .25rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .75rem;">
+									참조추가</button>
+							</div>
+							<hr>
+							<div id="approval" style="text-align: -webkit-right;">
+								<!-- 결재서명영역 -->
+								<div style="width: 300px; border: 1px;"></div>
+							</div>
+							<hr>
+							<div id=reference>
+							<!-- 참조추가 -->
+							</div>
+							<hr>
+							<form action="reportUpdate.do" method="POST"
+								enctype='multipart/form-data'>
 								<div>
-									보고서 번호 : <input type="text" id="reportId" name="reportId" readonly value="${ reportId }" style="border: none;"><br>
+									보고서 번호 : <input type="text" id="reportId" name="reportId"
+										readonly value="${ reportId }" style="border: none;"><br>
 
 									<!-- 보고서 종류 : <span id="reportselect"></span> -->
 								</div>
 								<hr>
-								<label for="proposalTitle" class="form-label">제목</label>
-								<input type="text" class="form-control" id="reTitle" name="reTitle" required>
-								<br>
+								<label for="proposalTitle" class="form-label">제목</label> <input
+									type="text" class="form-control" id="reTitle" name="reTitle"
+									required> <br>
 								<div class='mb - 3'>
 									<label for='proposalContent' class='form-label'>내용 : </label>
-									<textarea rows=10 cols=30 wrap=hard id='reContent' name='reContent' class='form-control'></textarea>
+									<textarea rows=10 cols=30 wrap=hard id='reContent'
+										name='reContent' class='form-control'></textarea>
 								</div>
-								<br>
-								파일 첨부 :
+								<br> 파일 첨부 :
 								<div class='mb-3'>
 									<input type='file' id='reFile' name='reFile' />
 								</div>
 								<hr>
-								<div style="text-align: center;">
-								<input type="submit" class="btn btn-dark">
-								<input type="reset" class="btn btn-danger">
-								</div>
-						</form>
+								<div style="text-align: center; display: flex; justify-content: center; gap:30px;">
+									<input type="submit" class="btn btn-dark" value="등록">
+								</form>
+								
+							<form action="deleteReport.do" method="POST"
+								enctype='multipart/form-data'>
+								<input type="hidden" name="reportId" value="${ reportId }">
+								<input type="submit" class="btn btn-danger" value="취소">
+							</form>
+						</div>
 					</div>
-					<div class="bg-body-tertiary border rounded-3"
-						style="visibility: hidden;">
-						<br />
-					</div>
+				</div>
+				<div class="bg-body-tertiary border rounded-3"
+					style="visibility: hidden;">
+					<br />
 				</div>
 			</div>
 		</div>

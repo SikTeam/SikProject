@@ -30,37 +30,42 @@
           <div class="bg-body-tertiary border rounded-3">
 
           	<div class="table-responsive table-bordered" style="padding: 10px;">
-				<table class="table table-hover border rounded-5" style="color:black;">
+				<table class="table table-hover border rounded-5">
 					<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 					직	원	등	록
 					</h4>
 				</a>
 				  <form action="enroll.do" method="post">
 					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="memberId"></textarea>
+					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
 					  <label for="floatingTextarea">부여할 사번</label>
 					  &nbsp;
 					</div>
 					
-					<!-- <div id="myphoto" 
-					style="margin:0;width:150px;height:160px;padding:0;border:1px solid navy;">
-						<img src="/first/resources/member_photofiles/preview.jpg" id="photo" 				
-						style="width:150px;height:160px;border:1px solid navy;display:block;"
-						alt="사진을 드래그 드롭하세요." 
-						style="padding:0;margin:0;"><br>				
-					</div>
-					 -->
-					
 					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="memberName"></textarea>
+					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
 					  <label for="floatingTextarea">이름</label>
 					  &nbsp;
 					</div>
 					
 					<div class="form-floating" style="width: 18rem;">
-					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="pw"></textarea>
+					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
 					  <label for="floatingTextarea">지정할 비밀번호</label>
 					  &nbsp;
+					</div>
+					
+					<div class="dropdown">
+	  					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					      부서선택
+					    </button>
+					    <ul class="dropdown-menu">
+					      <li><a class="dropdown-item" href="#">가맹관리팀</a></li>
+					      <li><a class="dropdown-item" href="#">물류팀</a></li>
+					      <li><a class="dropdown-item" href="#">메뉴개발팀</a></li>
+					      <li><a class="dropdown-item" href="#">가맹영업팀</a></li>
+					      <li><a class="dropdown-item" href="#">상품관리팀</a></li>
+					      <li><a class="dropdown-item" href="#">광고기획팀</a></li>
+					    </ul>
 					</div>
 					<br>
 					<div class="dropdown">
@@ -89,25 +94,26 @@
 					<div class="bg-body-tertiary border rounded-4" style="width: 14rem;">
 					  <div class="input-group flex-nowrap">
 			  			  <span class="input-group-text" id="addon-wrapping">입사일</span>
+					      <form class="d-flex" role="search" action="msearchEnrollDate.do" method="post">
+					        <input type="hidden" name="action" value="date">	
 							<fieldset>
 					          <input type="date" style="margin-top:4px; margin-left:5px" name="enrollDate">
 							</fieldset>
+						  </form>
 					  </div>
 	  				</div>
 					<br>
 					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">프로필 사진</label>
-					  <input type="file" class="form-control" id ="inputGroupFile01" name="profileImage">
+					  <input type="file" class="form-control" id ="inputGroupFile01">
 					</div>
 					
 					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">사인 이미지</label>
-					  <input type="file" class="form-control" id="inputGroupFile01" name="signImage">
+					  <input type="file" class="form-control" id="inputGroupFile01">
 					</div>
-					<button class="btn btn-outline-success btn-sm" type="submit">등록</button>
-				  </form>
+					
 				</table>
-				
 			</div>
           </div>
           
@@ -125,7 +131,7 @@
             <br />
           </div>
           <div class="bg-body-tertiary" style= "justify-self: center;">
-             <img src ="/sik/resources/common/images/logo_dark.png" style="max-height:50px; background: white;"/>
+             <img src = "/sik/resources/common/images/logo_dark.png" style="max-height:50px; background: white;"/>
           </div>
           <div class="bg-body-tertiary border rounded-3" style="visibility: hidden;">
             <br />

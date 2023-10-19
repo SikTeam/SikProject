@@ -95,7 +95,7 @@
 	</select>
 	
 	<select id="selectApprovalList" parameterType="string" resultMap="resultList">
-		select report_id, member_name, dept_name, POSITION_NAME, sign_image
+		select report_id, member_name, dept_name, POSITION_NAME
 		from member
 		join DEPARTMENT using(dept_id)
 		join POSITION using(POSITION_ID)
