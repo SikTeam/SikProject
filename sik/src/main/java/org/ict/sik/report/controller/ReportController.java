@@ -47,11 +47,11 @@ public class ReportController {
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
-    
-		// session 에서 memberId 받아오기
+		
+		//session 에서 memberId 받아오기
 		Member member = (Member) session.getAttribute("loginMember");
 		String memberId = member.getMemberId();
-
+		
 		int currentPage = 1;
 		if (page != null) {
 			currentPage = Integer.parseInt(page);
@@ -118,21 +118,13 @@ public class ReportController {
 		return sendJson.toJSONString();
 	}
 
-
-	// 결재 등록 페이지 이동하면서 reportId 생성 및 임시저장 보고서 생성하기
+	// 결재 등록 페이지 이동
 	@RequestMapping("getReportId.do")
-	public ModelAndView getReportId(ModelAndView mv, HttpServletRequest request) {
-		Report report = new Report();
-		ReportSign reSign = new ReportSign();
-		// reportId 생성하기
+	public ModelAndView getReportId(ModelAndView mv,
+			HttpServletRequest request) {
 		String reportId = reportService.getReportId();
-		report.setReportId(reportId);
 
-		// session 에서 memberId 받아오기
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("loginMember");
-
-		// 1번 결재자로 등록하기 위해 결재자No 생성
+//		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
 		int countApproval = reportSignService.countApproval(reportId) + 1;
 
 		// report값 세팅
@@ -148,8 +140,9 @@ public class ReportController {
 		int reportSignResult = reportSignService.insertReport(reSign);
 
 		if (reportResult > 0 && reportSignResult > 0) {
-			mv.addObject("reportId", reportId);
 
+			mv.addObject("reportId", reportId);
+//			mv.addObject("list", list);
 			mv.setViewName("report/insertReport");
 		} else {
 			mv.addObject("message", "결재창 불러오기 실패.");
@@ -169,17 +162,66 @@ public class ReportController {
 
 		Report report = new Report();
 		ReportSign reSign = new ReportSign();
+		response.setContentType("application/json; charset=utf-8");
+		// 지금 사인이 몇번째인지 알아보는 작업
+		int countApproval = reportSignService.countApproval(reportId) + 1;
+
+		ArrayList<MemberDeptPosition> memberList = memberService.selectApprovalList(reportId);
+
 		report.setReportId(reportId);
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
 		reSign.setReSign("Y");
 
-		// 동일한 결재자가 있는지 체크 있으면 error 체크
-		int sameMemberCheck = reportSignService.sameMemberCheck(reSign);
-		logger.info("================== sameMemberCheck : "+sameMemberCheck);
-		if (sameMemberCheck > 0) {
+
+		int reportResult = 0;
+		// 내 사인이 첫번째라면 생성
+		if (countApproval == 1) {
+			reportResult = reportService.insertReport(report);
+		}
+		// 인설트 성공여부
+		int reportSignResult = reportSignService.insertReport(reSign);
+		ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
+
+		if (reportSignResult > 0) {
+
+			JSONObject sendJson = new JSONObject();
+			JSONArray jarr = new JSONArray();
+			JSONArray jarr2 = new JSONArray();
+
+			for (ReportSign r : relist) {
+				JSONObject job = new JSONObject();
+
+				job.put("reportId", URLEncoder.encode(r.getReportId(), "UTF-8"));
+				job.put("memberId", URLEncoder.encode(r.getMemberId(), "UTF-8"));
+				job.put("reSign", URLEncoder.encode(r.getReSign(), "UTF-8"));
+				job.put("reRead", URLEncoder.encode(r.getReRead(), "UTF-8"));
+				job.put("reportSignCounter", r.getReportSignCounter());
+
+				jarr.add(job);
+			}
+
+			for (MemberDeptPosition m : memberList) {
+				JSONObject job2 = new JSONObject();
+
+				job2.put("memberName", URLEncoder.encode(m.getMemberName(), "UTF-8"));
+				job2.put("signImage", URLEncoder.encode(m.getSignImage(), "UTF-8"));
+				job2.put("deptName", URLEncoder.encode(m.getDeptName(), "UTF-8"));
+				job2.put("positionName", URLEncoder.encode(m.getPositionName(), "UTF-8"));
+
+				jarr2.add(job2);
+			}
+
+			sendJson.put("relist", jarr);
+			sendJson.put("memberList", jarr2);
+			logger.info("sendJson : " + sendJson.toString());
+
+			return sendJson.toJSONString();
+
+		} else {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			JSONObject errorJson = new JSONObject();
+
 			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
 			return errorJson.toJSONString();
 		} else {
@@ -235,6 +277,7 @@ public class ReportController {
 				errorJson.put("error", "결재보고서 임시저장 실패");
 				return errorJson.toJSONString();
 			}
+
 		}
 	}
 	
@@ -319,10 +362,9 @@ public class ReportController {
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
 	public String reportInsert(Model model, HttpServletRequest request,
-
-			@RequestParam(name = "reTitle", required = false) String reTitle,
-			@RequestParam(name = "reContent", required = false) String reContent,
-			@RequestParam(name = "reportId", required = false) String reportId,
+			@RequestParam(name="reTitle", required = false) String reTitle,
+			@RequestParam(name="reContent", required = false) String reContent,
+			@RequestParam(name="reportId", required = false) String reportId,
 			@RequestParam(name = "reFile", required = false) MultipartFile mfile) {
 
 		Report report = new Report();
@@ -331,9 +373,7 @@ public class ReportController {
 		report.setReportId(reportId);
 		String savePath = request.getSession().getServletContext().getRealPath("resources/common/images/report");
 		String renameFileName = null;
-
-		logger.info("savePath : " + savePath);
-
+		logger.info("savePath : "+savePath);
 		// 첨부 파일이 있을 때
 		if (!mfile.isEmpty()) {
 			// 파일이름 추출
@@ -341,11 +381,11 @@ public class ReportController {
 
 			// 파일명 변경
 			if (fileName != null && fileName.length() > 0) {
-
+				
 				// 바꿀 파일명 생성
 				renameFileName = report.getReportId();
 				renameFileName += "." + fileName.substring(fileName.lastIndexOf(".") + 1);
-
+				
 				logger.info("fileName : " + fileName + ", " + renameFileName);
 				try {
 					// 저장 폴더에 파일명 바꾸기
@@ -357,10 +397,9 @@ public class ReportController {
 				}
 			} // 파일명 바꾸기
 			report.setReFile(renameFileName);
-
+			
 		} // 첨부파일 있을 때
-
-
+		
 		if (reportService.updateReport(report) > 0) {
 			return "redirect:reportList.do";
 		} else {
