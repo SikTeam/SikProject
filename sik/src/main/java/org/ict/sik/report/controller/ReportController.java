@@ -47,7 +47,7 @@ public class ReportController {
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
-
+    
 		// session 에서 memberId 받아오기
 		Member member = (Member) session.getAttribute("loginMember");
 		String memberId = member.getMemberId();
@@ -118,6 +118,7 @@ public class ReportController {
 		return sendJson.toJSONString();
 	}
 
+
 	// 결재 등록 페이지 이동하면서 reportId 생성 및 임시저장 보고서 생성하기
 	@RequestMapping("getReportId.do")
 	public ModelAndView getReportId(ModelAndView mv, HttpServletRequest request) {
@@ -147,6 +148,7 @@ public class ReportController {
 
 		if (reportResult > 0 && reportSignResult > 0) {
 			mv.addObject("reportId", reportId);
+
 			mv.setViewName("report/insertReport");
 		} else {
 			mv.addObject("message", "결재창 불러오기 실패.");
@@ -163,6 +165,7 @@ public class ReportController {
 			@RequestParam(name = "reportId", required = false) String reportId) throws IOException {
 
 		logger.info(reportId + "/" + memberId);
+
 		Report report = new Report();
 		ReportSign reSign = new ReportSign();
 		report.setReportId(reportId);
@@ -237,6 +240,7 @@ public class ReportController {
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
 	public String reportInsert(Model model, HttpServletRequest request,
+
 			@RequestParam(name = "reTitle", required = false) String reTitle,
 			@RequestParam(name = "reContent", required = false) String reContent,
 			@RequestParam(name = "reportId", required = false) String reportId,
@@ -248,7 +252,9 @@ public class ReportController {
 		report.setReportId(reportId);
 		String savePath = request.getSession().getServletContext().getRealPath("resources/common/images/report");
 		String renameFileName = null;
+
 		logger.info("savePath : " + savePath);
+
 		// 첨부 파일이 있을 때
 		if (!mfile.isEmpty()) {
 			// 파일이름 추출
@@ -274,6 +280,7 @@ public class ReportController {
 			report.setReFile(renameFileName);
 
 		} // 첨부파일 있을 때
+
 
 		if (reportService.updateReport(report) > 0) {
 			return "redirect:reportList.do";

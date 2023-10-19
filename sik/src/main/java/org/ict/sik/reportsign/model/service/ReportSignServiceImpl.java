@@ -45,4 +45,5 @@ public class ReportSignServiceImpl implements ReportSignService{
 	public int sameMemberCheck(ReportSign reSign) {
 		return reportSignDao.sameMemberCheck(reSign);
 	}
+
 }
