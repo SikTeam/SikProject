@@ -6,7 +6,9 @@ import java.util.List;
 import org.ict.sik.common.Paging;
 import org.ict.sik.common.Search;
 import org.ict.sik.notice.model.vo.BrandNotice;
+
 import org.ict.sik.notice.model.vo.Notice;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,7 +39,9 @@ public class NoticeDao {
 		return sqlSessionTemplate.update("noticeMapper.updateAddReadCount",noId);
 	}
 
+
 	public int insertNotice(Notice notice) {
 		return sqlSessionTemplate.insert("noticeMapper.insertNotice",notice);
 	}
+
 }

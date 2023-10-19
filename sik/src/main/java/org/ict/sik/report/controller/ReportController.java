@@ -43,7 +43,6 @@ public class ReportController {
 	@Autowired
 	private MemberService memberService;
 
-	// 결재페이지 리스트
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
@@ -126,11 +125,22 @@ public class ReportController {
 
 //		ArrayList<MemberDeptPosition> list = memberService.selectFullList();
 		int countApproval = reportSignService.countApproval(reportId) + 1;
-		HttpSession session = request.getSession();
-		Member member = (Member)session.getAttribute("loginMember");
-		
-		logger.info(reportId);
-		if (reportId != null) {
+
+
+		// report값 세팅
+		report.setReportId(reportId);
+		// reportSign값 세팅
+		reSign.setReportId(reportId);
+		reSign.setReportSignCounter(countApproval);
+		reSign.setMemberId(member.getMemberId());
+		reSign.setReSign("Y");
+		// report 임시저장
+		int reportResult = reportService.insertReport(report);
+		// reportSign 임시저장
+		int reportSignResult = reportSignService.insertReport(reSign);
+
+		if (reportResult > 0 && reportSignResult > 0) {
+
 			mv.addObject("reportId", reportId);
 //			mv.addObject("list", list);
 			mv.setViewName("report/insertReport");
@@ -161,7 +171,9 @@ public class ReportController {
 		report.setReportId(reportId);
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
-		reSign.setReportSignCounter(countApproval);
+
+		reSign.setReSign("Y");
+
 
 		int reportResult = 0;
 		// 내 사인이 첫번째라면 생성
@@ -210,10 +222,145 @@ public class ReportController {
 		} else {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			JSONObject errorJson = new JSONObject();
-			errorJson.put("error", "결재보고서 임시저장 실패");
+
+
+
+			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
 			return errorJson.toJSONString();
+		} else {
+			// 미미 ★
+			response.setContentType("application/json; charset=utf-8");
+			// 지금 사인이 몇번째인지 알아보는 작업
+			int countApproval = reportSignService.countApproval(reportId) + 1;
+
+			reSign.setReportSignCounter(countApproval);
+
+			// 결재자 정보 등록
+			int reportSignResult = reportSignService.insertReport(reSign);
+			ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
+			ArrayList<MemberDeptPosition> memberList = memberService.selectApprovalList(reportId);
+
+			if (reportSignResult > 0) {
+
+				JSONObject sendJson = new JSONObject();
+				JSONArray jarr = new JSONArray();
+				JSONArray jarr2 = new JSONArray();
+
+				for (ReportSign r : relist) {
+					JSONObject job = new JSONObject();
+
+					job.put("reportId", URLEncoder.encode(r.getReportId(), "UTF-8"));
+					job.put("memberId", URLEncoder.encode(r.getMemberId(), "UTF-8"));
+					job.put("reSign", URLEncoder.encode(r.getReSign(), "UTF-8"));
+					job.put("reRead", URLEncoder.encode(r.getReRead(), "UTF-8"));
+					job.put("reportSignCounter", r.getReportSignCounter());
+
+					jarr.add(job);
+				}
+
+				for (MemberDeptPosition m : memberList) {
+					JSONObject job2 = new JSONObject();
+
+					job2.put("memberName", URLEncoder.encode(m.getMemberName(), "UTF-8"));
+					job2.put("deptName", URLEncoder.encode(m.getDeptName(), "UTF-8"));
+					job2.put("positionName", URLEncoder.encode(m.getPositionName(), "UTF-8"));
+
+					jarr2.add(job2);
+				}
+
+				sendJson.put("relist", jarr);
+				sendJson.put("memberList", jarr2);
+				logger.info("sendJson : " + sendJson.toString());
+
+				return sendJson.toJSONString();
+
+			} else {
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				JSONObject errorJson = new JSONObject();
+				errorJson.put("error", "결재보고서 임시저장 실패");
+				return errorJson.toJSONString();
+			}
+
 		}
 	}
+	
+	// 참조 라인 등록
+	@RequestMapping(value = "referenceLine.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public String referenceLine(HttpServletResponse response,
+			@RequestParam(name = "memberId", required = false) String memberId,
+			@RequestParam(name = "reportId", required = false) String reportId) throws IOException {
+
+		logger.info(reportId + "/" + memberId);
+
+		Report report = new Report();
+		ReportSign reSign = new ReportSign();
+		report.setReportId(reportId);
+		reSign.setReportId(reportId);
+		reSign.setMemberId(memberId);
+		reSign.setReSign("N");
+
+		// 동일한 결재자가 있는지 체크 있으면 error 체크
+		int sameMemberCheck = reportSignService.sameMemberCheck(reSign);
+		logger.info("================== sameMemberCheck : "+sameMemberCheck);
+		if (sameMemberCheck > 0) {
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			JSONObject errorJson = new JSONObject();
+			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
+			return errorJson.toJSONString();
+		} else {
+			// 미미 ★
+			response.setContentType("application/json; charset=utf-8");
+			// 지금 사인이 몇번째인지 알아보는 작업
+
+			// 결재자 정보 등록
+			int reportSignResult = reportSignService.insertReport(reSign);
+			ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
+			ArrayList<MemberDeptPosition> memberList = memberService.selectApprovalList(reportId);
+
+			if (reportSignResult > 0) {
+
+				JSONObject sendJson = new JSONObject();
+				JSONArray jarr = new JSONArray();
+				JSONArray jarr2 = new JSONArray();
+
+				for (ReportSign r : relist) {
+					JSONObject job = new JSONObject();
+
+					job.put("reportId", URLEncoder.encode(r.getReportId(), "UTF-8"));
+					job.put("memberId", URLEncoder.encode(r.getMemberId(), "UTF-8"));
+					job.put("reSign", URLEncoder.encode(r.getReSign(), "UTF-8"));
+					job.put("reRead", URLEncoder.encode(r.getReRead(), "UTF-8"));
+					job.put("reportSignCounter", r.getReportSignCounter());
+
+					jarr.add(job);
+				}
+
+				for (MemberDeptPosition m : memberList) {
+					JSONObject job2 = new JSONObject();
+
+					job2.put("memberName", URLEncoder.encode(m.getMemberName(), "UTF-8"));
+					job2.put("deptName", URLEncoder.encode(m.getDeptName(), "UTF-8"));
+					job2.put("positionName", URLEncoder.encode(m.getPositionName(), "UTF-8"));
+
+					jarr2.add(job2);
+				}
+
+				sendJson.put("relist", jarr);
+				sendJson.put("memberList", jarr2);
+				logger.info("sendJson : " + sendJson.toString());
+
+				return sendJson.toJSONString();
+
+			} else {
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				JSONObject errorJson = new JSONObject();
+				errorJson.put("error", "결재보고서 임시저장 실패");
+				return errorJson.toJSONString();
+			}
+		}
+	}
+
 
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
@@ -263,5 +410,15 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+
+	
+	@RequestMapping(value = "deleteReport.do", method = RequestMethod.POST)
+	public String deleteReport(HttpServletRequest request,
+			@RequestParam(name = "reportId", required = false) String reportId) {
+		logger.info("reportId : "+reportId);
+		
+		return " ";
+	}
+	
 
 }

@@ -541,19 +541,25 @@ a {
 								<div class="accordion-body">
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '매장별재고현황' }">
-											<a href="fcStock.do">매장별재고현황</a>
+
+											<a href="${ pageContext.servletContext.contextPath }/fcStock.do">매장별재고현황</a>
+
 											<br>
 										</c:if>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '본사재고현황' }">
-											<a href="brandStock.do?page=1&board=${ board }">본사재고현황</a>
+
+											<a href="${ pageContext.servletContext.contextPath }/brandStock.do?page=1&board=${ board }">본사재고현황</a>
+
 											<br>
 										</c:if>
 									</c:forEach>
 									<c:forEach var="board" items="${ sessionScope.board }">
 										<c:if test="${board eq '상품관리' }">
-											<a href="/sik/views/main.jsp">상품관리</a>
+
+											<a href="${ pageContext.servletContext.contextPath }/itemList.do">상품관리</a>
+
 											<br>
 										</c:if>
 									</c:forEach>

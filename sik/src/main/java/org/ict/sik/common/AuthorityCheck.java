@@ -20,6 +20,7 @@ public class AuthorityCheck {
 			adminRoll.setRoll("admin1111");
 			rollList.add(adminRoll);
 		}
+
 		for(int i = 0; i < rollList.size(); i++) {
 			String roll = new Roll(rollList.get(i)).getRoll();
 			String board = roll.substring(0, roll.length()-4);

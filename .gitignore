@@ -25,7 +25,7 @@ local.properties
 **/servlet-context.xml
 **/root-context.xml
 **/web.xml
-/logs/
+/.logs/
 
 # External tool builders
 .externalToolBuilders/

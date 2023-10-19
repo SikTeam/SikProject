@@ -56,6 +56,7 @@ public class MemberController {
 			}
 			mv.setViewName("main");
 		}
+
 		return mv;
 	}
 
