@@ -33,7 +33,11 @@
 		VALUES (#{ reportId }, '임시저장', '임시저장', NULL, sysdate)
 	</insert>
 	
-	
+	<update id="updateReport" parameterType="Report">
+		UPDATE Report
+		SET RE_TITLE = #{reTitle}, RE_CONTENT = #{reContent}, RE_FILE = #{reFile}, RE_DATE = sysdate
+		WHERE REPORT_ID = #{reportId}
+	</update>
 	
 </mapper>
 

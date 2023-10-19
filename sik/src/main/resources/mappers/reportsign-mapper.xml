@@ -49,7 +49,7 @@
 	</select>
 	
 	<select id="countApproval" parameterType="string" resultType="_int">
-		select count(*)+1
+		select count(*)
 		from REPORT_SIGN
 		where REPORT_ID = #{ reportId }
 	</select>

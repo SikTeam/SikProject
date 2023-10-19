@@ -30,7 +30,8 @@ public class ReportServiceImpl implements ReportService{
 		return reportDao.insertReport(report);
 	}
 
-	public int selectMyReportCount(String memberId) {
-		return reportDao.selectMyReportCount(memberId);
+	@Override
+	public int updateReport(Report report) {
+		return reportDao.updateReport(report);
 	}
 }
