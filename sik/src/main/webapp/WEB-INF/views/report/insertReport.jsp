@@ -17,7 +17,6 @@ $(function() {
     	
     	$('#name').html('');
     	$('#memberId').html('');
-    	
         $.ajax({
             url: 'addApprover.do',
             type: 'post',
