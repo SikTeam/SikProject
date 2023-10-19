@@ -30,11 +30,13 @@
           <div class="bg-body-tertiary border rounded-3">
 
           	<div class="table-responsive table-bordered" style="padding: 10px;">
+
 				<table class="table table-hover border rounded-5" style="color:black;">
 					<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 					직	원	등	록
 					</h4>
 				</a>
+
 				  <form>
 					<div class="form-floating" style="width: 18rem;">
 					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="memberId"></textarea>
@@ -58,6 +60,7 @@
 					</div>
 					
 					<div class="form-floating" style="width: 18rem;">
+
 					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="pw"></textarea>
 					  <label for="floatingTextarea">지정할 비밀번호</label>
 					  &nbsp;
@@ -89,15 +92,19 @@
 					<div class="bg-body-tertiary border rounded-4" style="width: 14rem;">
 					  <div class="input-group flex-nowrap">
 			  			  <span class="input-group-text" id="addon-wrapping">입사일</span>
+
 							<fieldset>
 					          <input type="date" name="enroll" style="margin-top:4px; margin-left:5px">
 							</fieldset>
+
 					  </div>
 	  				</div>
 					<br>
 					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">프로필 사진</label>
+
 					  <input type="file" class="form-control" id ="inputGroupFile01" name="profileImage">
+
 					</div>
 					
 					<div class="input-group mb-3" style="width: 30rem;">
