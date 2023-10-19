@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-nanum@1/css/nanumgothic/nanumgothic.min.css">
 
 <script type="text/javascript"
+
 	src="/sik/resources/js/jquery-3.7.0.min.js">
 $(document).ready(function() {
     // 이전 선택을 저장하는 변수
@@ -46,6 +47,7 @@ $(document).ready(function() {
     $('#searchOption').val(previousSelectedOption);
 });
 </script>
+
 <script>
 function saveSearch() {
     // 검색 상자의 값을 가져와서 로컬 스토리지에 저장
