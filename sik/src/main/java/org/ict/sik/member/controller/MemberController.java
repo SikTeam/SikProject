@@ -379,4 +379,20 @@ public class MemberController {
 	public String moveBoardWritePage() {
 		return "member/memberInsertView";
 	}
+	
+	// 직원등록 요청 처리용 메소드
+	@RequestMapping(value="enroll.do", method = RequestMethod.POST)
+	public String memberInsertMethod(Member member, Model model) {
+		logger.info("enroll.do" + member);
+	}
 }
+
+
+
+
+
+
+
+
+
+

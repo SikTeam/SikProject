@@ -35,7 +35,7 @@
 					직	원	등	록
 					</h4>
 				</a>
-				  <form action="">
+				  <form action="enroll.do" method="post">
 					<div class="form-floating" style="width: 18rem;">
 					  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="memberId"></textarea>
 					  <label for="floatingTextarea">부여할 사번</label>
@@ -64,7 +64,7 @@
 					</div>
 					<br>
 					<div class="dropdown">
-						 <select id="dept" class="btn btn-secondary btn-sm dropdown-toggle" name="dept">
+						 <select id="dept" class="btn btn-secondary btn-sm dropdown-toggle" name="deptId">
 						    <option class="dropdown-item" value="부서">부서</option>
 						  	<option class="dropdown-item" value="D0001">가맹관리팀</option>
 						  	<option class="dropdown-item" value="D0002">물류팀</option>
@@ -73,7 +73,7 @@
 						  	<option class="dropdown-item" value="D0005">상품관리팀</option>
 						  	<option class="dropdown-item" value="D0006">광고기획팀</option>
 						</select>
-					    <select id="position" class="btn btn-secondary btn-sm dropdown-toggle" name="position">
+					    <select id="position" class="btn btn-secondary btn-sm dropdown-toggle" name="positionId">
 					    	<option class="dropdown-item" value="직급">직급</option>
 						    <option class="dropdown-item" value="P0001">사원</option>
 						  	<option class="dropdown-item" value="P0002">대리</option>
