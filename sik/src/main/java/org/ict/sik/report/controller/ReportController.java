@@ -43,7 +43,6 @@ public class ReportController {
 	@Autowired
 	private MemberService memberService;
 
-	// 결재페이지 리스트로 가기
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
@@ -127,7 +126,7 @@ public class ReportController {
 		Report report = new Report();
 		ReportSign reSign = new ReportSign();
 		int countApproval = reportSignService.countApproval(reportId) + 1;
-		
+
 		// report값 세팅
 		report.setReportId(reportId);
 		// reportSign값 세팅
@@ -170,6 +169,7 @@ public class ReportController {
 		report.setReportId(reportId);
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
+
 		reSign.setReSign("Y");
 		
 		// 동일한 결재자가 있는지 체크 있으면 error 체크
@@ -178,6 +178,7 @@ public class ReportController {
 		if (sameMemberCheck > 0) {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			JSONObject errorJson = new JSONObject();
+
 			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
 			return errorJson.toJSONString();
 
@@ -315,7 +316,7 @@ public class ReportController {
 			}
 		}
 	}
-	
+
 
 	// 결재 보고서 저장
 	@RequestMapping(value = "reportUpdate.do", method = RequestMethod.POST)
@@ -365,6 +366,7 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+
 	
 	@RequestMapping(value = "deleteReport.do", method = RequestMethod.POST)
 	public String deleteReport(HttpServletRequest request,
