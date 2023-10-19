@@ -31,12 +31,14 @@
 
           	<div class="table-responsive table-bordered" style="padding: 10px;">
 
+
 				<table class="table table-hover border rounded-5" style="color:black;">
 
 					<h4 style="text-align: center; margin-top:10px; margin-bottom:15px;">
 					직	원	등	록
 					</h4>
 				</a>
+
 
 				  <form action="enroll.do" method="post">
 					<div class="form-floating" style="width: 18rem;">
@@ -45,7 +47,6 @@
 					  <label for="floatingTextarea">부여할 사번</label>
 					  &nbsp;
 					</div>
-					
 
 					<!-- <div id="myphoto" 
 					style="margin:0;width:150px;height:160px;padding:0;border:1px solid navy;">
@@ -98,9 +99,11 @@
 					  <div class="input-group flex-nowrap">
 			  			  <span class="input-group-text" id="addon-wrapping">입사일</span>
 
+
 							<fieldset>
 					          <input type="date" style="margin-top:4px; margin-left:5px" name="enrollDate">
 							</fieldset>
+
 
 					  </div>
 	  				</div>
@@ -108,7 +111,9 @@
 					<div class="input-group mb-3" style="width: 30rem;">
 					  <label class="input-group-text" for="inputGroupFile01">프로필 사진</label>
 
+
 					  <input type="file" class="form-control" id ="inputGroupFile01" name="profileImage">
+
 
 					</div>
 					
@@ -139,6 +144,7 @@
             <br />
           </div>
           <div class="bg-body-tertiary" style= "justify-self: center;">
+
 
              <img src ="/sik/resources/common/images/logo_dark.png" style="max-height:50px; background: white;"/>
 

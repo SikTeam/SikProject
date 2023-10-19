@@ -13,6 +13,7 @@ $(function() {
 
 	//부서, 직급 선택시
 
+
     $('#dept, #position').change(function() {
     	
     	$('#name').html('');
@@ -48,7 +49,9 @@ $(function() {
     		
     		
 
+
 	//결재라인 추가버튼 클릭
+
 
      $('#approvalLine').on('click',function() {
         $.ajax({
@@ -68,6 +71,9 @@ $(function() {
             	var widths = $('#approval').html();
             	console.log(obj.memberList);
             	
+            	for(var i in obj.memberList){
+            		
+            	}
             	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
              	for(var i in obj.memberList){
             		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '
@@ -86,6 +92,7 @@ $(function() {
                  }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()
+
 
 		   
 	//참조라인 추가
@@ -128,13 +135,16 @@ $(function() {
   });	//$('#approvalLine').on('click',function()
 		  
 
+
 }); //$(function() 
 
 </script>
 <style>
 
+
 .custom-table {
 	font-size: 10px;
+
 
 }
 </style>
@@ -153,6 +163,7 @@ $(function() {
 						<br />
 					</div>
 					<div class="container mt-4">
+
 
 						<div class="mb-3">
 							<div sytle="gap : 10px;">
@@ -182,62 +193,53 @@ $(function() {
 									<!-- 옵션을 생성하는 영역 ★ -->
 								</select>
 
-								<button id="approvalLine" type="button" class="btn btn-success btn-sm"
-									style="-bs-btn-padding-y: .25rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .75rem;">
-									결재라인추가</button>
-								<button id="referenceLine" type="button" class="btn btn-info btn-sm"
-									style="-bs-btn-padding-y: .25rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .75rem;">
-									참조추가</button>
-							</div>
-							<hr>
-							<div id="approval" style="text-align: -webkit-right;">
-								<!-- 결재서명영역 -->
-								<div style="width: 300px; border: 1px;"></div>
-							</div>
-							<hr>
-							<div id=reference>
-							<!-- 참조추가 -->
-							</div>
-							<hr>
-							<form action="reportUpdate.do" method="POST"
-								enctype='multipart/form-data'>
+									<button id="approvalLine" type="button" class="btn btn-danger"
+        								style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+									  +
+									</button>				
+								</div>
+								<hr>
+								<div id="approval" style="text-align: -webkit-right;">
+									<!-- 결재서명영역 -->
+									<div style="width:300px; border:1px;">
+										
+									</div>
+								</div>
+								<hr>
+								<form action="reportUpdate.do" method="POST" enctype='multipart/form-data'>
 								<div>
-									보고서 번호 : <input type="text" id="reportId" name="reportId"
-										readonly value="${ reportId }" style="border: none;"><br>
+									보고서 번호 : <input type="text" id="reportId" name="reportId" readonly value="${ reportId }" style="border: none;"><br>
 
 
 									<!-- 보고서 종류 : <span id="reportselect"></span> -->
 								</div>
 								<hr>
 
+
 								<label for="proposalTitle" class="form-label">제목</label> <input
 									type="text" class="form-control" id="reTitle" name="reTitle"
 									required> <br>
+
 								<div class='mb - 3'>
 									<label for='proposalContent' class='form-label'>내용 : </label>
-									<textarea rows=10 cols=30 wrap=hard id='reContent'
-										name='reContent' class='form-control'></textarea>
+									<textarea rows=10 cols=30 wrap=hard id='reContent' name='reContent' class='form-control'></textarea>
 								</div>
-								<br> 파일 첨부 :
+								<br>
+								파일 첨부 :
 								<div class='mb-3'>
 									<input type='file' id='reFile' name='reFile' />
 								</div>
 								<hr>
-								<div style="text-align: center; display: flex; justify-content: center; gap:30px;">
-									<input type="submit" class="btn btn-dark" value="등록">
-								</form>
-								
-							<form action="deleteReport.do" method="POST"
-								enctype='multipart/form-data'>
-								<input type="hidden" name="reportId" value="${ reportId }">
-								<input type="submit" class="btn btn-danger" value="취소">
-							</form>
-						</div>
+								<div style="text-align: center;">
+								<input type="submit" class="btn btn-dark">
+								<input type="reset" class="btn btn-danger">
+								</div>
+						</form>
 					</div>
-				</div>
-				<div class="bg-body-tertiary border rounded-3"
-					style="visibility: hidden;">
-					<br />
+					<div class="bg-body-tertiary border rounded-3"
+						style="visibility: hidden;">
+						<br />
+					</div>
 				</div>
 			</div>
 		</div>

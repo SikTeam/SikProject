@@ -43,6 +43,8 @@ public class ReportController {
 	@Autowired
 	private MemberService memberService;
 
+
+	// 결재페이지 리스트
 	@RequestMapping("reportList.do")
 	public ModelAndView reportList(@RequestParam(name = "page", required = false) String page, ModelAndView mv,
 			HttpSession session) {
@@ -140,7 +142,6 @@ public class ReportController {
 		int reportSignResult = reportSignService.insertReport(reSign);
 
 		if (reportResult > 0 && reportSignResult > 0) {
-
 			mv.addObject("reportId", reportId);
 			mv.setViewName("report/insertReport");
 		} else {
@@ -181,7 +182,6 @@ public class ReportController {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			JSONObject errorJson = new JSONObject();
 
-
 			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
 			return errorJson.toJSONString();
 
@@ -189,6 +189,7 @@ public class ReportController {
 			// 미미 ★
 			response.setContentType("application/json; charset=utf-8");
 			// 지금 사인이 몇번째인지 알아보는 작업
+
 
 			int countApproval1 = reportSignService.countApproval(reportId) + 1;
 
@@ -199,7 +200,9 @@ public class ReportController {
 			int reportSignResult = reportSignService.insertReport(reSign);
 			ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
 
+
 			ArrayList<MemberDeptPosition> approvalList = memberService.selectApprovalList(reportId);
+
 
 			if (reportSignResult > 0) {
 
@@ -220,7 +223,9 @@ public class ReportController {
 				}
 
 
+
 				for (MemberDeptPosition m : approvalList) {
+
 
 					JSONObject job2 = new JSONObject();
 
@@ -262,6 +267,7 @@ public class ReportController {
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
 		reSign.setReSign("N");
+		reSign.setReportSignCounter(0);
 
 		reSign.setReportSignCounter(0);
 
@@ -278,7 +284,6 @@ public class ReportController {
 			// 미미 ★
 			response.setContentType("application/json; charset=utf-8");
 			// 지금 사인이 몇번째인지 알아보는 작업
-
 
 			// 참조 정보 등록
 
@@ -328,6 +333,7 @@ public class ReportController {
 			}
 		}
 	}
+
 
 
 	// 결재 보고서 저장
@@ -387,6 +393,6 @@ public class ReportController {
 		
 		return " ";
 	}
-	
+
 
 }

@@ -26,8 +26,6 @@ public class ReportSignDao {
 	
 	public int insertReport(ReportSign reSign) {
 
-		System.out.println("DAO");
-
 		return sqlSessionTemplate.insert("reportSignMapper.insertReport", reSign);
 	}
 	

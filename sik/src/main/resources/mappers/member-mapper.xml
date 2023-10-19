@@ -232,4 +232,5 @@
       #{ deptId }, #{ positionId }, #{ enrollDate }, default , default )
    </insert>
 
+
 </mapper>

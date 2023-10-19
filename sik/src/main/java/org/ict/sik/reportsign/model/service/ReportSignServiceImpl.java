@@ -42,7 +42,6 @@ public class ReportSignServiceImpl implements ReportSignService{
 		return reportSignDao.countApproval(reportId);
 	}
 
-
 	@Override
 	public int sameMemberCheck(ReportSign reSign) {
 		return reportSignDao.sameMemberCheck(reSign);

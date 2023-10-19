@@ -1,6 +1,7 @@
 package org.ict.sik.member.model.vo;
 
 
+
 import java.sql.Date;
 
 

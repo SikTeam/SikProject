@@ -151,3 +151,4 @@ sik/target/
 # JDT-specific (Eclipse Java Development Tools)      
 .classpath
 sik/src/main/resources/logs/
+

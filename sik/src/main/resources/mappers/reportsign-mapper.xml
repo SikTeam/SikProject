@@ -38,7 +38,7 @@
   
 	<insert id="insertReport" parameterType="ReportSign">
 		INSERT INTO REPORT_SIGN (REPORT_ID, MEMBER_ID, RE_SIGN, RE_READ, REPORT_SIGN_COUNTER)
-		VALUES (#{ reportId }, #{ memberId }, #{ reSign }, 'N', #{ reportSignCounter })
+		VALUES (#{ reportId }, #{ memberId }, 'Y', 'N', #{ reportSignCounter })
 	</insert>
 	
 	<select id="selectApproval" parameterType="ReportSign" resultMap="resultReportSign">
