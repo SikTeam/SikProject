@@ -54,6 +54,12 @@
 		where REPORT_ID = #{ reportId }
 	</select>
 	
+	<select id="sameMemberCheck" parameterType="ReportSign" resultType="_int">
+		select count(*)
+		from REPORT_SIGN
+		where MEMBER_ID = #{ memberId } and REPORT_ID = #{ reportId }
+	</select>
+	
 
 </mapper>
 
