@@ -23,10 +23,41 @@
 		where <![CDATA[ rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>
 	
-	<select id="getReportId" resultType="string">
-		SELECT 're' || LPAD(TO_NUMBER(SUBSTR(MAX(report_id), 3)) + 1, 4, '0') AS report_id
-		FROM report
-	</select>
+ 	<select id="getReportId" resultType="string">
+		<![CDATA[
+		WITH report_ids AS (
+		  SELECT TO_NUMBER(SUBSTR(report_id, 3)) AS report_num
+		  FROM report
+		),
+		min_report_num AS (
+		  SELECT MIN(report_ids.report_num) as min_report_num
+		  FROM report_ids
+		),
+		max_report_num AS (
+		  SELECT MAX(report_ids.report_num) as max_report_num
+		  FROM report_ids
+		)
+		SELECT CASE WHEN EXISTS (
+		    SELECT 1
+		    FROM (
+		        SELECT LEVEL + min_report_num.min_report_num - 1 as num
+		        FROM dual
+		        CONNECT BY LEVEL <= (max_report_num.max_report_num - min_report_num.min_report_num + 1)
+		    ) generated_nums
+		    WHERE num NOT IN (SELECT report_num FROM report_ids)
+		) THEN 're' || LPAD((SELECT MIN(num)
+		                   FROM (
+		                       SELECT LEVEL + min_report_num.min_report_num - 1 as num
+		                       FROM dual 
+		                       CONNECT BY LEVEL <= (max_report_num.max_report_num - min_report_num.min_report_num + 1)
+		                   ) generated_nums
+		                   WHERE num NOT IN (SELECT report_num FROM report_ids)
+		                   ), 4, '0')
+		ELSE 're' || LPAD(max_report_num.max_report_num + 1, 4, '0')
+		END AS report_id
+		FROM min_report_num, max_report_num
+		]]>
+	</select> 
 	
 	<insert id="insertReport" parameterType="Report">
 		INSERT INTO Report (REPORT_ID, RE_TITLE, RE_CONTENT, RE_FILE, RE_DATE)

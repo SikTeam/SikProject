@@ -77,11 +77,9 @@ $(function() {
              	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
                     	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
             },
-            error : function(request, status, errorData){
-                connsole.log("error code : " + request.status + "\nMessage : " + request.responseText 
-                + "\nError : " + errorData);
-                var jsonResponse = JSON.parse(xhr.responseText);
-                alert(jsonResponse.error);
+            	error: function (request, status, error) {
+            	console.log("error code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
+            	alert("동일한 결재자가 존재해서 추가할수 없습니다.");
              }
    	 }); //$('#dept').on('click',function()
    });	//$('#approvalLine').on('click',function()

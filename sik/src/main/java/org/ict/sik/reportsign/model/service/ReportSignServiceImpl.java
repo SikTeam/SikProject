@@ -40,4 +40,9 @@ public class ReportSignServiceImpl implements ReportSignService{
 	public int countApproval(String reportId) {
 		return reportSignDao.countApproval(reportId);
 	}
+
+	@Override
+	public int sameMemberCheck(ReportSign reSign) {
+		return reportSignDao.sameMemberCheck(reSign);
+	}
 }

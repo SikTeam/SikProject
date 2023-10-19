@@ -13,4 +13,5 @@ public interface ReportSignService {
 	public int insertReport(ReportSign reSign);
 	public ArrayList<ReportSign> selectApproval(ReportSign reSign);
 	public int countApproval(String reportId);
+	public int sameMemberCheck(ReportSign reSign);
 }
