@@ -140,6 +140,7 @@ public class ReportController {
 		int reportSignResult = reportSignService.insertReport(reSign);
 
 		if (reportResult > 0 && reportSignResult > 0) {
+
 			mv.addObject("reportId", reportId);
 			mv.setViewName("report/insertReport");
 		} else {
@@ -170,6 +171,7 @@ public class ReportController {
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
 
+
 		reSign.setReSign("Y");
 		
 		// 동일한 결재자가 있는지 체크 있으면 error 체크
@@ -179,6 +181,7 @@ public class ReportController {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			JSONObject errorJson = new JSONObject();
 
+
 			errorJson.put("error", "동일한 참조/결재자가 있습니다.");
 			return errorJson.toJSONString();
 
@@ -186,15 +189,18 @@ public class ReportController {
 			// 미미 ★
 			response.setContentType("application/json; charset=utf-8");
 			// 지금 사인이 몇번째인지 알아보는 작업
+
 			int countApproval1 = reportSignService.countApproval(reportId) + 1;
 
 			reSign.setReportSignCounter(countApproval1);
 
+
 			// 결재자 정보 등록
 			int reportSignResult = reportSignService.insertReport(reSign);
 			ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
+
 			ArrayList<MemberDeptPosition> approvalList = memberService.selectApprovalList(reportId);
-			
+
 			if (reportSignResult > 0) {
 
 				JSONObject sendJson = new JSONObject();
@@ -213,7 +219,9 @@ public class ReportController {
 					jarr.add(job);
 				}
 
+
 				for (MemberDeptPosition m : approvalList) {
+
 					JSONObject job2 = new JSONObject();
 
 					job2.put("memberName", URLEncoder.encode(m.getMemberName(), "UTF-8"));
@@ -254,7 +262,9 @@ public class ReportController {
 		reSign.setReportId(reportId);
 		reSign.setMemberId(memberId);
 		reSign.setReSign("N");
+
 		reSign.setReportSignCounter(0);
+
 
 		// 동일한 결재자가 있는지 체크 있으면 error 체크
 		int sameMemberCheck = reportSignService.sameMemberCheck(reSign);
@@ -269,7 +279,9 @@ public class ReportController {
 			response.setContentType("application/json; charset=utf-8");
 			// 지금 사인이 몇번째인지 알아보는 작업
 
+
 			// 참조 정보 등록
+
 			int reportSignResult = reportSignService.insertReport(reSign);
 			ArrayList<ReportSign> relist = reportSignService.selectApproval(reSign);
 			ArrayList<MemberDeptPosition> memberList = memberService.selectApprovalList(reportId);

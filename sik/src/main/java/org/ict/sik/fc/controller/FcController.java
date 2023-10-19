@@ -30,7 +30,6 @@ public class FcController {
 	
 	@RequestMapping("fcLogin.do")
 	public ModelAndView fcLoginMethod(ModelAndView mv, HttpSession session, SessionStatus status) {
-		
 		Fc fc = (Fc)session.getAttribute("loginMember");
 		logger.info("fclogin : " + fc);
 		mv.setViewName("franchisee/fr_main");

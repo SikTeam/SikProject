@@ -28,7 +28,7 @@ public class ReportSignServiceImpl implements ReportSignService{
 
 	@Override
 	public int insertReport(ReportSign reSign) {
-		System.out.println("서비스");
+
 		return reportSignDao.insertReport(reSign);
 	}
 
@@ -42,8 +42,10 @@ public class ReportSignServiceImpl implements ReportSignService{
 		return reportSignDao.countApproval(reportId);
 	}
 
+
 	@Override
 	public int sameMemberCheck(ReportSign reSign) {
 		return reportSignDao.sameMemberCheck(reSign);
 	}
+
 }

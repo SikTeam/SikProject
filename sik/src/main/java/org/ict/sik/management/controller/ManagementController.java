@@ -1,6 +1,7 @@
 package org.ict.sik.management.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 
 import org.ict.sik.fc.model.vo.Fc;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 @Controller
 public class ManagementController {
  
@@ -25,8 +27,10 @@ public class ManagementController {
 	
 	@Autowired
 	ManagementService managementService;
+
 	@Autowired
 	RequestService requestService;
+
 	
 	
 	//뷰페이지 이동 처리용 -------------------------------------
@@ -38,11 +42,13 @@ public class ManagementController {
 		Fc fc = (Fc)session.getAttribute("loginMember");
 		logger.info("loginMember fc : " + fc);
 		return "franchisee/fr_request/requestWriteForm";
+
 	}
 	
 	//요청 처리용---------------------------------------------
 	
 	
+
 	//요청사항글 등록 처리용  
 	@RequestMapping(value="requestinsert.do", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView insertRequestMethod (Request inRequest, 
@@ -100,4 +106,5 @@ public class ManagementController {
 	
 		return mv;
 	}
+
 }

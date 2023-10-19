@@ -26,9 +26,11 @@ public class RequestDao {
 	}
 
 
+
 	public ArrayList<FranchiseeRequest> selectList(String fcId) {
 		List<FranchiseeRequest> list = sqlSessionTemplate.selectList("requestMapper.selectList",fcId);
 		return (ArrayList<FranchiseeRequest>)list;
 	}
+
 
 }

@@ -4,13 +4,16 @@ import java.sql.Date;
 
 public class FranchiseeRequest extends Request {
 	
+
 	private String fcId;
 	private String mgId;
 	private Date mgCdate; //작성일
+
 	
 	public FranchiseeRequest() {
 		super();
 	}
+
 	public FranchiseeRequest(String fcId, String mgId, Date mgCdate) {
 		super();
 		this.fcId = fcId;
@@ -29,6 +32,7 @@ public class FranchiseeRequest extends Request {
 	public void setMgId(String mgId) {
 		this.mgId = mgId;
 	}
+
 	public Date getMgCdate() {
 		return mgCdate;
 	}
@@ -39,6 +43,7 @@ public class FranchiseeRequest extends Request {
 	@Override
 	public String toString() {
 		return "FranchiseeRequest [fcId=" + fcId + ", mgId=" + mgId + ", mgCdate=" + mgCdate + "]";
+
 	}
 
 	
