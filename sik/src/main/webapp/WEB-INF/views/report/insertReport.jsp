@@ -18,7 +18,6 @@ $(function() {
     	
     	$('#name').html('');
     	$('#memberId').html('');
-    	
         $.ajax({
             url: 'addApprover.do',
             type: 'post',
@@ -115,19 +114,23 @@ $(function() {
            	
            	widths = '<div style="width:'+obj.memberList.length+obj.memberList.length+'0px;">';
             	for(var i in obj.memberList){
+
            		deptnPositions += '<td>'+ decodeURIComponent(obj.memberList[i].deptName) +' '
     				+decodeURIComponent(obj.memberList[i].positionName)+' '
     				+'<button type="button" id="approval'+i+' '+'"class="btn-close" aria-label="Close"'></button></td>';
            		memberNames += '<td>'+ decodeURIComponent(obj.memberList[i].memberName) +'</td>';
+
            	}
            	
             	$('#approval').html(widths+'<table class="table table-bordered border-dark table-sm custom-table" style="text-align: center;"><tr>'
                    	+deptnPositions+'</tr><tr>'+memberNames+'</tr><tr>'+sign+'</tr><tr></table></div>');          	
            },
+
            		error : function(request, status, error){
               	console.log("error code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
               	alert("동일한 결재자가 존재해서 추가할수 없습니다.");
                 }
+
   	 }); //$('#dept').on('click',function()
   });	//$('#approvalLine').on('click',function()
 		  

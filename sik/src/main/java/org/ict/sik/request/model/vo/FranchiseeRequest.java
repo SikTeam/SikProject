@@ -4,17 +4,33 @@ import java.sql.Date;
 
 public class FranchiseeRequest extends Request {
 	
+
+	private String fcId;
+	private String mgId;
 	private Date mgCdate; //작성일
-	private String fcOwner; //사업주명
+
 	
 	public FranchiseeRequest() {
 		super();
 	}
 
-	public FranchiseeRequest(Date mgCdate, String fcOwner) {
+	public FranchiseeRequest(String fcId, String mgId, Date mgCdate) {
 		super();
+		this.fcId = fcId;
+		this.mgId = mgId;
 		this.mgCdate = mgCdate;
-		this.fcOwner = fcOwner;
+	}
+	public String getFcId() {
+		return fcId;
+	}
+	public void setFcId(String fcId) {
+		this.fcId = fcId;
+	}
+	public String getMgId() {
+		return mgId;
+	}
+	public void setMgId(String mgId) {
+		this.mgId = mgId;
 	}
 
 	public Date getMgCdate() {
@@ -24,18 +40,10 @@ public class FranchiseeRequest extends Request {
 	public void setMgCdate(Date mgCdate) {
 		this.mgCdate = mgCdate;
 	}
-
-	public String getFcOwner() {
-		return fcOwner;
-	}
-
-	public void setFcOwner(String fcOwner) {
-		this.fcOwner = fcOwner;
-	}
-
 	@Override
 	public String toString() {
-		return "FranchiseeRequest [mgCdate=" + mgCdate + ", fcOwner=" + fcOwner + "]";
+		return "FranchiseeRequest [fcId=" + fcId + ", mgId=" + mgId + ", mgCdate=" + mgCdate + "]";
+
 	}
 
 	

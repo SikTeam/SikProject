@@ -56,6 +56,9 @@ public class MemberController {
 				session.setAttribute("board", boardList);
 			}
 			mv.setViewName("main");
+		} else {
+			mv.addObject("message", "로그인 실패!");
+			mv.setViewName("common/error");
 		}
 
 		return mv;

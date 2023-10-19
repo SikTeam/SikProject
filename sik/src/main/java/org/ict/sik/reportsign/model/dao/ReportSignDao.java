@@ -25,7 +25,7 @@ public class ReportSignDao {
 	}
 	
 	public int insertReport(ReportSign reSign) {
-		System.out.println("DAO");
+
 		return sqlSessionTemplate.insert("reportSignMapper.insertReport", reSign);
 	}
 	
@@ -37,8 +37,10 @@ public class ReportSignDao {
 	public int countApproval(String reportId) {
 		return sqlSessionTemplate.selectOne("reportSignMapper.countApproval", reportId);
 	}
+
 	
 	public int sameMemberCheck(ReportSign reSign) {
 		return sqlSessionTemplate.selectOne("reportSignMapper.sameMemberCheck", reSign);
 	}
+
 }
