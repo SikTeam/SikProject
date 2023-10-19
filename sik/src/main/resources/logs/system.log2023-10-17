@@ -1,0 +1,134 @@
+[23:01:26][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:01:27][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 976 ms
+[23:01:27][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:01:28][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1029 ms
+[23:01:51][INFO ][MemberController.java: 31] - login.do : Member [memberId=admin, memberName=null, pw=, adminYn=null, deptId=null, positionId=null, enrollDate=null, profileImage=null, signImage=null]
+[23:02:07][INFO ][MemberController.java: 31] - login.do : Member [memberId=admin, memberName=null, pw=admin, adminYn=null, deptId=null, positionId=null, enrollDate=null, profileImage=null, signImage=null]
+[23:02:15][INFO ][ReportController.java: 54] - listCount : 0
+[23:02:15][INFO ][ReportController.java: 66] - Search [keyword=admin, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]admin
+[23:02:25][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, deptId=null, positionId=null, enrollDate=null, profileImage=null, signImage=null]
+[23:02:25][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[23:02:25][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[23:02:26][INFO ][ReportController.java: 54] - listCount : 1
+[23:02:26][INFO ][ReportController.java: 66] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[23:02:28][INFO ][ReportController.java: 123] - re0002
+[23:07:50][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:07:51][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1021 ms
+[23:07:51][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:07:52][INFO ][FrameworkServlet.java: 547] - Completed initialization in 933 ms
+[23:07:54][INFO ][ReportController.java: 123] - re0002
+[23:08:05][INFO ][ReportController.java: 123] - re0002
+[23:09:06][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:09:07][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 995 ms
+[23:09:07][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:09:08][INFO ][FrameworkServlet.java: 547] - Completed initialization in 958 ms
+[23:10:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:10:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 1052 ms
+[23:10:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:10:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 1018 ms
+[23:11:06][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, deptId=null, positionId=null, enrollDate=null, profileImage=null, signImage=null]
+[23:11:07][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[23:11:07][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[23:11:08][INFO ][ReportController.java: 54] - listCount : 1
+[23:11:08][INFO ][ReportController.java: 66] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[23:11:09][INFO ][ReportController.java: 123] - re0002
+[23:11:11][INFO ][ReportController.java: 92] - 가맹관리팀/직급
+[23:11:12][INFO ][ReportController.java: 92] - 가맹관리팀/사원
+[23:18:43][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:18:43][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 839 ms
+[23:18:43][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:18:44][WARN ][AbstractApplicationContext.java: 591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reportController' defined in file [E:\sik_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\sik\WEB-INF\classes\org\ict\sik\report\controller\ReportController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.ict.sik.report.controller.ReportController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete MethodHeaderName
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+[23:18:44][ERROR][FrameworkServlet.java: 534] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reportController' defined in file [E:\sik_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\sik\WEB-INF\classes\org\ict\sik\report\controller\ReportController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.ict.sik.report.controller.ReportController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete MethodHeaderName
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:143)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1106)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1063)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:960)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4673)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4980)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3589)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:309)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5308)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1297)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1301)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1301)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1279)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.ict.sik.report.controller.ReportController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete MethodHeaderName
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326)
+	... 37 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete MethodHeaderName
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+	at org.ict.sik.report.controller.ReportController.<init>(ReportController.java:137)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211)
+	... 39 more
+[23:29:36][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:29:37][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 998 ms
+[23:29:37][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:29:38][INFO ][FrameworkServlet.java: 547] - Completed initialization in 925 ms
+[23:29:48][INFO ][MemberController.java: 31] - login.do : Member [memberId=00001, memberName=null, pw=pass001, adminYn=null, deptId=null, positionId=null, enrollDate=null, profileImage=null, signImage=null]
+[23:29:49][INFO ][MemberController.java: 57] - boardList : [매장요청사항, 브랜드공지, 브랜드관리, 매출, 매장관리점검, 매장상세조회]
+[23:29:49][INFO ][MemberController.java: 58] - numRollList : [0100, 0100, 0100, 0100, 0100, 0100]
+[23:29:50][INFO ][ReportController.java: 54] - listCount : 1
+[23:29:50][INFO ][ReportController.java: 66] - Search [keyword=00001, startRow=1, endRow=10, begin=null, end=null, age=0, brand=null]00001
+[23:29:51][INFO ][ReportController.java: 122] - re0002
+[23:29:54][INFO ][ReportController.java: 92] - 가맹관리팀/직급
+[23:29:54][INFO ][ReportController.java: 92] - 가맹관리팀/사원
+[23:30:34][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:30:35][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 827 ms
+[23:30:35][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:30:36][INFO ][FrameworkServlet.java: 547] - Completed initialization in 856 ms
+[23:32:04][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:32:05][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 824 ms
+[23:32:05][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:32:06][INFO ][FrameworkServlet.java: 547] - Completed initialization in 754 ms
+[23:32:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[23:32:29][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 752 ms
+[23:32:29][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[23:32:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 860 ms
