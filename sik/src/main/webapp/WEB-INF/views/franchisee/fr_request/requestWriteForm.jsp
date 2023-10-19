@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
-<html lang="ko" data-bs-theme="white">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>SIK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>식플루언서</title>
 <!-- js -->
 <script src="/sik/resources/common/js/jquery-3.7.0.min.js"></script>
 <script
@@ -121,57 +122,51 @@ a {
 	color: black;
 }
 </style>
-
-
-
+<style>
+.content-area {
+  display: flex;
+  justify-content: center;
+}
+</style>
 </head>
+
 <body>
- <!-- 가맹점 헤더 -->
-	<header class="p-3 mb-3 border-bottom small shadow">
-		<div class="container">
-			<div
-				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-				style="gap: 50px">
-				<a href="#"
-					class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-					<img src="/sik/resources/common/images/siklogo.png" width="40"
-					style="magin-left: 30px">
-				</a>
-				<ul
-					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasOrder">발주</a>
-					</li>
+<!-- 헤더 영역 -->
+<div class="container-fluid">
+	<c:import url="/WEB-INF/views/franchisee/fr_header.jsp"/>
+     <div class="row" style="margin-top:20px;">
+  </div>
+ </div>
+<!-- 콘텐츠 영역 -->
 
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasInventory">재고</a>
-					</li>
-
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenuManage">메뉴관리</a>
-					</li>
-
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasOrderHistoryManage">주문/결제내역관리</a>
-					</li>
-					
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-bs-toggle="offcanvas" data-bs-target="#offcanvasCalculateHistory">정산내역조회</a>
-					</li>
-					
-						<li class="nav-item"><a class="nav-link" href="${ pageContext.servletContext.contextPath }/rlist.do" >요청사항</a>
-					</li>
-				</ul>
-				<a href="/sik/views/franchisee/fr_profile.jsp"> <img
-					src="/sik/resources/common/images/profile.png" alt="profile" width="32"
-					height="32" class="rounded-circle" /> 프로필
-				</a>
-				
-			</div>
-		</div>
-	</header>
+<h5 align="center">요청사항 작성 페이지</h5>
+<br>
+<form action="rinsert.do" method="get" >
+<table align="center" width="500" border="1"  cellspacing="0" cellpadding="3">
+	<tr>
+		<th colspan="2" align="center"> 요청사항</th>
 	
-
+	</tr>
 	
+	<tr>
+		<th align="center">작성자</th>
+		<td><input type="text" name="fcOwner" readonly value="${ sessionScope.logimMember.mgId }" > </td>
+	</tr>
+	
+	<tr>
+		<th align="center">요청내용</th>
+		<td><textarea rows="5" cols="40" name="reqContent"></textarea></td>
+	</tr>
+	<tr>
+	<th colspan="2" align="center">
+		<input class="btn btn-outline-dark btn-sm" type="submit" value="요청하기"> &nbsp; 
+		<input class="btn btn-outline-dark btn-sm" type="reset" value="요청취소"> &nbsp;
+		<input class="btn btn-outline-dark btn-sm" type="button" value="목록" onclick="javascript:location.href='${rl}'; return false;">
+	</th>
+	</tr>
+</table>
+</form>
+<br>
+
 </body>
 </html>
